@@ -1,0 +1,11 @@
+{
+  "nodes": 1115,
+  "edges": 3048,
+  "multi_edges": 3324,
+  "density_directed": 0.0024538889470336767,
+  "weak_components": 1,
+  "largest_weak_component_nodes": 1115,
+  "average_degree": 5.467264573991032,
+  "uri_nodes": 539,
+  "literal_nodes": 576
+}

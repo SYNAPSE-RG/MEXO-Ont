@@ -1,0 +1,21 @@
+node,label,kind,rdf_types,degree,in_degree,out_degree,degree_centrality,betweenness_centrality,closeness_centrality,pagerank
+literal:15,30,literal,Literal,214,214,0,0.19210053859964094,0.0,0.19210053859964094,0.0
+https://w3id.org/mexo/resource/stopping-criterion/stop-karaboga2009-maxfes,Maximum evaluations = 500000,uri,StoppingCriterion,202,200,2,0.1813285457809695,0.00032261134527317923,0.17953321364452424,0.0
+https://w3id.org/mexo/resource/study/study-karaboga-akay-2009,study-karaboga-akay-2009,uri,Study,202,200,2,0.1813285457809695,0.00032261134527317923,0.17953321364452424,0.0
+literal:3,500000,literal,Literal,201,201,0,0.18043087971274688,0.0,0.24017570954453527,0.0
+https://w3id.org/mexo/ontology#Experiment,Experiment,uri,,200,200,0,0.17953321364452424,0.0,0.17953321364452424,0.0
+https://w3id.org/mexo/ontology#PerformanceResult,PerformanceResult,uri,,200,200,0,0.17953321364452424,0.0,0.23937761819269898,0.0
+literal:13,0.0,literal,Literal,140,140,0,0.12567324955116696,0.0,0.15622613249749545,0.0
+literal:10,2,literal,Literal,66,66,0,0.059245960502693,0.0,0.07276502779520236,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/pso-karaboga2009,"PSO (cognitive=1.8, social=1.8, inertia=0.6)",uri,AlgorithmConfiguration,58,50,8,0.05206463195691203,0.0010081604539786849,0.04488330341113106,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/ga-karaboga2009,"GA (binary-coded standard GA; crossover=0.8, mutation=0.01, generation_gap=0.9)",uri,AlgorithmConfiguration,58,50,8,0.05206463195691203,0.0010484868721378326,0.04488330341113106,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",uri,AlgorithmConfiguration,57,50,7,0.05116696588868941,0.0008871811995012429,0.04488330341113106,0.0
+literal:25,4,literal,Literal,57,57,0,0.05116696588868941,0.0,0.06546101156102414,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/abc-karaboga2009,ABC (Artificial Bee Colony),uri,AlgorithmConfiguration,55,50,5,0.04937163375224417,0.0005645698542280637,0.04488330341113106,0.0
+https://w3id.org/mexo/resource/benchmark-suite/study-karaboga-akay-2009,study-karaboga-akay-2009,uri,BenchmarkSuite,52,50,2,0.0466786355475763,0.00032261134527317923,0.14689081116370165,0.0
+literal:14,3,literal,Literal,51,51,0,0.04578096947935368,0.0,0.06064299047641695,0.0
+https://w3id.org/mexo/ontology#Problem,Problem,uri,,50,50,0,0.04488330341113106,0.0,0.14689081116370165,0.0
+literal:17,1,literal,Literal,50,50,0,0.04488330341113106,0.0,0.059844404548174746,0.0
+https://w3id.org/mexo/ontology#ProblemInstance,ProblemInstance,uri,,50,50,0,0.04488330341113106,0.0,0.04488330341113106,0.0
+https://w3id.org/mexo/ontology#Parameter,Parameter,uri,,16,16,0,0.01436265709156194,0.0,0.06962666298393409,0.0
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,uri,Experiment,8,0,8,0.00718132854578097,0.0,0.0,0.0

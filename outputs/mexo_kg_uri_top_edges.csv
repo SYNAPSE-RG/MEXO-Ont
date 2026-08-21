@@ -1,0 +1,21 @@
+source,source_label,target,target_label,weight,predicate_labels
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/resource/stopping-criterion/stop-karaboga2009-maxfes,Maximum evaluations = 500000,1,hasStoppingCriterion
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/resource/problem/problem-schwefel,Schwefel,1,targetsProblem
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/resource/algorithm-configuration/abc-karaboga2009,ABC (Artificial Bee Colony),1,usesAlgorithm
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/ontology#Experiment,Experiment,1,type
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/resource/study/study-karaboga-akay-2009,study-karaboga-akay-2009,1,wasDerivedFrom
+https://w3id.org/mexo/resource/experiment/exp-k2009-f23-abc,ABC on Schwefel D=30,https://w3id.org/mexo/resource/performance-result/res-k2009-f23-abc,res-k2009-f23-abc,1,produces
+https://w3id.org/mexo/resource/stopping-criterion/stop-karaboga2009-maxfes,Maximum evaluations = 500000,https://w3id.org/mexo/ontology#StoppingCriterion,StoppingCriterion,1,type
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",1,usesAlgorithm
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/resource/problem/problem-perm,Perm,1,targetsProblem
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/ontology#Experiment,Experiment,1,type
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/resource/performance-result/res-k2009-f37-de,res-k2009-f37-de,1,produces
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/resource/study/study-karaboga-akay-2009,study-karaboga-akay-2009,1,wasDerivedFrom
+https://w3id.org/mexo/resource/experiment/exp-k2009-f37-de,DE on Perm D=4,https://w3id.org/mexo/resource/stopping-criterion/stop-karaboga2009-maxfes,Maximum evaluations = 500000,1,hasStoppingCriterion
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/resource/parameter/p-de-karaboga2009-012,maximum evaluations,1,hasParameter
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/ontology#AlgorithmConfiguration,AlgorithmConfiguration,1,type
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/resource/parameter/p-de-karaboga2009-014,crossover rate,1,hasParameter
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/resource/parameter/p-de-karaboga2009-011,population size,1,hasParameter
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/resource/algorithm/DifferentialEvolution,DifferentialEvolution,1,instantiates
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",https://w3id.org/mexo/resource/parameter/p-de-karaboga2009-013,scale factor,1,hasParameter
+https://w3id.org/mexo/resource/problem-instance/inst-rosenbrock-d30,Rosenbrock D=30,https://w3id.org/mexo/ontology#ProblemInstance,ProblemInstance,1,type

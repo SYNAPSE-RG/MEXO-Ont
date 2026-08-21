@@ -1,0 +1,18 @@
+{
+  "uri": {
+    "graphml": "outputs/mexo_kg_uri.graphml",
+    "gexf": "outputs/mexo_kg_uri.gexf",
+    "node_link_json": "outputs/mexo_kg_uri_node_link.json",
+    "network_metrics_json": "outputs/mexo_kg_uri_network_metrics.json",
+    "top_nodes_csv": "outputs/mexo_kg_uri_top_nodes.csv",
+    "top_edges_csv": "outputs/mexo_kg_uri_top_edges.csv"
+  },
+  "full": {
+    "graphml": "outputs/mexo_kg_full.graphml",
+    "gexf": "outputs/mexo_kg_full.gexf",
+    "node_link_json": "outputs/mexo_kg_full_node_link.json",
+    "network_metrics_json": "outputs/mexo_kg_full_network_metrics.json",
+    "top_nodes_csv": "outputs/mexo_kg_full_top_nodes.csv",
+    "top_edges_csv": "outputs/mexo_kg_full_top_edges.csv"
+  }
+}

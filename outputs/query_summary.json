@@ -1,0 +1,7 @@
+{
+  "cq1_algorithm_ranking": 4,
+  "cq4_stopping_criterion_tradeoff": 1,
+  "cq7_provenance_trace": 200,
+  "cq9_missing_results": 0,
+  "cq10_robust_configurations": 4
+}

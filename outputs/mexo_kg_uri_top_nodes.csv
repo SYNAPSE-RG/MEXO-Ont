@@ -1,0 +1,21 @@
+node,label,kind,rdf_types,degree,in_degree,out_degree,degree_centrality,betweenness_centrality,closeness_centrality,pagerank
+https://w3id.org/mexo/resource/stopping-criterion/stop-karaboga2009-maxfes,Maximum evaluations = 500000,uri,StoppingCriterion,201,200,1,0.3736059479553903,0.0006922666888192007,0.37174721189591076,0.0
+https://w3id.org/mexo/resource/study/study-karaboga-akay-2009,study-karaboga-akay-2009,uri,Study,201,200,1,0.3736059479553903,0.0006922666888192007,0.37174721189591076,0.0
+https://w3id.org/mexo/ontology#Experiment,Experiment,uri,,200,200,0,0.37174721189591076,0.0,0.37174721189591076,0.0
+https://w3id.org/mexo/ontology#PerformanceResult,PerformanceResult,uri,,200,200,0,0.37174721189591076,0.0,0.4956629491945477,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/pso-karaboga2009,"PSO (cognitive=1.8, social=1.8, inertia=0.6)",uri,AlgorithmConfiguration,57,50,7,0.10594795539033457,0.0015576000498432015,0.09293680297397769,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/ga-karaboga2009,"GA (binary-coded standard GA; crossover=0.8, mutation=0.01, generation_gap=0.9)",uri,AlgorithmConfiguration,57,50,7,0.10594795539033457,0.0015576000498432015,0.09293680297397769,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,"DE (F=0.5, CR=0.9)",uri,AlgorithmConfiguration,56,50,6,0.10408921933085502,0.0013845333776384013,0.09293680297397769,0.0
+https://w3id.org/mexo/resource/algorithm-configuration/abc-karaboga2009,ABC (Artificial Bee Colony),uri,AlgorithmConfiguration,54,50,4,0.1003717472118959,0.001038400033228801,0.09293680297397769,0.0
+https://w3id.org/mexo/resource/benchmark-suite/study-karaboga-akay-2009,study-karaboga-akay-2009,uri,BenchmarkSuite,51,50,1,0.09479553903345725,0.001038400033228801,0.3041568097330179,0.0
+https://w3id.org/mexo/ontology#Problem,Problem,uri,,50,50,0,0.09293680297397769,0.0,0.3041568097330179,0.0
+https://w3id.org/mexo/ontology#ProblemInstance,ProblemInstance,uri,,50,50,0,0.09293680297397769,0.0,0.09293680297397769,0.0
+https://w3id.org/mexo/ontology#Parameter,Parameter,uri,,16,16,0,0.02973977695167286,0.0,0.14417119435706796,0.0
+https://w3id.org/mexo/resource/problem/problem-shekel5,Shekel5,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-fletcherpowell10,FletcherPowell10,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-colville,Colville,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-matyas,Matyas,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-sphere,Sphere,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-langerman10,Langerman10,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-ackley,Ackley,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0
+https://w3id.org/mexo/resource/problem/problem-michalewicz5,Michalewicz5,uri,Problem,7,5,2,0.013011152416356878,5.192000166144005e-05,0.00929368029739777,0.0

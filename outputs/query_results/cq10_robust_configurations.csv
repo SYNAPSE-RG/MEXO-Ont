@@ -1,0 +1,5 @@
+cfg,avgFit,avgStdFit
+https://w3id.org/mexo/resource/algorithm-configuration/abc-karaboga2009,-261.2415732960000605089589953,0.1693941479999999799588294991
+https://w3id.org/mexo/resource/algorithm-configuration/de-karaboga2009,-199.0012319716600904939696193,31.72269232271999953809427097
+https://w3id.org/mexo/resource/algorithm-configuration/pso-karaboga2009,-89.60998215239998899050988257,62.03072603999999046209268272
+https://w3id.org/mexo/resource/algorithm-configuration/ga-karaboga2009,3904.799065180000616237521172,804.3588477081999008078128099
