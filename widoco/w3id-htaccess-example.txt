@@ -1,0 +1,14 @@
+# Optional W3ID redirection pattern for MEXO.
+# This belongs in the w3id.org repository entry for /mexo/, not in GitHub Pages.
+RewriteEngine On
+
+# Human-readable documentation
+RewriteCond %{HTTP_ACCEPT} "text/html" [NC]
+RewriteRule ^$ https://synapse-rg.github.io/MEXO-Ont/ [R=303,L]
+
+# Turtle representation
+RewriteCond %{HTTP_ACCEPT} "text/turtle|application/x-turtle" [NC]
+RewriteRule ^$ https://raw.githubusercontent.com/SYNAPSE-RG/MEXO-Ont/main/ontology/mexo-publication.ttl [R=303,L]
+
+# Default to the human-readable documentation
+RewriteRule ^$ https://synapse-rg.github.io/MEXO-Ont/ [R=303,L]

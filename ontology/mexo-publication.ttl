@@ -1,0 +1,1216 @@
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:AntColonyOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1996"^^xsd:gYear ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Stochastic constructive search inspired by pheromone-based foraging; solutions are built probabilistically and reinforced by pheromone updates. Reference: Dorigo, M., Maniezzo, V., & Colorni, A. (1996). The ant system: Optimization by a colony of cooperating agents. IEEE Transactions on Systems, Man, and Cybernetics—Part B, 26(1), 29–41."@en ;
+    skos:exactMatch dbpedia:Ant_colony_optimization_algorithms ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Ant Colony Optimization (ACO) / Ant System"@en .
+
+mexo:AntLionOptimizer a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2015"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2015.01.010> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm inspired by antlion hunting; ants perform random walks influenced by antlions (elite solutions). Reference: Mirjalili, S. (2015). The ant lion optimizer. Advances in Engineering Software, 83, 80–98. https://doi.org/10.1016/j.advengsoft.2015.01.010"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Ant Lion Optimizer (ALO)"@en .
+
+mexo:ArtificialBeeColony a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2007"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/s10898-007-9149-x> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Bee-foraging inspired algorithm with employed, onlooker, and scout bees exploring and exploiting food sources (candidate solutions). Reference: Karaboga, D., & Basturk, B. (2007). A powerful and efficient algorithm for numerical function optimization: artificial bee colony (ABC) algorithm. Journal of Global Optimization, 39, 459–471. https://doi.org/10.1007/s10898-007-9149-x"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Artificial Bee Colony (ABC)"@en .
+
+mexo:ArtificialFishSwarmAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2002"^^xsd:gYear ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm intelligence method inspired by fish behaviors such as prey, swarm, follow, and random actions to explore the search space. Reference: Li, X.-L., Shao, Z.-J., & Qian, J.-X. (2002). An optimizing method based on autonomous animats: Fish-swarm algorithm. Systems Engineering—Theory & Practice, 22(11), 32–38."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Artificial Fish Swarm Algorithm (AFSA)"@en .
+
+mexo:ArtificialImmuneNetwork a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2002"^^xsd:gYear ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Artificial immune network approach where antibodies are cloned, mutated, and suppressed to maintain diversity while optimizing. Reference: de Castro, L. N., & Von Zuben, F. J. (2002). aiNet: An artificial immune network for data analysis. In Data Mining: A Heuristic Approach (pp. 231–259). Idea Group Publishing."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Artificial Immune Network (opt-aiNet)"@en .
+
+mexo:BacterialForagingOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2002"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/mcs.2002.1004010> ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Optimization inspired by bacterial chemotaxis, reproduction, and elimination–dispersal behaviors. Reference: Passino, K. M. (2002). Biomimicry of bacterial foraging for distributed optimization and control. IEEE Control Systems Magazine, 22(3), 52–67. https://doi.org/10.1109/MCS.2002.1004010"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Bacterial Foraging Optimization (BFOA)"@en .
+
+mexo:BatAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2010"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-3-642-12538-6_6> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Population-based algorithm inspired by bat echolocation, balancing frequency tuning, loudness, and pulse emission rate for exploration/exploitation. Reference: Yang, X.-S. (2010). A new metaheuristic bat-inspired algorithm. In J. R. González et al. (Eds.), Nature Inspired Cooperative Strategies for Optimization (NICSO 2010) (Studies in Computational Intelligence 284, pp. 65–74). Springer. https://doi.org/10.1007/978-3-642-12538-6_6"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Bat Algorithm (BA)"@en .
+
+mexo:BeesAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2005"^^xsd:gYear ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Nature-inspired search where scout bees explore and recruit for neighborhood search around elite sites. Reference: Pham, D. T., Ghanbarzadeh, A., Koç, E., Otri, S., Rahim, S., & Zaidi, M. (2005). The bees algorithm. In Proceedings of the 2nd International Virtual Conference on Intelligent Production Machines and Systems (pp. 18–22)."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Bees Algorithm"@en .
+
+mexo:BigBangBigCrunch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2006"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2005.04.005> ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Optimization method alternating a random 'big bang' diversification phase with a 'big crunch' contraction toward a center of mass. Reference: Erol, O. K., & Eksin, I. (2006). A new optimization method: Big bang–big crunch. Advances in Engineering Software, 37(2), 106–111. https://doi.org/10.1016/j.advengsoft.2005.04.005"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Big Bang–Big Crunch (BB-BC)"@en .
+
+mexo:BiogeographyBasedOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2008"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/TEVC.2008.919004> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Evolutionary algorithm inspired by species migration between habitats, using migration and mutation operators. Reference: Simon, D. (2008). Biogeography-based optimization. IEEE Transactions on Evolutionary Computation, 12(6), 702–713. https://doi.org/10.1109/TEVC.2008.919004"@en ;
+    skos:exactMatch dbpedia:Biogeography-based_optimization ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Biogeography-Based Optimization (BBO)"@en .
+
+mexo:BrainStormOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2011"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-3-642-21515-5_36> ;
+    skos:broader mexo:HumanSocioInspired ;
+    skos:definition "Human-inspired optimization where ideas are clustered and recombined/mutated to generate new candidate solutions. Reference: Shi, Y. (2011). Brain storm optimization algorithm. In Y. Tan, Y. Shi, Y. Chai, & G. Wang (Eds.), Advances in Swarm Intelligence (ICSI 2011) (LNCS 6728, pp. 303–309). Springer. https://doi.org/10.1007/978-3-642-21515-5_36"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Brain Storm Optimization (BSO)"@en .
+
+mexo:CMAES a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2001"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1162/106365601750190398> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Evolution strategy that adapts a multivariate normal search distribution by updating its covariance matrix. Reference: Hansen, N., & Ostermeier, A. (2001). Completely derandomized self-adaptation in evolution strategies. Evolutionary Computation, 9(2), 159–195. https://doi.org/10.1162/106365601750190398"@en ;
+    skos:exactMatch dbpedia:CMA-ES ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "CMA-ES (Covariance Matrix Adaptation Evolution Strategy)"@en .
+
+mexo:CentralForceOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2007"^^xsd:gYear ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Deterministic metaheuristic based on gravitational kinematics where probes accelerate toward better regions under a central force model. Reference: Formato, R. A. (2007). Central force optimization: A new deterministic gradient-like optimization metaheuristic. OPSEARCH, 44, 1–33."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Central Force Optimization (CFO)"@en .
+
+mexo:ChargedSystemSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2010"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/s00707-009-0270-4> ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Physics-inspired multi-agent approach combining Coulomb’s law and Newtonian mechanics, where charged particles move under attraction/repulsion. Reference: Kaveh, A., & Talatahari, S. (2010). A novel heuristic optimization method: Charged system search. Acta Mechanica, 213, 267–289. https://doi.org/10.1007/s00707-009-0270-4"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Charged System Search (CSS)"@en .
+
+mexo:ChemicalReactionOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2010"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/CEC.2010.5586351> ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Metaheuristic inspired by chemical reactions where molecules undergo collisions and transformations to minimize system energy. Reference: Lam, A. Y. S., & Li, V. O. K. (2010). Chemical-reaction-inspired metaheuristic for optimization. In 2010 IEEE Congress on Evolutionary Computation (CEC) (pp. 1–8). IEEE. https://doi.org/10.1109/CEC.2010.5586351"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Chemical Reaction Optimization (CRO)"@en .
+
+mexo:ClonalSelectionAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2002"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/TEVC.2002.1011539> ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Artificial immune system algorithm using clonal selection, hypermutation, and selection to optimize or learn. Reference: de Castro, L. N., & von Zuben, F. J. (2002). Learning and optimization using the clonal selection principle. IEEE Transactions on Evolutionary Computation, 6(3), 239–251. https://doi.org/10.1109/TEVC.2002.1011539"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Clonal Selection Algorithm (CLONALG)"@en .
+
+mexo:CuckooSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2009"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/NABIC.2009.5393690> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Metaheuristic based on brood parasitism and Lévy flights, combining global exploration with local exploitation via selection and replacement. Reference: Yang, X.-S., & Deb, S. (2009). Cuckoo search via Lévy flights. In Proceedings of the World Congress on Nature & Biologically Inspired Computing (NaBIC 2009) (pp. 210–214). IEEE. https://doi.org/10.1109/NABIC.2009.5393690"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Cuckoo Search (CS)"@en .
+
+mexo:CulturalAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1994"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation,
+        mexo:HumanSocioInspired ;
+    skos:definition "Evolutionary framework that couples a population space with a belief space capturing acquired knowledge to guide search. Reference: Reynolds, R. G. (1994). An introduction to cultural algorithms. In Proceedings of the Third Annual Conference on Evolutionary Programming (pp. 131–139)."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Cultural Algorithm (CA)"@en .
+
+mexo:DifferentialEvolution a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1997"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1023/A:1008202821328> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Real-valued evolutionary method that perturbs solutions by scaled differences of randomly selected population vectors. Reference: Storn, R., & Price, K. (1997). Differential evolution—A simple and efficient heuristic for global optimization over continuous spaces. Journal of Global Optimization, 11, 341–359. https://doi.org/10.1023/A:1008202821328"@en ;
+    skos:exactMatch dbpedia:Differential_evolution ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Differential Evolution (DE)"@en .
+
+mexo:DragonflyAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2016"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2015.11.003> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm inspired by dragonfly static/dynamic swarming behaviors using separation, alignment, cohesion, attraction, and distraction terms. Reference: Mirjalili, S. (2016). Dragonfly algorithm: A new meta-heuristic optimization technique for solving single-objective, discrete, and multi-objective problems. Neural Computing and Applications, 27, 1053–1073. https://doi.org/10.1007/s00521-015-1920-1"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Dragonfly Algorithm (DA)"@en .
+
+mexo:ElectromagnetismLikeMechanism a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2003"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1023/A:1022452626305> ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Population heuristic using attraction–repulsion forces between points based on their objective values to guide movement toward optima. Reference: Birbil, Ş. İ., & Fang, S. C. (2003). An electromagnetism-like mechanism for global optimization. Journal of Global Optimization, 25, 263–282. https://doi.org/10.1023/A:1022452626305"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Electromagnetism-like Mechanism (EM)"@en .
+
+mexo:EstimationOfDistributionAlgorithms a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1996"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Population-based optimization that replaces crossover/mutation with learning a probabilistic model of promising solutions and sampling from it. Reference: Mühlenbein, H., & Paaß, G. (1996). From recombination of genes to the estimation of distributions I. Binary parameters. In H.-M. Voigt et al. (Eds.), Parallel Problem Solving from Nature—PPSN IV (LNCS 1411, pp. 178–187). Springer."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Estimation of Distribution Algorithms (EDA)"@en .
+
+mexo:EvolutionStrategies a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1973"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Evolutionary optimization framework emphasizing mutation and self-adaptation of strategy parameters. Reference: Rechenberg, I. (1973). Evolutionsstrategie: Optimierung technischer Systeme nach Prinzipien der biologischen Evolution. Frommann-Holzboog."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Evolution Strategies (ES)"@en .
+
+mexo:EvolutionaryProgramming a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1966"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Early evolutionary approach using mutation and selection over finite-state structures and later continuous representations. Reference: Fogel, L. J., Owens, A. J., & Walsh, M. J. (1966). Artificial Intelligence through Simulated Evolution. Wiley."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Evolutionary Programming (EP)"@en .
+
+mexo:FireflyAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2009"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-3-642-04944-6_14> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm where agents are attracted by brighter (better) solutions with attractiveness decreasing with distance. Reference: Yang, X.-S. (2009). Firefly algorithms for multimodal optimization. In O. Watanabe & T. Zeugmann (Eds.), Stochastic Algorithms: Foundations and Applications (SAGA 2009) (LNCS 5792, pp. 169–178). Springer. https://doi.org/10.1007/978-3-642-04944-6_14"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Firefly Algorithm (FA)"@en .
+
+mexo:FireworksAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2010"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-3-642-13495-1_44> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm-inspired method that explores search space via explosion sparks around promising solutions, with adaptive spark numbers/amplitudes. Reference: Tan, Y., & Zhu, Y. (2010). Fireworks algorithm for optimization. In Y. Tan, Y. Shi, & K. C. Tan (Eds.), Advances in Swarm Intelligence (ICSI 2010) (LNCS 6145, pp. 355–364). Springer. https://doi.org/10.1007/978-3-642-13495-1_44"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Fireworks Algorithm (FWA)"@en .
+
+mexo:FlowerPollinationAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2012"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-3-642-32894-7_27> ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Nature-inspired method modeling global and local pollination, typically mixing Lévy flights (global) with local random walks. Reference: Yang, X.-S. (2012). Flower pollination algorithm for global optimization. In U. K. Chakraborty & A. K. Roy (Eds.), Unconventional Computation and Natural Computation (pp. 240–249). Springer. https://doi.org/10.1007/978-3-642-32894-7_27"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Flower Pollination Algorithm (FPA)"@en .
+
+mexo:GRASP a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1995"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/BF01096763> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Multi-start metaheuristic alternating randomized greedy construction with local search improvement. Reference: Feo, T. A., & Resende, M. G. C. (1995). Greedy randomized adaptive search procedures. Journal of Global Optimization, 6, 109–133. https://doi.org/10.1007/BF01096763"@en ;
+    skos:exactMatch dbpedia:GRASP_\(metaheuristic\) ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "GRASP (Greedy Randomized Adaptive Search Procedure)"@en .
+
+mexo:GeneticAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1975"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Population-based evolutionary search using selection, crossover, and mutation operators. Reference: Holland, J. H. (1975). Adaptation in Natural and Artificial Systems. University of Michigan Press."@en ;
+    skos:exactMatch dbpedia:Genetic_algorithm ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Genetic Algorithm (GA)"@en .
+
+mexo:GeneticProgramming a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1992"^^xsd:gYear ;
+    dcterms:source <https://mitpress.mit.edu/9780262111706/genetic-programming/> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Evolutionary computation where candidate solutions are programs (often trees) evolved via genetic operators. Reference: Koza, J. R. (1992). Genetic Programming: On the Programming of Computers by Means of Natural Selection. MIT Press."@en ;
+    skos:exactMatch dbpedia:Genetic_programming ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Genetic Programming (GP)"@en .
+
+mexo:GlowwormSwarmOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2005"^^xsd:gYear ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm inspired by glowworm luminescence (luciferin) to locate multiple optima in multimodal landscapes. Reference: Krishnanand, K. N., & Ghose, D. (2005). Detection of multiple source locations using a glowworm metaphor with applications to collective robotics. In Proceedings of the IEEE Swarm Intelligence Symposium (pp. 84–91). IEEE."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Glowworm Swarm Optimization (GSO)"@en .
+
+mexo:GravitationalSearchAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2009"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.ins.2009.03.004> ;
+    skos:broader mexo:PhysicsInspired ;
+    skos:definition "Population-based optimization inspired by Newtonian gravity and mass interactions, where agents attract each other proportionally to fitness. Reference: Rashedi, E., Nezamabadi-Pour, H., & Saryazdi, S. (2009). GSA: A gravitational search algorithm. Information Sciences, 179(13), 2232–2248. https://doi.org/10.1016/j.ins.2009.03.004"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Gravitational Search Algorithm (GSA)"@en .
+
+mexo:GreatDeluge a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1993"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/0021-9991(93)90332-9> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Trajectory method that accepts solutions below a decreasing 'water level' threshold, balancing exploration and convergence. Reference: Dueck, G. (1993). New optimization heuristics: The great deluge algorithm and the record-to-record travel. Journal of Computational Physics, 104(1), 86–92. https://doi.org/10.1016/0021-9991(93)90332-9"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Great Deluge Algorithm (GDA)"@en .
+
+mexo:GreyWolfOptimizer a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2014"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2013.12.007> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm mimicking leadership hierarchy and hunting behavior of grey wolves using encircling and attacking phases. Reference: Mirjalili, S., Mirjalili, S. M., & Lewis, A. (2014). Grey wolf optimizer. Advances in Engineering Software, 69, 46–61. https://doi.org/10.1016/j.advengsoft.2013.12.007"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Grey Wolf Optimizer (GWO)"@en .
+
+mexo:GuidedLocalSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1999"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/3-540-48431-0_10> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Augments local search with penalties on undesirable features to help escape local minima while maintaining intensification. Reference: Voudouris, C., & Tsang, E. (1999). Guided local search and its application to the traveling salesman problem. In D. Corne, M. Dorigo, & F. Glover (Eds.), New Ideas in Optimization (pp. 119–133). McGraw-Hill. https://doi.org/10.1007/3-540-48431-0_10"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Guided Local Search (GLS)"@en .
+
+mexo:HarmonySearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2001"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1177/003754970107600201> ;
+    skos:broader mexo:BioInspired,
+        mexo:HumanSocioInspired ;
+    skos:definition "Music-inspired metaheuristic that improvises new solutions by memory consideration, pitch adjustment, and random selection. Reference: Geem, Z. W., Kim, J. H., & Loganathan, G. V. (2001). A new heuristic optimization algorithm: Harmony search. Simulation, 76(2), 60–68. https://doi.org/10.1177/003754970107600201"@en ;
+    skos:exactMatch dbpedia:Harmony_search ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Harmony Search (HS)"@en .
+
+mexo:HarrisHawksOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2019"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.future.2019.02.028> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Population-based method inspired by cooperative hunting of Harris hawks, combining exploration and multiple exploitation strategies. Reference: Heidari, A. A., Mirjalili, S., Faris, H., Aljarah, I., Mafarja, M., & Chen, H. (2019). Harris hawks optimization: Algorithm and applications. Future Generation Computer Systems, 97, 849–872. https://doi.org/10.1016/j.future.2019.02.028"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Harris Hawks Optimization (HHO)"@en .
+
+mexo:ImperialistCompetitiveAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2007"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/CEC.2007.4425083> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Socio-political inspired population algorithm where empires assimilate colonies and compete for power, driving the search toward strong imperialists. Reference: Atashpaz-Gargari, E., & Lucas, C. (2007). Imperialist competitive algorithm: An algorithm for optimization inspired by imperialistic competition. In 2007 IEEE Congress on Evolutionary Computation (pp. 4661–4667). IEEE. https://doi.org/10.1109/CEC.2007.4425083"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Imperialist Competitive Algorithm (ICA)"@en .
+
+mexo:InvasiveWeedOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2006"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.ecolmodel.2005.07.010> ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Plant colonization-inspired algorithm where weeds reproduce and disperse seeds with decreasing variance to intensify search. Reference: Mehrabian, A. R., & Lucas, C. (2006). A novel numerical optimization algorithm inspired from weed colonization. Ecological Modelling, 179(4), 355–366. https://doi.org/10.1016/j.ecolmodel.2005.07.010"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Invasive Weed Optimization (IWO)"@en .
+
+mexo:IteratedLocalSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2003"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/978-1-4419-1665-5_4> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Metaheuristic that repeatedly perturbs a locally optimal solution and re-applies local search to find better basins. Reference: Lourenço, H. R., Martin, O. C., & Stützle, T. (2003). Iterated local search. In F. Glover & G. A. Kochenberger (Eds.), Handbook of Metaheuristics (pp. 320–353). Springer. https://doi.org/10.1007/978-1-4419-1665-5_4"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Iterated Local Search (ILS)"@en .
+
+mexo:LargeNeighborhoodSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1998"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/3-540-49481-2_30> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Destroy-and-repair style neighborhood search where large parts of a solution are removed and reconstructed to explore distant alternatives. Reference: Shaw, P. (1998). Using constraint programming and local search methods to solve vehicle routing problems. In M. Maher & J.-F. Puget (Eds.), Principles and Practice of Constraint Programming (CP’98) (pp. 417–431). Springer. https://doi.org/10.1007/3-540-49481-2_30"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Large Neighborhood Search (LNS)"@en .
+
+mexo:LeagueChampionshipAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2009"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/SoCPaR.2009.21> ;
+    skos:broader mexo:HumanSocioInspired ;
+    skos:definition "Sport-inspired population algorithm modeling league competitions where teams (solutions) play and improve via competition outcomes. Reference: Kashan, A. H. (2009). League championship algorithm: A new algorithm for numerical function optimization. In 2009 International Conference of Soft Computing and Pattern Recognition (pp. 43–48). IEEE. https://doi.org/10.1109/SoCPaR.2009.21"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "League Championship Algorithm (LCA)"@en .
+
+mexo:MOEAD a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2007"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/TEVC.2007.892759> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Multiobjective evolutionary algorithm based on decomposition of a MOP into scalar subproblems and neighborhood cooperation. Reference: Zhang, Q., & Li, H. (2007). MOEA/D: A multiobjective evolutionary algorithm based on decomposition. IEEE Transactions on Evolutionary Computation, 11(6), 712–731. https://doi.org/10.1109/TEVC.2007.892759"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "MOEA/D"@en .
+
+mexo:MarinePredatorsAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2020"^^xsd:gYear ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Nature-inspired population algorithm based on predator–prey foraging strategies using Lévy and Brownian movements. Reference: Faramarzi, A., Heidarinejad, M., Mirjalili, S., & Gandomi, A. H. (2020). Marine predators algorithm: A nature-inspired metaheuristic. Expert Systems with Applications, 152, 113377."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Marine Predators Algorithm (MPA)"@en .
+
+mexo:MemeticAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1989"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Hybrid evolutionary framework that combines population search with intensive local improvement (\"memes\"). Reference: Moscato, P. (1989). On evolution, search, optimization, genetic algorithms and martial arts: Toward memetic algorithms (Technical Report C3P 826). California Institute of Technology."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Memetic Algorithm (MA)"@en .
+
+mexo:MothFlameOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2015"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.knosys.2015.07.006> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Optimization method inspired by moth navigation around flames using a logarithmic spiral update toward flames (best positions). Reference: Mirjalili, S. (2015). Moth-flame optimization algorithm: A novel nature-inspired heuristic paradigm. Knowledge-Based Systems, 89, 228–249. https://doi.org/10.1016/j.knosys.2015.07.006"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Moth-Flame Optimization (MFO)"@en .
+
+mexo:MultimodalCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Multimodal"@en ;
+    rdfs:comment "The problem has multiple local optimum basins."@en .
+
+mexo:NSGAII a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2002"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/4235.996017> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Fast elitist multi-objective genetic algorithm using non-dominated sorting and crowding distance. Reference: Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE Transactions on Evolutionary Computation, 6(2), 182–197. https://doi.org/10.1109/4235.996017"@en ;
+    skos:exactMatch dbpedia:NSGA-II ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "NSGA-II"@en .
+
+mexo:NonSeparableCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Non-separable"@en ;
+    rdfs:comment "The objective contains interactions among decision variables."@en .
+
+mexo:NumericalBenchmarkFunction a owl:Class ;
+    rdfs:label "Numerical benchmark function"@en ;
+    rdfs:comment "A numerical optimization benchmark function used to compare algorithms."@en ;
+    rdfs:subClassOf mexo:OptimizationProblem ;
+    owl:disjointWith mexo:ProblemInstance .
+
+mexo:PAES a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1999"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/4235.781891> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Pareto Archived Evolution Strategy: a simple (1+1) multiobjective EA using an external archive and adaptive grid for diversity. Reference: Knowles, J., & Corne, D. (1999). The Pareto archived evolution strategy: A new baseline algorithm for Pareto multiobjective optimisation. In Proceedings of the 1999 Congress on Evolutionary Computation (CEC'99) (pp. 98–105). IEEE. https://doi.org/10.1109/4235.781891"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "PAES"@en .
+
+mexo:ParticleSwarmOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1995"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1109/ICNN.1995.488968> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm-based optimization where particles adjust velocities based on individual and social best positions. Reference: Kennedy, J., & Eberhart, R. (1995). Particle swarm optimization. In Proceedings of the IEEE International Conference on Neural Networks (Vol. 4, pp. 1942–1948). IEEE. https://doi.org/10.1109/ICNN.1995.488968"@en ;
+    skos:exactMatch dbpedia:Particle_swarm_optimization ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Particle Swarm Optimization (PSO)"@en ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation .
+
+mexo:RecordToRecordTravel a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1993"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/0021-9991(93)90332-9> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Trajectory method that allows moves within a tolerance of the best-so-far record, enabling controlled diversification. Reference: Dueck, G. (1993). New optimization heuristics: The great deluge algorithm and the record-to-record travel. Journal of Computational Physics, 104(1), 86–92. https://doi.org/10.1016/0021-9991(93)90332-9"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Record-to-Record Travel (RRT)"@en .
+
+mexo:SPEA2 a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2001"^^xsd:gYear ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Strength Pareto Evolutionary Algorithm 2: multi-objective EA with fitness assignment based on strength and density and an external archive. Reference: Zitzler, E., Laumanns, M., & Thiele, L. (2001). SPEA2: Improving the strength Pareto evolutionary algorithm. Technical Report 103, Computer Engineering and Networks Laboratory (TIK), ETH Zürich."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "SPEA2"@en .
+
+mexo:SalpSwarmAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2017"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2017.07.002> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm modeled on salp chain movement where a leader and followers update positions toward a food source. Reference: Mirjalili, S., Gandomi, A. H., Mirjalili, S. Z., Saremi, S., Faris, H., & Mirjalili, S. M. (2017). Salp swarm algorithm: A bio-inspired optimizer for engineering design problems. Advances in Engineering Software, 114, 163–191. https://doi.org/10.1016/j.advengsoft.2017.07.002"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Salp Swarm Algorithm (SSA)"@en .
+
+mexo:ScatterSearchPathRelinking a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1998"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1007/BFb0026589> ;
+    skos:broader mexo:EvolutionaryComputation ;
+    skos:definition "Evolutionary framework that combines elite solutions via structured combination and explores trajectories between them (path relinking). Reference: Glover, F. (1998). A template for scatter search and path relinking. In J.-K. Hao, E. Lutton, E. Ronald, M. Schoenauer, & D. Snyers (Eds.), Artificial Evolution (AE 1997) (LNCS 1363, pp. 13–54). Springer. https://doi.org/10.1007/BFb0026589"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Scatter Search & Path Relinking"@en .
+
+mexo:SeparableCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Separable"@en ;
+    rdfs:comment "The objective can be decomposed with respect to its decision variables."@en .
+
+mexo:ShuffledFrogLeapingAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2003"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1061/(ASCE)0733-9496(2003)129:3(210)> ;
+    skos:broader mexo:BioInspired ;
+    skos:definition "Memetic metaheuristic inspired by frog leaping behavior; population is partitioned into memeplexes with local evolution and periodic shuffling. Reference: Eusuff, M. M., & Lansey, K. E. (2003). Optimization of water distribution network design using the shuffled frog leaping algorithm. Journal of Water Resources Planning and Management, 129(3), 210–225. https://doi.org/10.1061/(ASCE)0733-9496(2003)129:3(210)"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Shuffled Frog Leaping Algorithm (SFLA)"@en .
+
+mexo:SimulatedAnnealing a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1983"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1126/science.220.4598.671> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Probabilistic trajectory method that accepts worse moves with a temperature-controlled probability to escape local optima. Reference: Kirkpatrick, S., Gelatt, C. D., Jr., & Vecchi, M. P. (1983). Optimization by simulated annealing. Science, 220(4598), 671–680. https://doi.org/10.1126/science.220.4598.671"@en ;
+    skos:exactMatch dbpedia:Simulated_annealing ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Simulated Annealing (SA)"@en .
+
+mexo:SineCosineAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2016"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.knosys.2015.12.022> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Population-based method that updates positions using sine and cosine functions to balance exploration and exploitation. Reference: Mirjalili, S. (2016). SCA: A sine cosine algorithm for solving optimization problems. Knowledge-Based Systems, 96, 120–133. https://doi.org/10.1016/j.knosys.2015.12.022"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Sine Cosine Algorithm (SCA)"@en .
+
+mexo:SocialSpiderOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2013"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.knosys.2013.03.014> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Population-based algorithm inspired by social-spider colony behavior, including gender-based operators and vibrations on the web. Reference: Cuevas, E., Cienfuegos, M., Zaldívar, D., & Pérez-Cisneros, M. (2013). A swarm optimization algorithm inspired in the social behavior of the spider. Knowledge-Based Systems, 49, 1–12. https://doi.org/10.1016/j.knosys.2013.03.014"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Social Spider Optimization (SSO)"@en .
+
+mexo:SparrowSearchAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2020"^^xsd:gYear ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Swarm algorithm based on the foraging and anti-predation behavior of sparrows, typically involving producers, scroungers, and awareness mechanisms. Reference: Xue, J., & Shen, B. (2020). A novel swarm intelligence optimization approach: Sparrow search algorithm. Systems Science & Control Engineering, 8(1), 22–34."@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Sparrow Search Algorithm (SSA)"@en .
+
+mexo:TabuSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1989"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1287/ijoc.1.3.190> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Neighborhood-based search that uses adaptive memory (tabu lists) to avoid cycling and guide exploration. Reference: Glover, F. (1989). Tabu Search—Part I. ORSA Journal on Computing, 1(3), 190–206. https://doi.org/10.1287/ijoc.1.3.190"@en ;
+    skos:exactMatch dbpedia:Tabu_search ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Tabu Search (TS)"@en .
+
+mexo:TeachingLearningBasedOptimization a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2011"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.cad.2010.12.015> ;
+    skos:broader mexo:HumanSocioInspired ;
+    skos:definition "Population-based method inspired by teaching–learning in a classroom, with teacher and learner phases. Reference: Rao, R. V., Savsani, V. J., & Vakharia, D. P. (2011). Teaching–learning-based optimization: A novel method for constrained mechanical design optimization problems. Computer-Aided Design, 43(3), 303–315. https://doi.org/10.1016/j.cad.2010.12.015"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Teaching–Learning-Based Optimization (TLBO)"@en .
+
+mexo:UnimodalCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Unimodal"@en ;
+    rdfs:comment "The problem has one principal optimum basin."@en .
+
+mexo:VariableNeighborhoodSearch a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "1997"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/S0305-0548(97)00031-2> ;
+    skos:broader mexo:TrajectoryBased ;
+    skos:definition "Framework that systematically changes neighborhood structures to escape local optima and intensify search. Reference: Mladenović, N., & Hansen, P. (1997). Variable neighborhood search. Computers & Operations Research, 24, 1097–1100. https://doi.org/10.1016/S0305-0548(97)00031-2"@en ;
+    skos:exactMatch dbpedia:Variable_neighborhood_search ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Variable Neighborhood Search (VNS)"@en .
+
+mexo:WhaleOptimizationAlgorithm a skos:Concept,
+        mexo:MetaheuristicAlgorithm ;
+    dcterms:issued "2016"^^xsd:gYear ;
+    dcterms:source <https://doi.org/10.1016/j.advengsoft.2016.01.008> ;
+    skos:broader mexo:SwarmIntelligence ;
+    skos:definition "Population-based algorithm inspired by humpback whales' bubble-net hunting, combining encircling and spiral updating mechanisms. Reference: Mirjalili, S., & Lewis, A. (2016). The whale optimization algorithm. Advances in Engineering Software, 95, 51–67. https://doi.org/10.1016/j.advengsoft.2016.01.008"@en ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Whale Optimization Algorithm (WOA)"@en .
+
+mexo:bestFitness a owl:DatatypeProperty ;
+    rdfs:label "best fitness"@en ;
+    rdfs:comment "Best objective value reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:dimension a owl:DatatypeProperty ;
+    rdfs:label "problem dimension"@en ;
+    rdfs:comment "Number of decision variables in a concrete problem instance."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range xsd:integer .
+
+mexo:doi a owl:DatatypeProperty ;
+    rdfs:label "DOI"@en ;
+    rdfs:comment "Digital Object Identifier of a source study."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:evaluationCount a owl:DatatypeProperty ;
+    rdfs:label "evaluation count"@en ;
+    rdfs:comment "Number of objective-function evaluations used or reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:integer .
+
+mexo:fitnessStandardDeviation a owl:DatatypeProperty ;
+    rdfs:label "fitness standard deviation"@en ;
+    rdfs:comment "Standard deviation of reported fitness values."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:fitnessStandardError a owl:DatatypeProperty ;
+    rdfs:label "fitness standard error"@en ;
+    rdfs:comment "Standard error of the reported mean fitness."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:hasConstraintName a owl:DatatypeProperty ;
+    rdfs:label "constraint name"@en ;
+    rdfs:comment "Human-readable name of a constraint."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range xsd:string .
+
+mexo:knownOptimum a owl:DatatypeProperty ;
+    rdfs:label "known optimum"@en ;
+    rdfs:comment "Known optimum objective value for a problem or problem instance."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range xsd:decimal .
+
+mexo:maxEvaluations a owl:DatatypeProperty ;
+    rdfs:label "maximum evaluations"@en ;
+    rdfs:comment "Maximum number of objective-function evaluations allowed."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( mexo:StoppingCriterion mexo:ComputationalBudget ) ] ;
+    rdfs:range xsd:integer .
+
+mexo:maxIterations a owl:DatatypeProperty ;
+    rdfs:label "maximum iterations"@en ;
+    rdfs:comment "Maximum number of iterations allowed."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( mexo:StoppingCriterion mexo:ComputationalBudget ) ] ;
+    rdfs:range xsd:integer .
+
+mexo:meanFitness a owl:DatatypeProperty ;
+    rdfs:label "mean fitness"@en ;
+    rdfs:comment "Mean objective value reported across runs."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:numberOfRuns a owl:DatatypeProperty ;
+    rdfs:label "number of runs"@en ;
+    rdfs:comment "Number of independent runs planned for an experiment."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range xsd:integer .
+
+mexo:parameterName a owl:DatatypeProperty ;
+    rdfs:label "parameter name"@en ;
+    rdfs:comment "Human-readable name of a parameter definition."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range xsd:string .
+
+mexo:parameterSymbol a owl:DatatypeProperty ;
+    rdfs:label "parameter symbol"@en ;
+    rdfs:comment "Short symbol identifying a parameter definition."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range xsd:string .
+
+mexo:parameterValue a owl:DatatypeProperty ;
+    rdfs:label "parameter value"@en ;
+    rdfs:comment "Concrete value assigned by a parameter setting."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range rdfs:Literal .
+
+mexo:randomSeed a owl:DatatypeProperty ;
+    rdfs:label "random seed"@en ;
+    rdfs:comment "Seed used to initialize random number generation."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range xsd:integer .
+
+mexo:rank a owl:DatatypeProperty ;
+    rdfs:label "rank"@en ;
+    rdfs:comment "Ordinal rank assigned to the result within its comparison group."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:integer .
+
+mexo:runtimeLimitSeconds a owl:DatatypeProperty ;
+    rdfs:label "runtime limit in seconds"@en ;
+    rdfs:comment "Maximum permitted runtime expressed in seconds."@en ;
+    rdfs:domain mexo:ComputationalBudget ;
+    rdfs:range xsd:decimal .
+
+mexo:runtimeSeconds a owl:DatatypeProperty ;
+    rdfs:label "runtime in seconds"@en ;
+    rdfs:comment "Observed runtime expressed in seconds."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:searchRange a owl:DatatypeProperty ;
+    rdfs:label "search range"@en ;
+    rdfs:comment "Textual representation of the search bounds reported by the source."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range xsd:string .
+
+mexo:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "source file"@en ;
+    rdfs:comment "File name of a locally managed source document."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:sourceTable a owl:DatatypeProperty ;
+    rdfs:label "source table"@en ;
+    rdfs:comment "Table or section in the source study from which the statement was extracted."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:successRate a owl:DatatypeProperty ;
+    rdfs:label "success rate"@en ;
+    rdfs:comment "Proportion or percentage of successful runs, as reported by the source."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:tolerance a owl:DatatypeProperty ;
+    rdfs:label "stopping tolerance"@en ;
+    rdfs:comment "Numerical tolerance used by a stopping criterion."@en ;
+    rdfs:domain mexo:StoppingCriterion ;
+    rdfs:range xsd:decimal .
+
+mexo:worstFitness a owl:DatatypeProperty ;
+    rdfs:label "worst fitness"@en ;
+    rdfs:comment "Worst objective value reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+dcterms:BibliographicResource rdfs:label "Bibliographic resource"@en ;
+    rdfs:comment "A book, article, document, or other resource that may be identified through a bibliographic reference."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+mexo:MEXO a owl:Ontology ;
+    dcterms:created "2026-07-30"^^xsd:date ;
+    dcterms:description "OWL ontology for representing metaheuristic algorithms, benchmark problems and instances, experiment configurations, parameters, computational budgets, stopping criteria, and aggregate performance results."@en ;
+    dcterms:hasPart mexo:MetaheuristicTaxonomy ;
+    dcterms:modified "2026-09-01"^^xsd:date ;
+    dcterms:title "MEXO — Metaheuristic Experiment Ontology"@en ;
+    vann:preferredNamespacePrefix "mexo" ;
+    vann:preferredNamespaceUri mexo: ;
+    owl:versionInfo "5.2.0" .
+
+mexo:RealVectorRepresentation a owl:NamedIndividual,
+        mexo:Representation ;
+    rdfs:label "Real-vector representation"@en ;
+    rdfs:comment "Candidate solutions are encoded as real-valued vectors."@en .
+
+mexo:algorithmUsedByExperiment a owl:ObjectProperty ;
+    rdfs:label "algorithm used by experiment"@en ;
+    rdfs:comment "Links an algorithm to an experiment that evaluates it."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:usesAlgorithm .
+
+mexo:budgetOfExperiment a owl:ObjectProperty ;
+    rdfs:label "budget of experiment"@en ;
+    rdfs:comment "Links a computational budget to the experiment constrained by it."@en ;
+    rdfs:domain mexo:ComputationalBudget ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasBudget .
+
+mexo:characteristicOfProblem a owl:ObjectProperty ;
+    rdfs:label "characteristic of problem"@en ;
+    rdfs:comment "Links a controlled characteristic to an optimization problem it describes."@en ;
+    rdfs:domain mexo:ProblemCharacteristic ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasCharacteristic .
+
+mexo:configurationUsedByExperiment a owl:ObjectProperty ;
+    rdfs:label "configuration used by experiment"@en ;
+    rdfs:comment "Links an algorithm configuration to an experiment that uses it."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:usesConfiguration .
+
+mexo:configuredBy a owl:ObjectProperty ;
+    rdfs:label "configured by"@en ;
+    rdfs:comment "Links an algorithm to a configuration that configures it."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:configuresAlgorithm .
+
+mexo:configuresAlgorithm a owl:ObjectProperty ;
+    rdfs:label "configures algorithm"@en ;
+    rdfs:comment "Links an algorithm configuration to the algorithm it configures."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:configuredBy .
+
+mexo:constraintTypeOf a owl:ObjectProperty ;
+    rdfs:label "constraint type of"@en ;
+    rdfs:comment "Links a constraint type to a constraint classified by that type."@en ;
+    rdfs:domain mexo:ConstraintType ;
+    rdfs:range mexo:Constraint ;
+    owl:inverseOf mexo:hasConstraintType .
+
+mexo:forParameter a owl:ObjectProperty ;
+    rdfs:label "for parameter"@en ;
+    rdfs:comment "Links a parameter setting to the parameter definition it instantiates."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:hasSetting .
+
+mexo:hasBudget a owl:ObjectProperty ;
+    rdfs:label "has computational budget"@en ;
+    rdfs:comment "Associates an experiment with its computational resource budget."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:ComputationalBudget ;
+    owl:inverseOf mexo:budgetOfExperiment .
+
+mexo:hasCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has problem characteristic"@en ;
+    rdfs:comment "Associates an optimization problem with a controlled characteristic."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ProblemCharacteristic ;
+    owl:inverseOf mexo:characteristicOfProblem .
+
+mexo:hasConstraint a owl:ObjectProperty ;
+    rdfs:label "has constraint"@en ;
+    rdfs:comment "Associates a problem with a constraint."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:Constraint ;
+    owl:inverseOf mexo:hasProblem .
+
+mexo:hasConstraintType a owl:ObjectProperty ;
+    rdfs:label "has constraint type"@en ;
+    rdfs:comment "Associates a constraint with its type."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range mexo:ConstraintType ;
+    owl:inverseOf mexo:constraintTypeOf .
+
+mexo:hasObjectiveFunction a owl:ObjectProperty ;
+    rdfs:label "has objective function"@en ;
+    rdfs:comment "Associates a problem with its objective function."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ObjectiveFunction ;
+    owl:inverseOf mexo:objectiveFunctionOfProblem .
+
+mexo:hasParameterDefinition a owl:ObjectProperty ;
+    rdfs:label "has parameter definition"@en ;
+    rdfs:comment "Links an algorithm to a reusable parameter definition."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:parameterDefinitionOfAlgorithm .
+
+mexo:hasParameterSetting a owl:ObjectProperty ;
+    rdfs:label "has parameter setting"@en ;
+    rdfs:comment "Links a configuration to a concrete parameter setting."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:ParameterSetting ;
+    owl:inverseOf mexo:parameterSettingOfConfiguration .
+
+mexo:hasProblem a owl:ObjectProperty ;
+    rdfs:label "has problem"@en ;
+    rdfs:comment "Links a constraint to the problem it constrains."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasConstraint .
+
+mexo:hasProblemInstance a owl:ObjectProperty ;
+    rdfs:label "has problem instance"@en ;
+    rdfs:comment "Links a general optimization problem to one of its concrete instances."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ProblemInstance ;
+    owl:inverseOf mexo:instanceOfProblem .
+
+mexo:hasResult a owl:ObjectProperty ;
+    rdfs:label "has result"@en ;
+    rdfs:comment "Associates an experiment with an aggregate or run-level performance result."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:PerformanceResult ;
+    owl:inverseOf mexo:resultOfExperiment .
+
+mexo:hasRun a owl:ObjectProperty ;
+    rdfs:label "has run"@en ;
+    rdfs:comment "Links an experiment to one of its executions."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:Run ;
+    owl:inverseOf mexo:runOfExperiment .
+
+mexo:hasSearchSpace a owl:ObjectProperty ;
+    rdfs:label "has search space"@en ;
+    rdfs:comment "Associates a problem with its search space."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:SearchSpace ;
+    owl:inverseOf mexo:searchSpaceOfProblem .
+
+mexo:hasSetting a owl:ObjectProperty ;
+    rdfs:label "has setting"@en ;
+    rdfs:comment "Links a parameter definition to a parameter setting that instantiates it."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:ParameterSetting ;
+    owl:inverseOf mexo:forParameter .
+
+mexo:hasStoppingCriterion a owl:ObjectProperty ;
+    rdfs:label "has stopping criterion"@en ;
+    rdfs:comment "Associates an experiment with a stopping criterion."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:StoppingCriterion ;
+    owl:inverseOf mexo:stoppingCriterionOfExperiment .
+
+mexo:hasStudySource owl:inverseOf mexo:sourceOfAlgorithm .
+
+mexo:instanceOfProblem a owl:ObjectProperty ;
+    rdfs:label "instance of problem"@en ;
+    rdfs:comment "Links a concrete problem instance to its general benchmark problem definition."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasProblemInstance .
+
+mexo:instanceTargetedByExperiment a owl:ObjectProperty ;
+    rdfs:label "instance targeted by experiment"@en ;
+    rdfs:comment "Links a problem instance to an experiment that evaluates it."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:targetsInstance .
+
+mexo:objectiveFunctionOfProblem a owl:ObjectProperty ;
+    rdfs:label "objective function of problem"@en ;
+    rdfs:comment "Links an objective function to an optimization problem it defines."@en ;
+    rdfs:domain mexo:ObjectiveFunction ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasObjectiveFunction .
+
+mexo:parameterDefinitionOfAlgorithm a owl:ObjectProperty ;
+    rdfs:label "parameter definition of algorithm"@en ;
+    rdfs:comment "Links a reusable parameter definition to the algorithm that declares it."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:hasParameterDefinition .
+
+mexo:parameterSettingOfConfiguration a owl:ObjectProperty ;
+    rdfs:label "parameter setting of configuration"@en ;
+    rdfs:comment "Links a parameter setting to the algorithm configuration that contains it."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:hasParameterSetting .
+
+mexo:parameterType a owl:ObjectProperty ;
+    rdfs:label "parameter type"@en ;
+    rdfs:comment "Associates a parameter definition with its type."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:ParameterType ;
+    owl:inverseOf mexo:typeOfParameterDefinition .
+
+mexo:problemTargetedByExperiment a owl:ObjectProperty ;
+    rdfs:label "problem targeted by experiment"@en ;
+    rdfs:comment "Links an optimization problem to an experiment that addresses it."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:targetsProblem .
+
+mexo:producedByRun a owl:ObjectProperty ;
+    rdfs:label "produced by run"@en ;
+    rdfs:comment "Links a result to the run that produced it."@en ;
+    rdfs:domain mexo:Result ;
+    rdfs:range mexo:Run ;
+    owl:inverseOf mexo:producesResult .
+
+mexo:producesResult a owl:ObjectProperty ;
+    rdfs:label "produces result"@en ;
+    rdfs:comment "Links a run to a result it produced."@en ;
+    rdfs:domain mexo:Run ;
+    rdfs:range mexo:Result ;
+    owl:inverseOf mexo:producedByRun .
+
+mexo:representationUsedByAlgorithm a owl:ObjectProperty ;
+    rdfs:label "representation used by algorithm"@en ;
+    rdfs:comment "Links a representation to an algorithm that operates on it."@en ;
+    rdfs:domain mexo:Representation ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:usesRepresentation .
+
+mexo:resultOfExperiment a owl:ObjectProperty ;
+    rdfs:label "result of experiment"@en ;
+    rdfs:comment "Links a performance result to the experiment that produced or aggregated it."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasResult .
+
+mexo:runOfExperiment a owl:ObjectProperty ;
+    rdfs:label "run of experiment"@en ;
+    rdfs:comment "Links a run to the experiment of which it is an execution."@en ;
+    rdfs:domain mexo:Run ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasRun .
+
+mexo:searchSpaceOfProblem a owl:ObjectProperty ;
+    rdfs:label "search space of problem"@en ;
+    rdfs:comment "Links a search space to an optimization problem defined over it."@en ;
+    rdfs:domain mexo:SearchSpace ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasSearchSpace .
+
+mexo:sourceOfAlgorithm a owl:ObjectProperty ;
+    rdfs:label "source of algorithm"@en ;
+    rdfs:comment "Links a source study to an algorithm described or reported by it."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:hasStudySource .
+
+mexo:stoppingCriterionOfExperiment a owl:ObjectProperty ;
+    rdfs:label "stopping criterion of experiment"@en ;
+    rdfs:comment "Links a stopping criterion to the experiment governed by it."@en ;
+    rdfs:domain mexo:StoppingCriterion ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasStoppingCriterion .
+
+mexo:targetsInstance a owl:ObjectProperty ;
+    rdfs:label "targets problem instance"@en ;
+    rdfs:comment "Links an experiment to the concrete problem instance evaluated."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:ProblemInstance ;
+    owl:inverseOf mexo:instanceTargetedByExperiment .
+
+mexo:targetsProblem a owl:ObjectProperty ;
+    rdfs:label "targets problem"@en ;
+    rdfs:comment "Links an experiment to the optimization problem it addresses."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:problemTargetedByExperiment .
+
+mexo:typeOfParameterDefinition a owl:ObjectProperty ;
+    rdfs:label "type of parameter definition"@en ;
+    rdfs:comment "Links a parameter type to a parameter definition classified by that type."@en ;
+    rdfs:domain mexo:ParameterType ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:parameterType .
+
+mexo:usesAlgorithm a owl:ObjectProperty ;
+    rdfs:label "uses algorithm"@en ;
+    rdfs:comment "Directly links an experiment to the algorithm being evaluated."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:algorithmUsedByExperiment .
+
+mexo:usesConfiguration a owl:ObjectProperty ;
+    rdfs:label "uses configuration"@en ;
+    rdfs:comment "Links an experiment to the concrete algorithm configuration it uses."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:configurationUsedByExperiment .
+
+mexo:usesRepresentation a owl:ObjectProperty ;
+    rdfs:label "uses representation"@en ;
+    rdfs:comment "Declares the representation on which an algorithm operates."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:Representation ;
+    owl:inverseOf mexo:representationUsedByAlgorithm .
+
+mexo:ConstraintType a owl:Class ;
+    rdfs:label "Constraint type"@en ;
+    rdfs:comment "A controlled category of optimization constraint."@en .
+
+mexo:ObjectiveFunction a owl:Class ;
+    rdfs:label "Objective function"@en ;
+    rdfs:comment "A function that maps candidate solutions to objective values."@en .
+
+mexo:Parameter a owl:Class ;
+    rdfs:label "Parameter"@en ;
+    rdfs:comment "General parameter concept retained as a superclass for compatibility."@en .
+
+mexo:ParameterType a owl:Class ;
+    rdfs:label "Parameter type"@en ;
+    rdfs:comment "A controlled type used to characterize a parameter definition."@en .
+
+mexo:SearchSpace a owl:Class ;
+    rdfs:label "Search space"@en ;
+    rdfs:comment "The domain of candidate solutions."@en .
+
+mexo:Representation a owl:Class ;
+    rdfs:label "Representation"@en ;
+    rdfs:comment "A representation used to encode candidate solutions."@en .
+
+mexo:Result a owl:Class ;
+    rdfs:label "Result"@en ;
+    rdfs:comment "An output produced by an experiment or run."@en .
+
+mexo:HumanSocioInspired a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Human/socio-inspired metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+mexo:ParameterSetting a owl:Class ;
+    rdfs:label "Parameter setting"@en ;
+    rdfs:comment "A parameter value assigned within a specific algorithm configuration."@en ;
+    rdfs:subClassOf mexo:Parameter ;
+    owl:disjointWith mexo:ParameterDefinition .
+
+mexo:Run a owl:Class ;
+    rdfs:label "Run"@en ;
+    rdfs:comment "One execution within an experiment."@en .
+
+mexo:SourceStudy a owl:Class ;
+    rdfs:label "Source study"@en ;
+    rdfs:comment "A bibliographic source from which experiment configurations, benchmark definitions, or reported results are extracted."@en ;
+    rdfs:subClassOf dcterms:BibliographicResource .
+
+mexo:ComputationalBudget a owl:Class ;
+    rdfs:label "Computational budget"@en ;
+    rdfs:comment "A limit on computational resources available to an experiment."@en .
+
+mexo:Constraint a owl:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:comment "A condition restricting feasible solutions."@en .
+
+mexo:PhysicsInspired a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Physics/chemistry-inspired metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+mexo:ProblemInstance a owl:Class ;
+    rdfs:label "Problem instance"@en ;
+    rdfs:comment "A concrete dimensional or otherwise parameterized instance of an optimization problem."@en ;
+    rdfs:subClassOf mexo:OptimizationProblem .
+
+mexo:StoppingCriterion a owl:Class ;
+    rdfs:label "Stopping criterion"@en ;
+    rdfs:comment "A rule determining when an experiment should stop."@en .
+
+mexo:AlgorithmConfiguration a owl:Class ;
+    rdfs:label "Algorithm configuration"@en ;
+    rdfs:comment "A concrete configuration of an algorithm used by an experiment."@en .
+
+mexo:MetaheuristicFamily a owl:Class ;
+    rdfs:label "Metaheuristic family"@en ;
+    rdfs:comment "A SKOS concept used to group related metaheuristic algorithms."@en ;
+    rdfs:subClassOf skos:Concept .
+
+mexo:ProblemCharacteristic a owl:Class ;
+    rdfs:label "Problem characteristic"@en ;
+    rdfs:comment "A controlled characteristic used to describe an optimization problem, such as modality or separability."@en .
+
+mexo:BioInspired a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Biologically inspired (non-swarm) metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+mexo:ParameterDefinition a owl:Class ;
+    rdfs:label "Parameter definition"@en ;
+    rdfs:comment "A reusable definition of an algorithm parameter."@en ;
+    rdfs:subClassOf mexo:Parameter .
+
+mexo:TrajectoryBased a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Trajectory-based metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+mexo:PerformanceResult a owl:Class ;
+    rdfs:label "Performance result"@en ;
+    rdfs:comment "An aggregate or run-level result reporting optimization performance measurements."@en ;
+    rdfs:subClassOf mexo:Result .
+
+mexo:EvolutionaryComputation a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Evolutionary computation metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+mexo:OptimizationProblem a owl:Class ;
+    rdfs:label "Optimization problem"@en ;
+    rdfs:comment "An optimization task defined by an objective function and a search space."@en .
+
+mexo:Experiment a owl:Class ;
+    rdfs:label "Experiment"@en ;
+    rdfs:comment "A planned execution of an algorithm on a problem under a defined configuration."@en .
+
+mexo:SwarmIntelligence a skos:Concept,
+        mexo:MetaheuristicFamily ;
+    skos:inScheme mexo:MetaheuristicTaxonomy ;
+    skos:prefLabel "Swarm intelligence metaheuristics"@en ;
+    skos:topConceptOf mexo:MetaheuristicTaxonomy .
+
+skos:Concept rdfs:label "Concept"@en ;
+    rdfs:comment "A unit of thought represented in a knowledge organization system."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> .
+
+mexo:MetaheuristicAlgorithm a owl:Class ;
+    rdfs:label "Metaheuristic algorithm"@en ;
+    rdfs:comment "A reusable metaheuristic method represented as a SKOS concept."@en ;
+    rdfs:subClassOf skos:Concept .
+
+mexo:MetaheuristicTaxonomy a skos:ConceptScheme ;
+    dcterms:created "2025-12-15"^^xsd:date ;
+    dcterms:description "A pragmatic SKOS taxonomy of widely-used metaheuristic algorithms, grouped by family. Each algorithm concept includes an APA reference to its original publication."@en ;
+    dcterms:isPartOf mexo:MEXO ;
+    dcterms:modified "2026-09-01"^^xsd:date ;
+    dcterms:title "MEXO taxonomy of metaheuristic algorithms"@en ;
+    owl:versionInfo "5.0.0" .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( mexo:Experiment mexo:Run mexo:AlgorithmConfiguration mexo:Parameter mexo:ComputationalBudget mexo:StoppingCriterion mexo:OptimizationProblem mexo:Constraint mexo:ObjectiveFunction mexo:SearchSpace mexo:Representation mexo:Result mexo:SourceStudy mexo:ProblemCharacteristic mexo:ConstraintType mexo:ParameterType mexo:MetaheuristicFamily ) .
+

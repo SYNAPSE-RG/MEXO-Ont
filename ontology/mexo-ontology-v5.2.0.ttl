@@ -1,0 +1,612 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:MEXO a owl:Ontology ;
+    dcterms:created "2026-07-30"^^xsd:date ;
+    dcterms:description "OWL ontology for representing metaheuristic algorithms, benchmark problems and instances, experiment configurations, parameters, computational budgets, stopping criteria, and aggregate performance results."@en ;
+    dcterms:hasPart mexo:MetaheuristicTaxonomy ;
+    dcterms:modified "2026-09-01"^^xsd:date ;
+    dcterms:title "MEXO — Metaheuristic Experiment Ontology"@en ;
+    vann:preferredNamespacePrefix "mexo" ;
+    vann:preferredNamespaceUri mexo: ;
+    owl:versionInfo "5.2.0" .
+
+mexo:MultimodalCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Multimodal"@en ;
+    rdfs:comment "The problem has multiple local optimum basins."@en .
+
+mexo:NonSeparableCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Non-separable"@en ;
+    rdfs:comment "The objective contains interactions among decision variables."@en .
+
+mexo:NumericalBenchmarkFunction a owl:Class ;
+    rdfs:label "Numerical benchmark function"@en ;
+    rdfs:comment "A numerical optimization benchmark function used to compare algorithms."@en ;
+    rdfs:subClassOf mexo:OptimizationProblem ;
+    owl:disjointWith mexo:ProblemInstance .
+
+mexo:RealVectorRepresentation a owl:NamedIndividual,
+        mexo:Representation ;
+    rdfs:label "Real-vector representation"@en ;
+    rdfs:comment "Candidate solutions are encoded as real-valued vectors."@en .
+
+mexo:SeparableCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Separable"@en ;
+    rdfs:comment "The objective can be decomposed with respect to its decision variables."@en .
+
+mexo:UnimodalCharacteristic a owl:NamedIndividual,
+        mexo:ProblemCharacteristic ;
+    rdfs:label "Unimodal"@en ;
+    rdfs:comment "The problem has one principal optimum basin."@en .
+
+mexo:bestFitness a owl:DatatypeProperty ;
+    rdfs:label "best fitness"@en ;
+    rdfs:comment "Best objective value reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:dimension a owl:DatatypeProperty ;
+    rdfs:label "problem dimension"@en ;
+    rdfs:comment "Number of decision variables in a concrete problem instance."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range xsd:integer .
+
+mexo:doi a owl:DatatypeProperty ;
+    rdfs:label "DOI"@en ;
+    rdfs:comment "Digital Object Identifier of a source study."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:evaluationCount a owl:DatatypeProperty ;
+    rdfs:label "evaluation count"@en ;
+    rdfs:comment "Number of objective-function evaluations used or reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:integer .
+
+mexo:fitnessStandardDeviation a owl:DatatypeProperty ;
+    rdfs:label "fitness standard deviation"@en ;
+    rdfs:comment "Standard deviation of reported fitness values."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:fitnessStandardError a owl:DatatypeProperty ;
+    rdfs:label "fitness standard error"@en ;
+    rdfs:comment "Standard error of the reported mean fitness."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:hasConstraintName a owl:DatatypeProperty ;
+    rdfs:label "constraint name"@en ;
+    rdfs:comment "Human-readable name of a constraint."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range xsd:string .
+
+mexo:knownOptimum a owl:DatatypeProperty ;
+    rdfs:label "known optimum"@en ;
+    rdfs:comment "Known optimum objective value for a problem or problem instance."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range xsd:decimal .
+
+mexo:maxEvaluations a owl:DatatypeProperty ;
+    rdfs:label "maximum evaluations"@en ;
+    rdfs:comment "Maximum number of objective-function evaluations allowed."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( mexo:StoppingCriterion mexo:ComputationalBudget ) ] ;
+    rdfs:range xsd:integer .
+
+mexo:maxIterations a owl:DatatypeProperty ;
+    rdfs:label "maximum iterations"@en ;
+    rdfs:comment "Maximum number of iterations allowed."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( mexo:StoppingCriterion mexo:ComputationalBudget ) ] ;
+    rdfs:range xsd:integer .
+
+mexo:meanFitness a owl:DatatypeProperty ;
+    rdfs:label "mean fitness"@en ;
+    rdfs:comment "Mean objective value reported across runs."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:numberOfRuns a owl:DatatypeProperty ;
+    rdfs:label "number of runs"@en ;
+    rdfs:comment "Number of independent runs planned for an experiment."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range xsd:integer .
+
+mexo:parameterName a owl:DatatypeProperty ;
+    rdfs:label "parameter name"@en ;
+    rdfs:comment "Human-readable name of a parameter definition."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range xsd:string .
+
+mexo:parameterSymbol a owl:DatatypeProperty ;
+    rdfs:label "parameter symbol"@en ;
+    rdfs:comment "Short symbol identifying a parameter definition."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range xsd:string .
+
+mexo:parameterValue a owl:DatatypeProperty ;
+    rdfs:label "parameter value"@en ;
+    rdfs:comment "Concrete value assigned by a parameter setting."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range rdfs:Literal .
+
+mexo:randomSeed a owl:DatatypeProperty ;
+    rdfs:label "random seed"@en ;
+    rdfs:comment "Seed used to initialize random number generation."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range xsd:integer .
+
+mexo:rank a owl:DatatypeProperty ;
+    rdfs:label "rank"@en ;
+    rdfs:comment "Ordinal rank assigned to the result within its comparison group."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:integer .
+
+mexo:runtimeLimitSeconds a owl:DatatypeProperty ;
+    rdfs:label "runtime limit in seconds"@en ;
+    rdfs:comment "Maximum permitted runtime expressed in seconds."@en ;
+    rdfs:domain mexo:ComputationalBudget ;
+    rdfs:range xsd:decimal .
+
+mexo:runtimeSeconds a owl:DatatypeProperty ;
+    rdfs:label "runtime in seconds"@en ;
+    rdfs:comment "Observed runtime expressed in seconds."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:searchRange a owl:DatatypeProperty ;
+    rdfs:label "search range"@en ;
+    rdfs:comment "Textual representation of the search bounds reported by the source."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range xsd:string .
+
+mexo:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "source file"@en ;
+    rdfs:comment "File name of a locally managed source document."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:sourceTable a owl:DatatypeProperty ;
+    rdfs:label "source table"@en ;
+    rdfs:comment "Table or section in the source study from which the statement was extracted."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range xsd:string .
+
+mexo:successRate a owl:DatatypeProperty ;
+    rdfs:label "success rate"@en ;
+    rdfs:comment "Proportion or percentage of successful runs, as reported by the source."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+mexo:tolerance a owl:DatatypeProperty ;
+    rdfs:label "stopping tolerance"@en ;
+    rdfs:comment "Numerical tolerance used by a stopping criterion."@en ;
+    rdfs:domain mexo:StoppingCriterion ;
+    rdfs:range xsd:decimal .
+
+mexo:worstFitness a owl:DatatypeProperty ;
+    rdfs:label "worst fitness"@en ;
+    rdfs:comment "Worst objective value reported for the result."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range xsd:decimal .
+
+dcterms:BibliographicResource rdfs:label "Bibliographic resource"@en ;
+    rdfs:comment "A book, article, document, or other resource that may be identified through a bibliographic reference."@en ;
+    rdfs:isDefinedBy dcterms: .
+
+mexo:MetaheuristicFamily a owl:Class ;
+    rdfs:label "Metaheuristic family"@en ;
+    rdfs:comment "A SKOS concept used to group related metaheuristic algorithms."@en ;
+    rdfs:subClassOf skos:Concept .
+
+mexo:algorithmUsedByExperiment a owl:ObjectProperty ;
+    rdfs:label "algorithm used by experiment"@en ;
+    rdfs:comment "Links an algorithm to an experiment that evaluates it."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:usesAlgorithm .
+
+mexo:budgetOfExperiment a owl:ObjectProperty ;
+    rdfs:label "budget of experiment"@en ;
+    rdfs:comment "Links a computational budget to the experiment constrained by it."@en ;
+    rdfs:domain mexo:ComputationalBudget ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasBudget .
+
+mexo:characteristicOfProblem a owl:ObjectProperty ;
+    rdfs:label "characteristic of problem"@en ;
+    rdfs:comment "Links a controlled characteristic to an optimization problem it describes."@en ;
+    rdfs:domain mexo:ProblemCharacteristic ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasCharacteristic .
+
+mexo:configurationUsedByExperiment a owl:ObjectProperty ;
+    rdfs:label "configuration used by experiment"@en ;
+    rdfs:comment "Links an algorithm configuration to an experiment that uses it."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:usesConfiguration .
+
+mexo:configuredBy a owl:ObjectProperty ;
+    rdfs:label "configured by"@en ;
+    rdfs:comment "Links an algorithm to a configuration that configures it."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:configuresAlgorithm .
+
+mexo:configuresAlgorithm a owl:ObjectProperty ;
+    rdfs:label "configures algorithm"@en ;
+    rdfs:comment "Links an algorithm configuration to the algorithm it configures."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:configuredBy .
+
+mexo:constraintTypeOf a owl:ObjectProperty ;
+    rdfs:label "constraint type of"@en ;
+    rdfs:comment "Links a constraint type to a constraint classified by that type."@en ;
+    rdfs:domain mexo:ConstraintType ;
+    rdfs:range mexo:Constraint ;
+    owl:inverseOf mexo:hasConstraintType .
+
+mexo:forParameter a owl:ObjectProperty ;
+    rdfs:label "for parameter"@en ;
+    rdfs:comment "Links a parameter setting to the parameter definition it instantiates."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:hasSetting .
+
+mexo:hasBudget a owl:ObjectProperty ;
+    rdfs:label "has computational budget"@en ;
+    rdfs:comment "Associates an experiment with its computational resource budget."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:ComputationalBudget ;
+    owl:inverseOf mexo:budgetOfExperiment .
+
+mexo:hasCharacteristic a owl:ObjectProperty ;
+    rdfs:label "has problem characteristic"@en ;
+    rdfs:comment "Associates an optimization problem with a controlled characteristic."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ProblemCharacteristic ;
+    owl:inverseOf mexo:characteristicOfProblem .
+
+mexo:hasConstraint a owl:ObjectProperty ;
+    rdfs:label "has constraint"@en ;
+    rdfs:comment "Associates a problem with a constraint."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:Constraint ;
+    owl:inverseOf mexo:hasProblem .
+
+mexo:hasConstraintType a owl:ObjectProperty ;
+    rdfs:label "has constraint type"@en ;
+    rdfs:comment "Associates a constraint with its type."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range mexo:ConstraintType ;
+    owl:inverseOf mexo:constraintTypeOf .
+
+mexo:hasObjectiveFunction a owl:ObjectProperty ;
+    rdfs:label "has objective function"@en ;
+    rdfs:comment "Associates a problem with its objective function."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ObjectiveFunction ;
+    owl:inverseOf mexo:objectiveFunctionOfProblem .
+
+mexo:hasParameterDefinition a owl:ObjectProperty ;
+    rdfs:label "has parameter definition"@en ;
+    rdfs:comment "Links an algorithm to a reusable parameter definition."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:parameterDefinitionOfAlgorithm .
+
+mexo:hasParameterSetting a owl:ObjectProperty ;
+    rdfs:label "has parameter setting"@en ;
+    rdfs:comment "Links a configuration to a concrete parameter setting."@en ;
+    rdfs:domain mexo:AlgorithmConfiguration ;
+    rdfs:range mexo:ParameterSetting ;
+    owl:inverseOf mexo:parameterSettingOfConfiguration .
+
+mexo:hasProblem a owl:ObjectProperty ;
+    rdfs:label "has problem"@en ;
+    rdfs:comment "Links a constraint to the problem it constrains."@en ;
+    rdfs:domain mexo:Constraint ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasConstraint .
+
+mexo:hasProblemInstance a owl:ObjectProperty ;
+    rdfs:label "has problem instance"@en ;
+    rdfs:comment "Links a general optimization problem to one of its concrete instances."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:ProblemInstance ;
+    owl:inverseOf mexo:instanceOfProblem .
+
+mexo:hasResult a owl:ObjectProperty ;
+    rdfs:label "has result"@en ;
+    rdfs:comment "Associates an experiment with an aggregate or run-level performance result."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:PerformanceResult ;
+    owl:inverseOf mexo:resultOfExperiment .
+
+mexo:hasRun a owl:ObjectProperty ;
+    rdfs:label "has run"@en ;
+    rdfs:comment "Links an experiment to one of its executions."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:Run ;
+    owl:inverseOf mexo:runOfExperiment .
+
+mexo:hasSearchSpace a owl:ObjectProperty ;
+    rdfs:label "has search space"@en ;
+    rdfs:comment "Associates a problem with its search space."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:SearchSpace ;
+    owl:inverseOf mexo:searchSpaceOfProblem .
+
+mexo:hasSetting a owl:ObjectProperty ;
+    rdfs:label "has setting"@en ;
+    rdfs:comment "Links a parameter definition to a parameter setting that instantiates it."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:ParameterSetting ;
+    owl:inverseOf mexo:forParameter .
+
+mexo:hasStoppingCriterion a owl:ObjectProperty ;
+    rdfs:label "has stopping criterion"@en ;
+    rdfs:comment "Associates an experiment with a stopping criterion."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:StoppingCriterion ;
+    owl:inverseOf mexo:stoppingCriterionOfExperiment .
+
+mexo:hasStudySource owl:inverseOf mexo:sourceOfAlgorithm .
+
+mexo:instanceOfProblem a owl:ObjectProperty ;
+    rdfs:label "instance of problem"@en ;
+    rdfs:comment "Links a concrete problem instance to its general benchmark problem definition."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasProblemInstance .
+
+mexo:instanceTargetedByExperiment a owl:ObjectProperty ;
+    rdfs:label "instance targeted by experiment"@en ;
+    rdfs:comment "Links a problem instance to an experiment that evaluates it."@en ;
+    rdfs:domain mexo:ProblemInstance ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:targetsInstance .
+
+mexo:objectiveFunctionOfProblem a owl:ObjectProperty ;
+    rdfs:label "objective function of problem"@en ;
+    rdfs:comment "Links an objective function to an optimization problem it defines."@en ;
+    rdfs:domain mexo:ObjectiveFunction ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasObjectiveFunction .
+
+mexo:parameterDefinitionOfAlgorithm a owl:ObjectProperty ;
+    rdfs:label "parameter definition of algorithm"@en ;
+    rdfs:comment "Links a reusable parameter definition to the algorithm that declares it."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:hasParameterDefinition .
+
+mexo:parameterSettingOfConfiguration a owl:ObjectProperty ;
+    rdfs:label "parameter setting of configuration"@en ;
+    rdfs:comment "Links a parameter setting to the algorithm configuration that contains it."@en ;
+    rdfs:domain mexo:ParameterSetting ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:hasParameterSetting .
+
+mexo:parameterType a owl:ObjectProperty ;
+    rdfs:label "parameter type"@en ;
+    rdfs:comment "Associates a parameter definition with its type."@en ;
+    rdfs:domain mexo:ParameterDefinition ;
+    rdfs:range mexo:ParameterType ;
+    owl:inverseOf mexo:typeOfParameterDefinition .
+
+mexo:problemTargetedByExperiment a owl:ObjectProperty ;
+    rdfs:label "problem targeted by experiment"@en ;
+    rdfs:comment "Links an optimization problem to an experiment that addresses it."@en ;
+    rdfs:domain mexo:OptimizationProblem ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:targetsProblem .
+
+mexo:producedByRun a owl:ObjectProperty ;
+    rdfs:label "produced by run"@en ;
+    rdfs:comment "Links a result to the run that produced it."@en ;
+    rdfs:domain mexo:Result ;
+    rdfs:range mexo:Run ;
+    owl:inverseOf mexo:producesResult .
+
+mexo:producesResult a owl:ObjectProperty ;
+    rdfs:label "produces result"@en ;
+    rdfs:comment "Links a run to a result it produced."@en ;
+    rdfs:domain mexo:Run ;
+    rdfs:range mexo:Result ;
+    owl:inverseOf mexo:producedByRun .
+
+mexo:representationUsedByAlgorithm a owl:ObjectProperty ;
+    rdfs:label "representation used by algorithm"@en ;
+    rdfs:comment "Links a representation to an algorithm that operates on it."@en ;
+    rdfs:domain mexo:Representation ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:usesRepresentation .
+
+mexo:resultOfExperiment a owl:ObjectProperty ;
+    rdfs:label "result of experiment"@en ;
+    rdfs:comment "Links a performance result to the experiment that produced or aggregated it."@en ;
+    rdfs:domain mexo:PerformanceResult ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasResult .
+
+mexo:runOfExperiment a owl:ObjectProperty ;
+    rdfs:label "run of experiment"@en ;
+    rdfs:comment "Links a run to the experiment of which it is an execution."@en ;
+    rdfs:domain mexo:Run ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasRun .
+
+mexo:searchSpaceOfProblem a owl:ObjectProperty ;
+    rdfs:label "search space of problem"@en ;
+    rdfs:comment "Links a search space to an optimization problem defined over it."@en ;
+    rdfs:domain mexo:SearchSpace ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:hasSearchSpace .
+
+mexo:sourceOfAlgorithm a owl:ObjectProperty ;
+    rdfs:label "source of algorithm"@en ;
+    rdfs:comment "Links a source study to an algorithm described or reported by it."@en ;
+    rdfs:domain mexo:SourceStudy ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:hasStudySource .
+
+mexo:stoppingCriterionOfExperiment a owl:ObjectProperty ;
+    rdfs:label "stopping criterion of experiment"@en ;
+    rdfs:comment "Links a stopping criterion to the experiment governed by it."@en ;
+    rdfs:domain mexo:StoppingCriterion ;
+    rdfs:range mexo:Experiment ;
+    owl:inverseOf mexo:hasStoppingCriterion .
+
+mexo:targetsInstance a owl:ObjectProperty ;
+    rdfs:label "targets problem instance"@en ;
+    rdfs:comment "Links an experiment to the concrete problem instance evaluated."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:ProblemInstance ;
+    owl:inverseOf mexo:instanceTargetedByExperiment .
+
+mexo:targetsProblem a owl:ObjectProperty ;
+    rdfs:label "targets problem"@en ;
+    rdfs:comment "Links an experiment to the optimization problem it addresses."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:OptimizationProblem ;
+    owl:inverseOf mexo:problemTargetedByExperiment .
+
+mexo:typeOfParameterDefinition a owl:ObjectProperty ;
+    rdfs:label "type of parameter definition"@en ;
+    rdfs:comment "Links a parameter type to a parameter definition classified by that type."@en ;
+    rdfs:domain mexo:ParameterType ;
+    rdfs:range mexo:ParameterDefinition ;
+    owl:inverseOf mexo:parameterType .
+
+mexo:usesAlgorithm a owl:ObjectProperty ;
+    rdfs:label "uses algorithm"@en ;
+    rdfs:comment "Directly links an experiment to the algorithm being evaluated."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:MetaheuristicAlgorithm ;
+    owl:inverseOf mexo:algorithmUsedByExperiment .
+
+mexo:usesConfiguration a owl:ObjectProperty ;
+    rdfs:label "uses configuration"@en ;
+    rdfs:comment "Links an experiment to the concrete algorithm configuration it uses."@en ;
+    rdfs:domain mexo:Experiment ;
+    rdfs:range mexo:AlgorithmConfiguration ;
+    owl:inverseOf mexo:configurationUsedByExperiment .
+
+mexo:usesRepresentation a owl:ObjectProperty ;
+    rdfs:label "uses representation"@en ;
+    rdfs:comment "Declares the representation on which an algorithm operates."@en ;
+    rdfs:domain mexo:MetaheuristicAlgorithm ;
+    rdfs:range mexo:Representation ;
+    owl:inverseOf mexo:representationUsedByAlgorithm .
+
+skos:Concept rdfs:label "Concept"@en ;
+    rdfs:comment "A unit of thought represented in a knowledge organization system."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> .
+
+mexo:ConstraintType a owl:Class ;
+    rdfs:label "Constraint type"@en ;
+    rdfs:comment "A controlled category of optimization constraint."@en .
+
+mexo:ObjectiveFunction a owl:Class ;
+    rdfs:label "Objective function"@en ;
+    rdfs:comment "A function that maps candidate solutions to objective values."@en .
+
+mexo:Parameter a owl:Class ;
+    rdfs:label "Parameter"@en ;
+    rdfs:comment "General parameter concept retained as a superclass for compatibility."@en .
+
+mexo:ParameterType a owl:Class ;
+    rdfs:label "Parameter type"@en ;
+    rdfs:comment "A controlled type used to characterize a parameter definition."@en .
+
+mexo:SearchSpace a owl:Class ;
+    rdfs:label "Search space"@en ;
+    rdfs:comment "The domain of candidate solutions."@en .
+
+mexo:Representation a owl:Class ;
+    rdfs:label "Representation"@en ;
+    rdfs:comment "A representation used to encode candidate solutions."@en .
+
+mexo:Result a owl:Class ;
+    rdfs:label "Result"@en ;
+    rdfs:comment "An output produced by an experiment or run."@en .
+
+mexo:ParameterSetting a owl:Class ;
+    rdfs:label "Parameter setting"@en ;
+    rdfs:comment "A parameter value assigned within a specific algorithm configuration."@en ;
+    rdfs:subClassOf mexo:Parameter ;
+    owl:disjointWith mexo:ParameterDefinition .
+
+mexo:Run a owl:Class ;
+    rdfs:label "Run"@en ;
+    rdfs:comment "One execution within an experiment."@en .
+
+mexo:SourceStudy a owl:Class ;
+    rdfs:label "Source study"@en ;
+    rdfs:comment "A bibliographic source from which experiment configurations, benchmark definitions, or reported results are extracted."@en ;
+    rdfs:subClassOf dcterms:BibliographicResource .
+
+mexo:ComputationalBudget a owl:Class ;
+    rdfs:label "Computational budget"@en ;
+    rdfs:comment "A limit on computational resources available to an experiment."@en .
+
+mexo:Constraint a owl:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:comment "A condition restricting feasible solutions."@en .
+
+mexo:ProblemInstance a owl:Class ;
+    rdfs:label "Problem instance"@en ;
+    rdfs:comment "A concrete dimensional or otherwise parameterized instance of an optimization problem."@en ;
+    rdfs:subClassOf mexo:OptimizationProblem .
+
+mexo:StoppingCriterion a owl:Class ;
+    rdfs:label "Stopping criterion"@en ;
+    rdfs:comment "A rule determining when an experiment should stop."@en .
+
+mexo:AlgorithmConfiguration a owl:Class ;
+    rdfs:label "Algorithm configuration"@en ;
+    rdfs:comment "A concrete configuration of an algorithm used by an experiment."@en .
+
+mexo:ProblemCharacteristic a owl:Class ;
+    rdfs:label "Problem characteristic"@en ;
+    rdfs:comment "A controlled characteristic used to describe an optimization problem, such as modality or separability."@en .
+
+mexo:MetaheuristicAlgorithm a owl:Class ;
+    rdfs:label "Metaheuristic algorithm"@en ;
+    rdfs:comment "A reusable metaheuristic method represented as a SKOS concept."@en ;
+    rdfs:subClassOf skos:Concept .
+
+mexo:ParameterDefinition a owl:Class ;
+    rdfs:label "Parameter definition"@en ;
+    rdfs:comment "A reusable definition of an algorithm parameter."@en ;
+    rdfs:subClassOf mexo:Parameter .
+
+mexo:PerformanceResult a owl:Class ;
+    rdfs:label "Performance result"@en ;
+    rdfs:comment "An aggregate or run-level result reporting optimization performance measurements."@en ;
+    rdfs:subClassOf mexo:Result .
+
+mexo:OptimizationProblem a owl:Class ;
+    rdfs:label "Optimization problem"@en ;
+    rdfs:comment "An optimization task defined by an objective function and a search space."@en .
+
+mexo:Experiment a owl:Class ;
+    rdfs:label "Experiment"@en ;
+    rdfs:comment "A planned execution of an algorithm on a problem under a defined configuration."@en .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( mexo:Experiment mexo:Run mexo:AlgorithmConfiguration mexo:Parameter mexo:ComputationalBudget mexo:StoppingCriterion mexo:OptimizationProblem mexo:Constraint mexo:ObjectiveFunction mexo:SearchSpace mexo:Representation mexo:Result mexo:SourceStudy mexo:ProblemCharacteristic mexo:ConstraintType mexo:ParameterType mexo:MetaheuristicFamily ) .
+

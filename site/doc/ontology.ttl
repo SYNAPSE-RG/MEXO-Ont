@@ -1,0 +1,1730 @@
+@prefix : <https://w3id.org/mexo/MEXO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/mexo/MEXO#> .
+
+<https://w3id.org/mexo/MEXO> rdf:type owl:Ontology ;
+                              <http://purl.org/dc/terms/created> "2026-07-30"^^xsd:date ;
+                              <http://purl.org/dc/terms/description> "OWL ontology for representing metaheuristic algorithms, benchmark problems and instances, experiment configurations, parameters, computational budgets, stopping criteria, and aggregate performance results."@en ;
+                              <http://purl.org/dc/terms/hasPart> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                              <http://purl.org/dc/terms/modified> "2026-09-01"^^xsd:date ;
+                              <http://purl.org/dc/terms/title> "MEXO — Metaheuristic Experiment Ontology"@en ;
+                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "mexo" ;
+                              <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/mexo/> ;
+                              owl:versionInfo "5.2.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/hasPart
+<http://purl.org/dc/terms/hasPart> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/isPartOf
+<http://purl.org/dc/terms/isPartOf> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#topConceptOf
+<http://www.w3.org/2004/02/skos/core#topConceptOf> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/mexo/algorithmUsedByExperiment
+<https://w3id.org/mexo/algorithmUsedByExperiment> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                  rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                                  rdfs:comment "Links an algorithm to an experiment that evaluates it."@en ;
+                                                  rdfs:label "algorithm used by experiment"@en .
+
+
+###  https://w3id.org/mexo/budgetOfExperiment
+<https://w3id.org/mexo/budgetOfExperiment> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <https://w3id.org/mexo/hasBudget> ;
+                                           rdfs:domain <https://w3id.org/mexo/ComputationalBudget> ;
+                                           rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                           rdfs:comment "Links a computational budget to the experiment constrained by it."@en ;
+                                           rdfs:label "budget of experiment"@en .
+
+
+###  https://w3id.org/mexo/characteristicOfProblem
+<https://w3id.org/mexo/characteristicOfProblem> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <https://w3id.org/mexo/hasCharacteristic> ;
+                                                rdfs:domain <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                                rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                                rdfs:comment "Links a controlled characteristic to an optimization problem it describes."@en ;
+                                                rdfs:label "characteristic of problem"@en .
+
+
+###  https://w3id.org/mexo/configurationUsedByExperiment
+<https://w3id.org/mexo/configurationUsedByExperiment> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                                      rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                                      rdfs:comment "Links an algorithm configuration to an experiment that uses it."@en ;
+                                                      rdfs:label "configuration used by experiment"@en .
+
+
+###  https://w3id.org/mexo/configuredBy
+<https://w3id.org/mexo/configuredBy> rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf <https://w3id.org/mexo/configuresAlgorithm> ;
+                                     rdfs:domain <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                     rdfs:range <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                     rdfs:comment "Links an algorithm to a configuration that configures it."@en ;
+                                     rdfs:label "configured by"@en .
+
+
+###  https://w3id.org/mexo/configuresAlgorithm
+<https://w3id.org/mexo/configuresAlgorithm> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                            rdfs:range <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            rdfs:comment "Links an algorithm configuration to the algorithm it configures."@en ;
+                                            rdfs:label "configures algorithm"@en .
+
+
+###  https://w3id.org/mexo/constraintTypeOf
+<https://w3id.org/mexo/constraintTypeOf> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <https://w3id.org/mexo/ConstraintType> ;
+                                         rdfs:range <https://w3id.org/mexo/Constraint> ;
+                                         rdfs:comment "Links a constraint type to a constraint classified by that type."@en ;
+                                         rdfs:label "constraint type of"@en .
+
+
+###  https://w3id.org/mexo/forParameter
+<https://w3id.org/mexo/forParameter> rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf <https://w3id.org/mexo/hasSetting> ;
+                                     rdfs:domain <https://w3id.org/mexo/ParameterSetting> ;
+                                     rdfs:range <https://w3id.org/mexo/ParameterDefinition> ;
+                                     rdfs:comment "Links a parameter setting to the parameter definition it instantiates."@en ;
+                                     rdfs:label "for parameter"@en .
+
+
+###  https://w3id.org/mexo/hasBudget
+<https://w3id.org/mexo/hasBudget> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                  rdfs:range <https://w3id.org/mexo/ComputationalBudget> ;
+                                  rdfs:comment "Associates an experiment with its computational resource budget."@en ;
+                                  rdfs:label "has computational budget"@en .
+
+
+###  https://w3id.org/mexo/hasCharacteristic
+<https://w3id.org/mexo/hasCharacteristic> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                          rdfs:range <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                          rdfs:comment "Associates an optimization problem with a controlled characteristic."@en ;
+                                          rdfs:label "has problem characteristic"@en .
+
+
+###  https://w3id.org/mexo/hasConstraint
+<https://w3id.org/mexo/hasConstraint> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/mexo/hasProblem> ;
+                                      rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                      rdfs:range <https://w3id.org/mexo/Constraint> ;
+                                      rdfs:comment "Associates a problem with a constraint."@en ;
+                                      rdfs:label "has constraint"@en .
+
+
+###  https://w3id.org/mexo/hasConstraintType
+<https://w3id.org/mexo/hasConstraintType> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <https://w3id.org/mexo/constraintTypeOf> ;
+                                          rdfs:domain <https://w3id.org/mexo/Constraint> ;
+                                          rdfs:range <https://w3id.org/mexo/ConstraintType> ;
+                                          rdfs:comment "Associates a constraint with its type."@en ;
+                                          rdfs:label "has constraint type"@en .
+
+
+###  https://w3id.org/mexo/hasObjectiveFunction
+<https://w3id.org/mexo/hasObjectiveFunction> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                             rdfs:range <https://w3id.org/mexo/ObjectiveFunction> ;
+                                             rdfs:comment "Associates a problem with its objective function."@en ;
+                                             rdfs:label "has objective function"@en .
+
+
+###  https://w3id.org/mexo/hasParameterDefinition
+<https://w3id.org/mexo/hasParameterDefinition> rdf:type owl:ObjectProperty ;
+                                               owl:inverseOf <https://w3id.org/mexo/parameterDefinitionOfAlgorithm> ;
+                                               rdfs:domain <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                               rdfs:range <https://w3id.org/mexo/ParameterDefinition> ;
+                                               rdfs:comment "Links an algorithm to a reusable parameter definition."@en ;
+                                               rdfs:label "has parameter definition"@en .
+
+
+###  https://w3id.org/mexo/hasParameterSetting
+<https://w3id.org/mexo/hasParameterSetting> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                            rdfs:range <https://w3id.org/mexo/ParameterSetting> ;
+                                            rdfs:comment "Links a configuration to a concrete parameter setting."@en ;
+                                            rdfs:label "has parameter setting"@en .
+
+
+###  https://w3id.org/mexo/hasProblem
+<https://w3id.org/mexo/hasProblem> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://w3id.org/mexo/Constraint> ;
+                                   rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                   rdfs:comment "Links a constraint to the problem it constrains."@en ;
+                                   rdfs:label "has problem"@en .
+
+
+###  https://w3id.org/mexo/hasProblemInstance
+<https://w3id.org/mexo/hasProblemInstance> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                           rdfs:range <https://w3id.org/mexo/ProblemInstance> ;
+                                           rdfs:comment "Links a general optimization problem to one of its concrete instances."@en ;
+                                           rdfs:label "has problem instance"@en .
+
+
+###  https://w3id.org/mexo/hasResult
+<https://w3id.org/mexo/hasResult> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                  rdfs:range <https://w3id.org/mexo/PerformanceResult> ;
+                                  rdfs:comment "Associates an experiment with an aggregate or run-level performance result."@en ;
+                                  rdfs:label "has result"@en .
+
+
+###  https://w3id.org/mexo/hasRun
+<https://w3id.org/mexo/hasRun> rdf:type owl:ObjectProperty ;
+                               owl:inverseOf <https://w3id.org/mexo/runOfExperiment> ;
+                               rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                               rdfs:range <https://w3id.org/mexo/Run> ;
+                               rdfs:comment "Links an experiment to one of its executions."@en ;
+                               rdfs:label "has run"@en .
+
+
+###  https://w3id.org/mexo/hasSearchSpace
+<https://w3id.org/mexo/hasSearchSpace> rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf <https://w3id.org/mexo/searchSpaceOfProblem> ;
+                                       rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                       rdfs:range <https://w3id.org/mexo/SearchSpace> ;
+                                       rdfs:comment "Associates a problem with its search space."@en ;
+                                       rdfs:label "has search space"@en .
+
+
+###  https://w3id.org/mexo/hasSetting
+<https://w3id.org/mexo/hasSetting> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://w3id.org/mexo/ParameterDefinition> ;
+                                   rdfs:range <https://w3id.org/mexo/ParameterSetting> ;
+                                   rdfs:comment "Links a parameter definition to a parameter setting that instantiates it."@en ;
+                                   rdfs:label "has setting"@en .
+
+
+###  https://w3id.org/mexo/hasStoppingCriterion
+<https://w3id.org/mexo/hasStoppingCriterion> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                             rdfs:range <https://w3id.org/mexo/StoppingCriterion> ;
+                                             rdfs:comment "Associates an experiment with a stopping criterion."@en ;
+                                             rdfs:label "has stopping criterion"@en .
+
+
+###  https://w3id.org/mexo/hasStudySource
+<https://w3id.org/mexo/hasStudySource> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/mexo/instanceOfProblem
+<https://w3id.org/mexo/instanceOfProblem> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <https://w3id.org/mexo/hasProblemInstance> ;
+                                          rdfs:domain <https://w3id.org/mexo/ProblemInstance> ;
+                                          rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                          rdfs:comment "Links a concrete problem instance to its general benchmark problem definition."@en ;
+                                          rdfs:label "instance of problem"@en .
+
+
+###  https://w3id.org/mexo/instanceTargetedByExperiment
+<https://w3id.org/mexo/instanceTargetedByExperiment> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <https://w3id.org/mexo/ProblemInstance> ;
+                                                     rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                                     rdfs:comment "Links a problem instance to an experiment that evaluates it."@en ;
+                                                     rdfs:label "instance targeted by experiment"@en .
+
+
+###  https://w3id.org/mexo/objectiveFunctionOfProblem
+<https://w3id.org/mexo/objectiveFunctionOfProblem> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://w3id.org/mexo/hasObjectiveFunction> ;
+                                                   rdfs:domain <https://w3id.org/mexo/ObjectiveFunction> ;
+                                                   rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                                   rdfs:comment "Links an objective function to an optimization problem it defines."@en ;
+                                                   rdfs:label "objective function of problem"@en .
+
+
+###  https://w3id.org/mexo/parameterDefinitionOfAlgorithm
+<https://w3id.org/mexo/parameterDefinitionOfAlgorithm> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <https://w3id.org/mexo/ParameterDefinition> ;
+                                                       rdfs:range <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                       rdfs:comment "Links a reusable parameter definition to the algorithm that declares it."@en ;
+                                                       rdfs:label "parameter definition of algorithm"@en .
+
+
+###  https://w3id.org/mexo/parameterSettingOfConfiguration
+<https://w3id.org/mexo/parameterSettingOfConfiguration> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf <https://w3id.org/mexo/hasParameterSetting> ;
+                                                        rdfs:domain <https://w3id.org/mexo/ParameterSetting> ;
+                                                        rdfs:range <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                                        rdfs:comment "Links a parameter setting to the algorithm configuration that contains it."@en ;
+                                                        rdfs:label "parameter setting of configuration"@en .
+
+
+###  https://w3id.org/mexo/parameterType
+<https://w3id.org/mexo/parameterType> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/mexo/typeOfParameterDefinition> ;
+                                      rdfs:domain <https://w3id.org/mexo/ParameterDefinition> ;
+                                      rdfs:range <https://w3id.org/mexo/ParameterType> ;
+                                      rdfs:comment "Associates a parameter definition with its type."@en ;
+                                      rdfs:label "parameter type"@en .
+
+
+###  https://w3id.org/mexo/problemTargetedByExperiment
+<https://w3id.org/mexo/problemTargetedByExperiment> rdf:type owl:ObjectProperty ;
+                                                    owl:inverseOf <https://w3id.org/mexo/targetsProblem> ;
+                                                    rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                                    rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                                    rdfs:comment "Links an optimization problem to an experiment that addresses it."@en ;
+                                                    rdfs:label "problem targeted by experiment"@en .
+
+
+###  https://w3id.org/mexo/producedByRun
+<https://w3id.org/mexo/producedByRun> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/mexo/producesResult> ;
+                                      rdfs:domain <https://w3id.org/mexo/Result> ;
+                                      rdfs:range <https://w3id.org/mexo/Run> ;
+                                      rdfs:comment "Links a result to the run that produced it."@en ;
+                                      rdfs:label "produced by run"@en .
+
+
+###  https://w3id.org/mexo/producesResult
+<https://w3id.org/mexo/producesResult> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <https://w3id.org/mexo/Run> ;
+                                       rdfs:range <https://w3id.org/mexo/Result> ;
+                                       rdfs:comment "Links a run to a result it produced."@en ;
+                                       rdfs:label "produces result"@en .
+
+
+###  https://w3id.org/mexo/representationUsedByAlgorithm
+<https://w3id.org/mexo/representationUsedByAlgorithm> rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf <https://w3id.org/mexo/usesRepresentation> ;
+                                                      rdfs:domain <https://w3id.org/mexo/Representation> ;
+                                                      rdfs:range <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                      rdfs:comment "Links a representation to an algorithm that operates on it."@en ;
+                                                      rdfs:label "representation used by algorithm"@en .
+
+
+###  https://w3id.org/mexo/resultOfExperiment
+<https://w3id.org/mexo/resultOfExperiment> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <https://w3id.org/mexo/hasResult> ;
+                                           rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                           rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                           rdfs:comment "Links a performance result to the experiment that produced or aggregated it."@en ;
+                                           rdfs:label "result of experiment"@en .
+
+
+###  https://w3id.org/mexo/runOfExperiment
+<https://w3id.org/mexo/runOfExperiment> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/mexo/Run> ;
+                                        rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                        rdfs:comment "Links a run to the experiment of which it is an execution."@en ;
+                                        rdfs:label "run of experiment"@en .
+
+
+###  https://w3id.org/mexo/searchSpaceOfProblem
+<https://w3id.org/mexo/searchSpaceOfProblem> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <https://w3id.org/mexo/SearchSpace> ;
+                                             rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                             rdfs:comment "Links a search space to an optimization problem defined over it."@en ;
+                                             rdfs:label "search space of problem"@en .
+
+
+###  https://w3id.org/mexo/sourceOfAlgorithm
+<https://w3id.org/mexo/sourceOfAlgorithm> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <https://w3id.org/mexo/hasStudySource> ;
+                                          rdfs:domain <https://w3id.org/mexo/SourceStudy> ;
+                                          rdfs:range <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                          rdfs:comment "Links a source study to an algorithm described or reported by it."@en ;
+                                          rdfs:label "source of algorithm"@en .
+
+
+###  https://w3id.org/mexo/stoppingCriterionOfExperiment
+<https://w3id.org/mexo/stoppingCriterionOfExperiment> rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf <https://w3id.org/mexo/hasStoppingCriterion> ;
+                                                      rdfs:domain <https://w3id.org/mexo/StoppingCriterion> ;
+                                                      rdfs:range <https://w3id.org/mexo/Experiment> ;
+                                                      rdfs:comment "Links a stopping criterion to the experiment governed by it."@en ;
+                                                      rdfs:label "stopping criterion of experiment"@en .
+
+
+###  https://w3id.org/mexo/targetsInstance
+<https://w3id.org/mexo/targetsInstance> rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf <https://w3id.org/mexo/instanceTargetedByExperiment> ;
+                                        rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                        rdfs:range <https://w3id.org/mexo/ProblemInstance> ;
+                                        rdfs:comment "Links an experiment to the concrete problem instance evaluated."@en ;
+                                        rdfs:label "targets problem instance"@en .
+
+
+###  https://w3id.org/mexo/targetsProblem
+<https://w3id.org/mexo/targetsProblem> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                       rdfs:range <https://w3id.org/mexo/OptimizationProblem> ;
+                                       rdfs:comment "Links an experiment to the optimization problem it addresses."@en ;
+                                       rdfs:label "targets problem"@en .
+
+
+###  https://w3id.org/mexo/typeOfParameterDefinition
+<https://w3id.org/mexo/typeOfParameterDefinition> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <https://w3id.org/mexo/ParameterType> ;
+                                                  rdfs:range <https://w3id.org/mexo/ParameterDefinition> ;
+                                                  rdfs:comment "Links a parameter type to a parameter definition classified by that type."@en ;
+                                                  rdfs:label "type of parameter definition"@en .
+
+
+###  https://w3id.org/mexo/usesAlgorithm
+<https://w3id.org/mexo/usesAlgorithm> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <https://w3id.org/mexo/algorithmUsedByExperiment> ;
+                                      rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                      rdfs:range <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                      rdfs:comment "Directly links an experiment to the algorithm being evaluated."@en ;
+                                      rdfs:label "uses algorithm"@en .
+
+
+###  https://w3id.org/mexo/usesConfiguration
+<https://w3id.org/mexo/usesConfiguration> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <https://w3id.org/mexo/configurationUsedByExperiment> ;
+                                          rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                          rdfs:range <https://w3id.org/mexo/AlgorithmConfiguration> ;
+                                          rdfs:comment "Links an experiment to the concrete algorithm configuration it uses."@en ;
+                                          rdfs:label "uses configuration"@en .
+
+
+###  https://w3id.org/mexo/usesRepresentation
+<https://w3id.org/mexo/usesRepresentation> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           rdfs:range <https://w3id.org/mexo/Representation> ;
+                                           rdfs:comment "Declares the representation on which an algorithm operates."@en ;
+                                           rdfs:label "uses representation"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/mexo/bestFitness
+<https://w3id.org/mexo/bestFitness> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                    rdfs:range xsd:decimal ;
+                                    rdfs:comment "Best objective value reported for the result."@en ;
+                                    rdfs:label "best fitness"@en .
+
+
+###  https://w3id.org/mexo/dimension
+<https://w3id.org/mexo/dimension> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://w3id.org/mexo/ProblemInstance> ;
+                                  rdfs:range xsd:integer ;
+                                  rdfs:comment "Number of decision variables in a concrete problem instance."@en ;
+                                  rdfs:label "problem dimension"@en .
+
+
+###  https://w3id.org/mexo/doi
+<https://w3id.org/mexo/doi> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <https://w3id.org/mexo/SourceStudy> ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Digital Object Identifier of a source study."@en ;
+                            rdfs:label "DOI"@en .
+
+
+###  https://w3id.org/mexo/evaluationCount
+<https://w3id.org/mexo/evaluationCount> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                        rdfs:range xsd:integer ;
+                                        rdfs:comment "Number of objective-function evaluations used or reported for the result."@en ;
+                                        rdfs:label "evaluation count"@en .
+
+
+###  https://w3id.org/mexo/fitnessStandardDeviation
+<https://w3id.org/mexo/fitnessStandardDeviation> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                                 rdfs:range xsd:decimal ;
+                                                 rdfs:comment "Standard deviation of reported fitness values."@en ;
+                                                 rdfs:label "fitness standard deviation"@en .
+
+
+###  https://w3id.org/mexo/fitnessStandardError
+<https://w3id.org/mexo/fitnessStandardError> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                             rdfs:range xsd:decimal ;
+                                             rdfs:comment "Standard error of the reported mean fitness."@en ;
+                                             rdfs:label "fitness standard error"@en .
+
+
+###  https://w3id.org/mexo/hasConstraintName
+<https://w3id.org/mexo/hasConstraintName> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <https://w3id.org/mexo/Constraint> ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:comment "Human-readable name of a constraint."@en ;
+                                          rdfs:label "constraint name"@en .
+
+
+###  https://w3id.org/mexo/knownOptimum
+<https://w3id.org/mexo/knownOptimum> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                     rdfs:range xsd:decimal ;
+                                     rdfs:comment "Known optimum objective value for a problem or problem instance."@en ;
+                                     rdfs:label "known optimum"@en .
+
+
+###  https://w3id.org/mexo/maxEvaluations
+<https://w3id.org/mexo/maxEvaluations> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain [ rdf:type owl:Class ;
+                                                     owl:unionOf ( <https://w3id.org/mexo/ComputationalBudget>
+                                                                   <https://w3id.org/mexo/StoppingCriterion>
+                                                                 )
+                                                   ] ;
+                                       rdfs:range xsd:integer ;
+                                       rdfs:comment "Maximum number of objective-function evaluations allowed."@en ;
+                                       rdfs:label "maximum evaluations"@en .
+
+
+###  https://w3id.org/mexo/maxIterations
+<https://w3id.org/mexo/maxIterations> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain [ rdf:type owl:Class ;
+                                                    owl:unionOf ( <https://w3id.org/mexo/ComputationalBudget>
+                                                                  <https://w3id.org/mexo/StoppingCriterion>
+                                                                )
+                                                  ] ;
+                                      rdfs:range xsd:integer ;
+                                      rdfs:comment "Maximum number of iterations allowed."@en ;
+                                      rdfs:label "maximum iterations"@en .
+
+
+###  https://w3id.org/mexo/meanFitness
+<https://w3id.org/mexo/meanFitness> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                    rdfs:range xsd:decimal ;
+                                    rdfs:comment "Mean objective value reported across runs."@en ;
+                                    rdfs:label "mean fitness"@en .
+
+
+###  https://w3id.org/mexo/numberOfRuns
+<https://w3id.org/mexo/numberOfRuns> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                     rdfs:range xsd:integer ;
+                                     rdfs:comment "Number of independent runs planned for an experiment."@en ;
+                                     rdfs:label "number of runs"@en .
+
+
+###  https://w3id.org/mexo/parameterName
+<https://w3id.org/mexo/parameterName> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <https://w3id.org/mexo/ParameterDefinition> ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment "Human-readable name of a parameter definition."@en ;
+                                      rdfs:label "parameter name"@en .
+
+
+###  https://w3id.org/mexo/parameterSymbol
+<https://w3id.org/mexo/parameterSymbol> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <https://w3id.org/mexo/ParameterDefinition> ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:comment "Short symbol identifying a parameter definition."@en ;
+                                        rdfs:label "parameter symbol"@en .
+
+
+###  https://w3id.org/mexo/parameterValue
+<https://w3id.org/mexo/parameterValue> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/mexo/ParameterSetting> ;
+                                       rdfs:range rdfs:Literal ;
+                                       rdfs:comment "Concrete value assigned by a parameter setting."@en ;
+                                       rdfs:label "parameter value"@en .
+
+
+###  https://w3id.org/mexo/randomSeed
+<https://w3id.org/mexo/randomSeed> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://w3id.org/mexo/Experiment> ;
+                                   rdfs:range xsd:integer ;
+                                   rdfs:comment "Seed used to initialize random number generation."@en ;
+                                   rdfs:label "random seed"@en .
+
+
+###  https://w3id.org/mexo/rank
+<https://w3id.org/mexo/rank> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                             rdfs:range xsd:integer ;
+                             rdfs:comment "Ordinal rank assigned to the result within its comparison group."@en ;
+                             rdfs:label "rank"@en .
+
+
+###  https://w3id.org/mexo/runtimeLimitSeconds
+<https://w3id.org/mexo/runtimeLimitSeconds> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <https://w3id.org/mexo/ComputationalBudget> ;
+                                            rdfs:range xsd:decimal ;
+                                            rdfs:comment "Maximum permitted runtime expressed in seconds."@en ;
+                                            rdfs:label "runtime limit in seconds"@en .
+
+
+###  https://w3id.org/mexo/runtimeSeconds
+<https://w3id.org/mexo/runtimeSeconds> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                       rdfs:range xsd:decimal ;
+                                       rdfs:comment "Observed runtime expressed in seconds."@en ;
+                                       rdfs:label "runtime in seconds"@en .
+
+
+###  https://w3id.org/mexo/searchRange
+<https://w3id.org/mexo/searchRange> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/mexo/OptimizationProblem> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "Textual representation of the search bounds reported by the source."@en ;
+                                    rdfs:label "search range"@en .
+
+
+###  https://w3id.org/mexo/sourceFile
+<https://w3id.org/mexo/sourceFile> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://w3id.org/mexo/SourceStudy> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "File name of a locally managed source document."@en ;
+                                   rdfs:label "source file"@en .
+
+
+###  https://w3id.org/mexo/sourceTable
+<https://w3id.org/mexo/sourceTable> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/mexo/SourceStudy> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "Table or section in the source study from which the statement was extracted."@en ;
+                                    rdfs:label "source table"@en .
+
+
+###  https://w3id.org/mexo/successRate
+<https://w3id.org/mexo/successRate> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                    rdfs:range xsd:decimal ;
+                                    rdfs:comment "Proportion or percentage of successful runs, as reported by the source."@en ;
+                                    rdfs:label "success rate"@en .
+
+
+###  https://w3id.org/mexo/tolerance
+<https://w3id.org/mexo/tolerance> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://w3id.org/mexo/StoppingCriterion> ;
+                                  rdfs:range xsd:decimal ;
+                                  rdfs:comment "Numerical tolerance used by a stopping criterion."@en ;
+                                  rdfs:label "stopping tolerance"@en .
+
+
+###  https://w3id.org/mexo/worstFitness
+<https://w3id.org/mexo/worstFitness> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://w3id.org/mexo/PerformanceResult> ;
+                                     rdfs:range xsd:decimal ;
+                                     rdfs:comment "Worst objective value reported for the result."@en ;
+                                     rdfs:label "worst fitness"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/dc/terms/BibliographicResource
+<http://purl.org/dc/terms/BibliographicResource> rdf:type owl:Class ;
+                                                 rdfs:comment "A book, article, document, or other resource that may be identified through a bibliographic reference."@en ;
+                                                 rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+                                                 rdfs:label "Bibliographic resource"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                              rdfs:comment "A unit of thought represented in a knowledge organization system."@en ;
+                                              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                                              rdfs:label "Concept"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class .
+
+
+###  https://w3id.org/mexo/AlgorithmConfiguration
+<https://w3id.org/mexo/AlgorithmConfiguration> rdf:type owl:Class ;
+                                               rdfs:comment "A concrete configuration of an algorithm used by an experiment."@en ;
+                                               rdfs:label "Algorithm configuration"@en .
+
+
+###  https://w3id.org/mexo/ComputationalBudget
+<https://w3id.org/mexo/ComputationalBudget> rdf:type owl:Class ;
+                                            rdfs:comment "A limit on computational resources available to an experiment."@en ;
+                                            rdfs:label "Computational budget"@en .
+
+
+###  https://w3id.org/mexo/Constraint
+<https://w3id.org/mexo/Constraint> rdf:type owl:Class ;
+                                   rdfs:comment "A condition restricting feasible solutions."@en ;
+                                   rdfs:label "Constraint"@en .
+
+
+###  https://w3id.org/mexo/ConstraintType
+<https://w3id.org/mexo/ConstraintType> rdf:type owl:Class ;
+                                       rdfs:comment "A controlled category of optimization constraint."@en ;
+                                       rdfs:label "Constraint type"@en .
+
+
+###  https://w3id.org/mexo/Experiment
+<https://w3id.org/mexo/Experiment> rdf:type owl:Class ;
+                                   rdfs:comment "A planned execution of an algorithm on a problem under a defined configuration."@en ;
+                                   rdfs:label "Experiment"@en .
+
+
+###  https://w3id.org/mexo/MetaheuristicAlgorithm
+<https://w3id.org/mexo/MetaheuristicAlgorithm> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                               rdfs:comment "A reusable metaheuristic method represented as a SKOS concept."@en ;
+                                               rdfs:label "Metaheuristic algorithm"@en .
+
+
+###  https://w3id.org/mexo/MetaheuristicFamily
+<https://w3id.org/mexo/MetaheuristicFamily> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                            rdfs:comment "A SKOS concept used to group related metaheuristic algorithms."@en ;
+                                            rdfs:label "Metaheuristic family"@en .
+
+
+###  https://w3id.org/mexo/NumericalBenchmarkFunction
+<https://w3id.org/mexo/NumericalBenchmarkFunction> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://w3id.org/mexo/OptimizationProblem> ;
+                                                   owl:disjointWith <https://w3id.org/mexo/ProblemInstance> ;
+                                                   rdfs:comment "A numerical optimization benchmark function used to compare algorithms."@en ;
+                                                   rdfs:label "Numerical benchmark function"@en .
+
+
+###  https://w3id.org/mexo/ObjectiveFunction
+<https://w3id.org/mexo/ObjectiveFunction> rdf:type owl:Class ;
+                                          rdfs:comment "A function that maps candidate solutions to objective values."@en ;
+                                          rdfs:label "Objective function"@en .
+
+
+###  https://w3id.org/mexo/OptimizationProblem
+<https://w3id.org/mexo/OptimizationProblem> rdf:type owl:Class ;
+                                            rdfs:comment "An optimization task defined by an objective function and a search space."@en ;
+                                            rdfs:label "Optimization problem"@en .
+
+
+###  https://w3id.org/mexo/Parameter
+<https://w3id.org/mexo/Parameter> rdf:type owl:Class ;
+                                  rdfs:comment "General parameter concept retained as a superclass for compatibility."@en ;
+                                  rdfs:label "Parameter"@en .
+
+
+###  https://w3id.org/mexo/ParameterDefinition
+<https://w3id.org/mexo/ParameterDefinition> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/mexo/Parameter> ;
+                                            owl:disjointWith <https://w3id.org/mexo/ParameterSetting> ;
+                                            rdfs:comment "A reusable definition of an algorithm parameter."@en ;
+                                            rdfs:label "Parameter definition"@en .
+
+
+###  https://w3id.org/mexo/ParameterSetting
+<https://w3id.org/mexo/ParameterSetting> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/mexo/Parameter> ;
+                                         rdfs:comment "A parameter value assigned within a specific algorithm configuration."@en ;
+                                         rdfs:label "Parameter setting"@en .
+
+
+###  https://w3id.org/mexo/ParameterType
+<https://w3id.org/mexo/ParameterType> rdf:type owl:Class ;
+                                      rdfs:comment "A controlled type used to characterize a parameter definition."@en ;
+                                      rdfs:label "Parameter type"@en .
+
+
+###  https://w3id.org/mexo/PerformanceResult
+<https://w3id.org/mexo/PerformanceResult> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/mexo/Result> ;
+                                          rdfs:comment "An aggregate or run-level result reporting optimization performance measurements."@en ;
+                                          rdfs:label "Performance result"@en .
+
+
+###  https://w3id.org/mexo/ProblemCharacteristic
+<https://w3id.org/mexo/ProblemCharacteristic> rdf:type owl:Class ;
+                                              rdfs:comment "A controlled characteristic used to describe an optimization problem, such as modality or separability."@en ;
+                                              rdfs:label "Problem characteristic"@en .
+
+
+###  https://w3id.org/mexo/ProblemInstance
+<https://w3id.org/mexo/ProblemInstance> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/mexo/OptimizationProblem> ;
+                                        rdfs:comment "A concrete dimensional or otherwise parameterized instance of an optimization problem."@en ;
+                                        rdfs:label "Problem instance"@en .
+
+
+###  https://w3id.org/mexo/Representation
+<https://w3id.org/mexo/Representation> rdf:type owl:Class ;
+                                       rdfs:comment "A representation used to encode candidate solutions."@en ;
+                                       rdfs:label "Representation"@en .
+
+
+###  https://w3id.org/mexo/Result
+<https://w3id.org/mexo/Result> rdf:type owl:Class ;
+                               rdfs:comment "An output produced by an experiment or run."@en ;
+                               rdfs:label "Result"@en .
+
+
+###  https://w3id.org/mexo/Run
+<https://w3id.org/mexo/Run> rdf:type owl:Class ;
+                            rdfs:comment "One execution within an experiment."@en ;
+                            rdfs:label "Run"@en .
+
+
+###  https://w3id.org/mexo/SearchSpace
+<https://w3id.org/mexo/SearchSpace> rdf:type owl:Class ;
+                                    rdfs:comment "The domain of candidate solutions."@en ;
+                                    rdfs:label "Search space"@en .
+
+
+###  https://w3id.org/mexo/SourceStudy
+<https://w3id.org/mexo/SourceStudy> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://purl.org/dc/terms/BibliographicResource> ;
+                                    rdfs:comment "A bibliographic source from which experiment configurations, benchmark definitions, or reported results are extracted."@en ;
+                                    rdfs:label "Source study"@en .
+
+
+###  https://w3id.org/mexo/StoppingCriterion
+<https://w3id.org/mexo/StoppingCriterion> rdf:type owl:Class ;
+                                          rdfs:comment "A rule determining when an experiment should stop."@en ;
+                                          rdfs:label "Stopping criterion"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/mexo/AntColonyOptimization
+<https://w3id.org/mexo/AntColonyOptimization> rdf:type owl:NamedIndividual ,
+                                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                              <http://purl.org/dc/terms/issued> "1996"^^xsd:gYear ;
+                                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "Stochastic constructive search inspired by pheromone-based foraging; solutions are built probabilistically and reinforced by pheromone updates. Reference: Dorigo, M., Maniezzo, V., & Colorni, A. (1996). The ant system: Optimization by a colony of cooperating agents. IEEE Transactions on Systems, Man, and Cybernetics—Part B, 26(1), 29–41."@en ;
+                                              <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Ant_colony_optimization_algorithms> ;
+                                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "Ant Colony Optimization (ACO) / Ant System"@en .
+
+
+###  https://w3id.org/mexo/AntLionOptimizer
+<https://w3id.org/mexo/AntLionOptimizer> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                  <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                         <http://purl.org/dc/terms/issued> "2015"^^xsd:gYear ;
+                                         <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2015.01.010> ;
+                                         <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm inspired by antlion hunting; ants perform random walks influenced by antlions (elite solutions). Reference: Mirjalili, S. (2015). The ant lion optimizer. Advances in Engineering Software, 83, 80–98. https://doi.org/10.1016/j.advengsoft.2015.01.010"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Ant Lion Optimizer (ALO)"@en .
+
+
+###  https://w3id.org/mexo/ArtificialBeeColony
+<https://w3id.org/mexo/ArtificialBeeColony> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                     <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            <http://purl.org/dc/terms/issued> "2007"^^xsd:gYear ;
+                                            <http://purl.org/dc/terms/source> <https://doi.org/10.1007/s10898-007-9149-x> ;
+                                            <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Bee-foraging inspired algorithm with employed, onlooker, and scout bees exploring and exploiting food sources (candidate solutions). Reference: Karaboga, D., & Basturk, B. (2007). A powerful and efficient algorithm for numerical function optimization: artificial bee colony (ABC) algorithm. Journal of Global Optimization, 39, 459–471. https://doi.org/10.1007/s10898-007-9149-x"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Artificial Bee Colony (ABC)"@en .
+
+
+###  https://w3id.org/mexo/ArtificialFishSwarmAlgorithm
+<https://w3id.org/mexo/ArtificialFishSwarmAlgorithm> rdf:type owl:NamedIndividual ,
+                                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                     <http://purl.org/dc/terms/issued> "2002"^^xsd:gYear ;
+                                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "Swarm intelligence method inspired by fish behaviors such as prey, swarm, follow, and random actions to explore the search space. Reference: Li, X.-L., Shao, Z.-J., & Qian, J.-X. (2002). An optimizing method based on autonomous animats: Fish-swarm algorithm. Systems Engineering—Theory & Practice, 22(11), 32–38."@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Artificial Fish Swarm Algorithm (AFSA)"@en .
+
+
+###  https://w3id.org/mexo/ArtificialImmuneNetwork
+<https://w3id.org/mexo/ArtificialImmuneNetwork> rdf:type owl:NamedIndividual ,
+                                                         <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                         <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                <http://purl.org/dc/terms/issued> "2002"^^xsd:gYear ;
+                                                <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Artificial immune network approach where antibodies are cloned, mutated, and suppressed to maintain diversity while optimizing. Reference: de Castro, L. N., & Von Zuben, F. J. (2002). aiNet: An artificial immune network for data analysis. In Data Mining: A Heuristic Approach (pp. 231–259). Idea Group Publishing."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Artificial Immune Network (opt-aiNet)"@en .
+
+
+###  https://w3id.org/mexo/BacterialForagingOptimization
+<https://w3id.org/mexo/BacterialForagingOptimization> rdf:type owl:NamedIndividual ,
+                                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                               <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                      <http://purl.org/dc/terms/issued> "2002"^^xsd:gYear ;
+                                                      <http://purl.org/dc/terms/source> <https://doi.org/10.1109/mcs.2002.1004010> ;
+                                                      <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "Optimization inspired by bacterial chemotaxis, reproduction, and elimination–dispersal behaviors. Reference: Passino, K. M. (2002). Biomimicry of bacterial foraging for distributed optimization and control. IEEE Control Systems Magazine, 22(3), 52–67. https://doi.org/10.1109/MCS.2002.1004010"@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Bacterial Foraging Optimization (BFOA)"@en .
+
+
+###  https://w3id.org/mexo/BatAlgorithm
+<https://w3id.org/mexo/BatAlgorithm> rdf:type owl:NamedIndividual ,
+                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                     <http://purl.org/dc/terms/issued> "2010"^^xsd:gYear ;
+                                     <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-3-642-12538-6_6> ;
+                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "Population-based algorithm inspired by bat echolocation, balancing frequency tuning, loudness, and pulse emission rate for exploration/exploitation. Reference: Yang, X.-S. (2010). A new metaheuristic bat-inspired algorithm. In J. R. González et al. (Eds.), Nature Inspired Cooperative Strategies for Optimization (NICSO 2010) (Studies in Computational Intelligence 284, pp. 65–74). Springer. https://doi.org/10.1007/978-3-642-12538-6_6"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Bat Algorithm (BA)"@en .
+
+
+###  https://w3id.org/mexo/BeesAlgorithm
+<https://w3id.org/mexo/BeesAlgorithm> rdf:type owl:NamedIndividual ,
+                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                               <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                      <http://purl.org/dc/terms/issued> "2005"^^xsd:gYear ;
+                                      <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Nature-inspired search where scout bees explore and recruit for neighborhood search around elite sites. Reference: Pham, D. T., Ghanbarzadeh, A., Koç, E., Otri, S., Rahim, S., & Zaidi, M. (2005). The bees algorithm. In Proceedings of the 2nd International Virtual Conference on Intelligent Production Machines and Systems (pp. 18–22)."@en ;
+                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Bees Algorithm"@en .
+
+
+###  https://w3id.org/mexo/BigBangBigCrunch
+<https://w3id.org/mexo/BigBangBigCrunch> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                  <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                         <http://purl.org/dc/terms/issued> "2006"^^xsd:gYear ;
+                                         <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2005.04.005> ;
+                                         <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "Optimization method alternating a random 'big bang' diversification phase with a 'big crunch' contraction toward a center of mass. Reference: Erol, O. K., & Eksin, I. (2006). A new optimization method: Big bang–big crunch. Advances in Engineering Software, 37(2), 106–111. https://doi.org/10.1016/j.advengsoft.2005.04.005"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Big Bang–Big Crunch (BB-BC)"@en .
+
+
+###  https://w3id.org/mexo/BioInspired
+<https://w3id.org/mexo/BioInspired> rdf:type owl:NamedIndividual ,
+                                             <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                             <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                    <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Biologically inspired (non-swarm) metaheuristics"@en ;
+                                    <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/BiogeographyBasedOptimization
+<https://w3id.org/mexo/BiogeographyBasedOptimization> rdf:type owl:NamedIndividual ,
+                                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                               <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                      <http://purl.org/dc/terms/issued> "2008"^^xsd:gYear ;
+                                                      <http://purl.org/dc/terms/source> <https://doi.org/10.1109/TEVC.2008.919004> ;
+                                                      <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "Evolutionary algorithm inspired by species migration between habitats, using migration and mutation operators. Reference: Simon, D. (2008). Biogeography-based optimization. IEEE Transactions on Evolutionary Computation, 12(6), 702–713. https://doi.org/10.1109/TEVC.2008.919004"@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Biogeography-based_optimization> ;
+                                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Biogeography-Based Optimization (BBO)"@en .
+
+
+###  https://w3id.org/mexo/BrainStormOptimization
+<https://w3id.org/mexo/BrainStormOptimization> rdf:type owl:NamedIndividual ,
+                                                        <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                        <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                               <http://purl.org/dc/terms/issued> "2011"^^xsd:gYear ;
+                                               <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-3-642-21515-5_36> ;
+                                               <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/HumanSocioInspired> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "Human-inspired optimization where ideas are clustered and recombined/mutated to generate new candidate solutions. Reference: Shi, Y. (2011). Brain storm optimization algorithm. In Y. Tan, Y. Shi, Y. Chai, & G. Wang (Eds.), Advances in Swarm Intelligence (ICSI 2011) (LNCS 6728, pp. 303–309). Springer. https://doi.org/10.1007/978-3-642-21515-5_36"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "Brain Storm Optimization (BSO)"@en .
+
+
+###  https://w3id.org/mexo/CMAES
+<https://w3id.org/mexo/CMAES> rdf:type owl:NamedIndividual ,
+                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                              <http://purl.org/dc/terms/issued> "2001"^^xsd:gYear ;
+                              <http://purl.org/dc/terms/source> <https://doi.org/10.1162/106365601750190398> ;
+                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "Evolution strategy that adapts a multivariate normal search distribution by updating its covariance matrix. Reference: Hansen, N., & Ostermeier, A. (2001). Completely derandomized self-adaptation in evolution strategies. Evolutionary Computation, 9(2), 159–195. https://doi.org/10.1162/106365601750190398"@en ;
+                              <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/CMA-ES> ;
+                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                              <http://www.w3.org/2004/02/skos/core#prefLabel> "CMA-ES (Covariance Matrix Adaptation Evolution Strategy)"@en .
+
+
+###  https://w3id.org/mexo/CentralForceOptimization
+<https://w3id.org/mexo/CentralForceOptimization> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                          <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                 <http://purl.org/dc/terms/issued> "2007"^^xsd:gYear ;
+                                                 <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Deterministic metaheuristic based on gravitational kinematics where probes accelerate toward better regions under a central force model. Reference: Formato, R. A. (2007). Central force optimization: A new deterministic gradient-like optimization metaheuristic. OPSEARCH, 44, 1–33."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Central Force Optimization (CFO)"@en .
+
+
+###  https://w3id.org/mexo/ChargedSystemSearch
+<https://w3id.org/mexo/ChargedSystemSearch> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                     <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            <http://purl.org/dc/terms/issued> "2010"^^xsd:gYear ;
+                                            <http://purl.org/dc/terms/source> <https://doi.org/10.1007/s00707-009-0270-4> ;
+                                            <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Physics-inspired multi-agent approach combining Coulomb’s law and Newtonian mechanics, where charged particles move under attraction/repulsion. Reference: Kaveh, A., & Talatahari, S. (2010). A novel heuristic optimization method: Charged system search. Acta Mechanica, 213, 267–289. https://doi.org/10.1007/s00707-009-0270-4"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Charged System Search (CSS)"@en .
+
+
+###  https://w3id.org/mexo/ChemicalReactionOptimization
+<https://w3id.org/mexo/ChemicalReactionOptimization> rdf:type owl:NamedIndividual ,
+                                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                     <http://purl.org/dc/terms/issued> "2010"^^xsd:gYear ;
+                                                     <http://purl.org/dc/terms/source> <https://doi.org/10.1109/CEC.2010.5586351> ;
+                                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "Metaheuristic inspired by chemical reactions where molecules undergo collisions and transformations to minimize system energy. Reference: Lam, A. Y. S., & Li, V. O. K. (2010). Chemical-reaction-inspired metaheuristic for optimization. In 2010 IEEE Congress on Evolutionary Computation (CEC) (pp. 1–8). IEEE. https://doi.org/10.1109/CEC.2010.5586351"@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Chemical Reaction Optimization (CRO)"@en .
+
+
+###  https://w3id.org/mexo/ClonalSelectionAlgorithm
+<https://w3id.org/mexo/ClonalSelectionAlgorithm> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                          <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                 <http://purl.org/dc/terms/issued> "2002"^^xsd:gYear ;
+                                                 <http://purl.org/dc/terms/source> <https://doi.org/10.1109/TEVC.2002.1011539> ;
+                                                 <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Artificial immune system algorithm using clonal selection, hypermutation, and selection to optimize or learn. Reference: de Castro, L. N., & von Zuben, F. J. (2002). Learning and optimization using the clonal selection principle. IEEE Transactions on Evolutionary Computation, 6(3), 239–251. https://doi.org/10.1109/TEVC.2002.1011539"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Clonal Selection Algorithm (CLONALG)"@en .
+
+
+###  https://w3id.org/mexo/CuckooSearch
+<https://w3id.org/mexo/CuckooSearch> rdf:type owl:NamedIndividual ,
+                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                     <http://purl.org/dc/terms/issued> "2009"^^xsd:gYear ;
+                                     <http://purl.org/dc/terms/source> <https://doi.org/10.1109/NABIC.2009.5393690> ;
+                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "Metaheuristic based on brood parasitism and Lévy flights, combining global exploration with local exploitation via selection and replacement. Reference: Yang, X.-S., & Deb, S. (2009). Cuckoo search via Lévy flights. In Proceedings of the World Congress on Nature & Biologically Inspired Computing (NaBIC 2009) (pp. 210–214). IEEE. https://doi.org/10.1109/NABIC.2009.5393690"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Cuckoo Search (CS)"@en .
+
+
+###  https://w3id.org/mexo/CulturalAlgorithm
+<https://w3id.org/mexo/CulturalAlgorithm> rdf:type owl:NamedIndividual ,
+                                                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                   <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                          <http://purl.org/dc/terms/issued> "1994"^^xsd:gYear ;
+                                          <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ,
+                                                                                        <https://w3id.org/mexo/HumanSocioInspired> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "Evolutionary framework that couples a population space with a belief space capturing acquired knowledge to guide search. Reference: Reynolds, R. G. (1994). An introduction to cultural algorithms. In Proceedings of the Third Annual Conference on Evolutionary Programming (pp. 131–139)."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Cultural Algorithm (CA)"@en .
+
+
+###  https://w3id.org/mexo/DifferentialEvolution
+<https://w3id.org/mexo/DifferentialEvolution> rdf:type owl:NamedIndividual ,
+                                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                              <http://purl.org/dc/terms/issued> "1997"^^xsd:gYear ;
+                                              <http://purl.org/dc/terms/source> <https://doi.org/10.1023/A:1008202821328> ;
+                                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "Real-valued evolutionary method that perturbs solutions by scaled differences of randomly selected population vectors. Reference: Storn, R., & Price, K. (1997). Differential evolution—A simple and efficient heuristic for global optimization over continuous spaces. Journal of Global Optimization, 11, 341–359. https://doi.org/10.1023/A:1008202821328"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Differential_evolution> ;
+                                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "Differential Evolution (DE)"@en .
+
+
+###  https://w3id.org/mexo/DragonflyAlgorithm
+<https://w3id.org/mexo/DragonflyAlgorithm> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           <http://purl.org/dc/terms/issued> "2016"^^xsd:gYear ;
+                                           <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2015.11.003> ;
+                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm inspired by dragonfly static/dynamic swarming behaviors using separation, alignment, cohesion, attraction, and distraction terms. Reference: Mirjalili, S. (2016). Dragonfly algorithm: A new meta-heuristic optimization technique for solving single-objective, discrete, and multi-objective problems. Neural Computing and Applications, 27, 1053–1073. https://doi.org/10.1007/s00521-015-1920-1"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Dragonfly Algorithm (DA)"@en .
+
+
+###  https://w3id.org/mexo/ElectromagnetismLikeMechanism
+<https://w3id.org/mexo/ElectromagnetismLikeMechanism> rdf:type owl:NamedIndividual ,
+                                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                               <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                      <http://purl.org/dc/terms/issued> "2003"^^xsd:gYear ;
+                                                      <http://purl.org/dc/terms/source> <https://doi.org/10.1023/A:1022452626305> ;
+                                                      <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "Population heuristic using attraction–repulsion forces between points based on their objective values to guide movement toward optima. Reference: Birbil, Ş. İ., & Fang, S. C. (2003). An electromagnetism-like mechanism for global optimization. Journal of Global Optimization, 25, 263–282. https://doi.org/10.1023/A:1022452626305"@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Electromagnetism-like Mechanism (EM)"@en .
+
+
+###  https://w3id.org/mexo/EstimationOfDistributionAlgorithms
+<https://w3id.org/mexo/EstimationOfDistributionAlgorithms> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                           <http://purl.org/dc/terms/issued> "1996"^^xsd:gYear ;
+                                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                                           <http://www.w3.org/2004/02/skos/core#definition> "Population-based optimization that replaces crossover/mutation with learning a probabilistic model of promising solutions and sampling from it. Reference: Mühlenbein, H., & Paaß, G. (1996). From recombination of genes to the estimation of distributions I. Binary parameters. In H.-M. Voigt et al. (Eds.), Parallel Problem Solving from Nature—PPSN IV (LNCS 1411, pp. 178–187). Springer."@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Estimation of Distribution Algorithms (EDA)"@en .
+
+
+###  https://w3id.org/mexo/EvolutionStrategies
+<https://w3id.org/mexo/EvolutionStrategies> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                     <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            <http://purl.org/dc/terms/issued> "1973"^^xsd:gYear ;
+                                            <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Evolutionary optimization framework emphasizing mutation and self-adaptation of strategy parameters. Reference: Rechenberg, I. (1973). Evolutionsstrategie: Optimierung technischer Systeme nach Prinzipien der biologischen Evolution. Frommann-Holzboog."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Evolution Strategies (ES)"@en .
+
+
+###  https://w3id.org/mexo/EvolutionaryComputation
+<https://w3id.org/mexo/EvolutionaryComputation> rdf:type owl:NamedIndividual ,
+                                                         <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                         <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                                <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Evolutionary computation metaheuristics"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/EvolutionaryProgramming
+<https://w3id.org/mexo/EvolutionaryProgramming> rdf:type owl:NamedIndividual ,
+                                                         <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                         <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                <http://purl.org/dc/terms/issued> "1966"^^xsd:gYear ;
+                                                <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Early evolutionary approach using mutation and selection over finite-state structures and later continuous representations. Reference: Fogel, L. J., Owens, A. J., & Walsh, M. J. (1966). Artificial Intelligence through Simulated Evolution. Wiley."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Evolutionary Programming (EP)"@en .
+
+
+###  https://w3id.org/mexo/FireflyAlgorithm
+<https://w3id.org/mexo/FireflyAlgorithm> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                  <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                         <http://purl.org/dc/terms/issued> "2009"^^xsd:gYear ;
+                                         <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-3-642-04944-6_14> ;
+                                         <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm where agents are attracted by brighter (better) solutions with attractiveness decreasing with distance. Reference: Yang, X.-S. (2009). Firefly algorithms for multimodal optimization. In O. Watanabe & T. Zeugmann (Eds.), Stochastic Algorithms: Foundations and Applications (SAGA 2009) (LNCS 5792, pp. 169–178). Springer. https://doi.org/10.1007/978-3-642-04944-6_14"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Firefly Algorithm (FA)"@en .
+
+
+###  https://w3id.org/mexo/FireworksAlgorithm
+<https://w3id.org/mexo/FireworksAlgorithm> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           <http://purl.org/dc/terms/issued> "2010"^^xsd:gYear ;
+                                           <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-3-642-13495-1_44> ;
+                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Swarm-inspired method that explores search space via explosion sparks around promising solutions, with adaptive spark numbers/amplitudes. Reference: Tan, Y., & Zhu, Y. (2010). Fireworks algorithm for optimization. In Y. Tan, Y. Shi, & K. C. Tan (Eds.), Advances in Swarm Intelligence (ICSI 2010) (LNCS 6145, pp. 355–364). Springer. https://doi.org/10.1007/978-3-642-13495-1_44"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Fireworks Algorithm (FWA)"@en .
+
+
+###  https://w3id.org/mexo/FlowerPollinationAlgorithm
+<https://w3id.org/mexo/FlowerPollinationAlgorithm> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                            <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                   <http://purl.org/dc/terms/issued> "2012"^^xsd:gYear ;
+                                                   <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-3-642-32894-7_27> ;
+                                                   <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "Nature-inspired method modeling global and local pollination, typically mixing Lévy flights (global) with local random walks. Reference: Yang, X.-S. (2012). Flower pollination algorithm for global optimization. In U. K. Chakraborty & A. K. Roy (Eds.), Unconventional Computation and Natural Computation (pp. 240–249). Springer. https://doi.org/10.1007/978-3-642-32894-7_27"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Flower Pollination Algorithm (FPA)"@en .
+
+
+###  https://w3id.org/mexo/GRASP
+<https://w3id.org/mexo/GRASP> rdf:type owl:NamedIndividual ,
+                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                              <http://purl.org/dc/terms/issued> "1995"^^xsd:gYear ;
+                              <http://purl.org/dc/terms/source> <https://doi.org/10.1007/BF01096763> ;
+                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "Multi-start metaheuristic alternating randomized greedy construction with local search improvement. Reference: Feo, T. A., & Resende, M. G. C. (1995). Greedy randomized adaptive search procedures. Journal of Global Optimization, 6, 109–133. https://doi.org/10.1007/BF01096763"@en ;
+                              <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/GRASP_(metaheuristic)> ;
+                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                              <http://www.w3.org/2004/02/skos/core#prefLabel> "GRASP (Greedy Randomized Adaptive Search Procedure)"@en .
+
+
+###  https://w3id.org/mexo/GeneticAlgorithm
+<https://w3id.org/mexo/GeneticAlgorithm> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                  <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                         <http://purl.org/dc/terms/issued> "1975"^^xsd:gYear ;
+                                         <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "Population-based evolutionary search using selection, crossover, and mutation operators. Reference: Holland, J. H. (1975). Adaptation in Natural and Artificial Systems. University of Michigan Press."@en ;
+                                         <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Genetic_algorithm> ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Genetic Algorithm (GA)"@en .
+
+
+###  https://w3id.org/mexo/GeneticProgramming
+<https://w3id.org/mexo/GeneticProgramming> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           <http://purl.org/dc/terms/issued> "1992"^^xsd:gYear ;
+                                           <http://purl.org/dc/terms/source> <https://mitpress.mit.edu/9780262111706/genetic-programming/> ;
+                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Evolutionary computation where candidate solutions are programs (often trees) evolved via genetic operators. Reference: Koza, J. R. (1992). Genetic Programming: On the Programming of Computers by Means of Natural Selection. MIT Press."@en ;
+                                           <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Genetic_programming> ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Genetic Programming (GP)"@en .
+
+
+###  https://w3id.org/mexo/GlowwormSwarmOptimization
+<https://w3id.org/mexo/GlowwormSwarmOptimization> rdf:type owl:NamedIndividual ,
+                                                           <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                           <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                  <http://purl.org/dc/terms/issued> "2005"^^xsd:gYear ;
+                                                  <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm inspired by glowworm luminescence (luciferin) to locate multiple optima in multimodal landscapes. Reference: Krishnanand, K. N., & Ghose, D. (2005). Detection of multiple source locations using a glowworm metaphor with applications to collective robotics. In Proceedings of the IEEE Swarm Intelligence Symposium (pp. 84–91). IEEE."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Glowworm Swarm Optimization (GSO)"@en .
+
+
+###  https://w3id.org/mexo/GravitationalSearchAlgorithm
+<https://w3id.org/mexo/GravitationalSearchAlgorithm> rdf:type owl:NamedIndividual ,
+                                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                     <http://purl.org/dc/terms/issued> "2009"^^xsd:gYear ;
+                                                     <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.ins.2009.03.004> ;
+                                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/PhysicsInspired> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "Population-based optimization inspired by Newtonian gravity and mass interactions, where agents attract each other proportionally to fitness. Reference: Rashedi, E., Nezamabadi-Pour, H., & Saryazdi, S. (2009). GSA: A gravitational search algorithm. Information Sciences, 179(13), 2232–2248. https://doi.org/10.1016/j.ins.2009.03.004"@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Gravitational Search Algorithm (GSA)"@en .
+
+
+###  https://w3id.org/mexo/GreatDeluge
+<https://w3id.org/mexo/GreatDeluge> rdf:type owl:NamedIndividual ,
+                                             <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                             <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                    <http://purl.org/dc/terms/issued> "1993"^^xsd:gYear ;
+                                    <http://purl.org/dc/terms/source> <https://doi.org/10.1016/0021-9991(93)90332-9> ;
+                                    <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                    <http://www.w3.org/2004/02/skos/core#definition> "Trajectory method that accepts solutions below a decreasing 'water level' threshold, balancing exploration and convergence. Reference: Dueck, G. (1993). New optimization heuristics: The great deluge algorithm and the record-to-record travel. Journal of Computational Physics, 104(1), 86–92. https://doi.org/10.1016/0021-9991(93)90332-9"@en ;
+                                    <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Great Deluge Algorithm (GDA)"@en .
+
+
+###  https://w3id.org/mexo/GreyWolfOptimizer
+<https://w3id.org/mexo/GreyWolfOptimizer> rdf:type owl:NamedIndividual ,
+                                                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                   <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                          <http://purl.org/dc/terms/issued> "2014"^^xsd:gYear ;
+                                          <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2013.12.007> ;
+                                          <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm mimicking leadership hierarchy and hunting behavior of grey wolves using encircling and attacking phases. Reference: Mirjalili, S., Mirjalili, S. M., & Lewis, A. (2014). Grey wolf optimizer. Advances in Engineering Software, 69, 46–61. https://doi.org/10.1016/j.advengsoft.2013.12.007"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Grey Wolf Optimizer (GWO)"@en .
+
+
+###  https://w3id.org/mexo/GuidedLocalSearch
+<https://w3id.org/mexo/GuidedLocalSearch> rdf:type owl:NamedIndividual ,
+                                                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                   <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                          <http://purl.org/dc/terms/issued> "1999"^^xsd:gYear ;
+                                          <http://purl.org/dc/terms/source> <https://doi.org/10.1007/3-540-48431-0_10> ;
+                                          <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "Augments local search with penalties on undesirable features to help escape local minima while maintaining intensification. Reference: Voudouris, C., & Tsang, E. (1999). Guided local search and its application to the traveling salesman problem. In D. Corne, M. Dorigo, & F. Glover (Eds.), New Ideas in Optimization (pp. 119–133). McGraw-Hill. https://doi.org/10.1007/3-540-48431-0_10"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Guided Local Search (GLS)"@en .
+
+
+###  https://w3id.org/mexo/HarmonySearch
+<https://w3id.org/mexo/HarmonySearch> rdf:type owl:NamedIndividual ,
+                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                               <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                      <http://purl.org/dc/terms/issued> "2001"^^xsd:gYear ;
+                                      <http://purl.org/dc/terms/source> <https://doi.org/10.1177/003754970107600201> ;
+                                      <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ,
+                                                                                    <https://w3id.org/mexo/HumanSocioInspired> ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Music-inspired metaheuristic that improvises new solutions by memory consideration, pitch adjustment, and random selection. Reference: Geem, Z. W., Kim, J. H., & Loganathan, G. V. (2001). A new heuristic optimization algorithm: Harmony search. Simulation, 76(2), 60–68. https://doi.org/10.1177/003754970107600201"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Harmony_search> ;
+                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Harmony Search (HS)"@en .
+
+
+###  https://w3id.org/mexo/HarrisHawksOptimization
+<https://w3id.org/mexo/HarrisHawksOptimization> rdf:type owl:NamedIndividual ,
+                                                         <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                         <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                <http://purl.org/dc/terms/issued> "2019"^^xsd:gYear ;
+                                                <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.future.2019.02.028> ;
+                                                <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Population-based method inspired by cooperative hunting of Harris hawks, combining exploration and multiple exploitation strategies. Reference: Heidari, A. A., Mirjalili, S., Faris, H., Aljarah, I., Mafarja, M., & Chen, H. (2019). Harris hawks optimization: Algorithm and applications. Future Generation Computer Systems, 97, 849–872. https://doi.org/10.1016/j.future.2019.02.028"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Harris Hawks Optimization (HHO)"@en .
+
+
+###  https://w3id.org/mexo/HumanSocioInspired
+<https://w3id.org/mexo/HumanSocioInspired> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Human/socio-inspired metaheuristics"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/ImperialistCompetitiveAlgorithm
+<https://w3id.org/mexo/ImperialistCompetitiveAlgorithm> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                 <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                        <http://purl.org/dc/terms/issued> "2007"^^xsd:gYear ;
+                                                        <http://purl.org/dc/terms/source> <https://doi.org/10.1109/CEC.2007.4425083> ;
+                                                        <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                        <http://www.w3.org/2004/02/skos/core#definition> "Socio-political inspired population algorithm where empires assimilate colonies and compete for power, driving the search toward strong imperialists. Reference: Atashpaz-Gargari, E., & Lucas, C. (2007). Imperialist competitive algorithm: An algorithm for optimization inspired by imperialistic competition. In 2007 IEEE Congress on Evolutionary Computation (pp. 4661–4667). IEEE. https://doi.org/10.1109/CEC.2007.4425083"@en ;
+                                                        <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Imperialist Competitive Algorithm (ICA)"@en .
+
+
+###  https://w3id.org/mexo/InvasiveWeedOptimization
+<https://w3id.org/mexo/InvasiveWeedOptimization> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                          <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                 <http://purl.org/dc/terms/issued> "2006"^^xsd:gYear ;
+                                                 <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.ecolmodel.2005.07.010> ;
+                                                 <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Plant colonization-inspired algorithm where weeds reproduce and disperse seeds with decreasing variance to intensify search. Reference: Mehrabian, A. R., & Lucas, C. (2006). A novel numerical optimization algorithm inspired from weed colonization. Ecological Modelling, 179(4), 355–366. https://doi.org/10.1016/j.ecolmodel.2005.07.010"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Invasive Weed Optimization (IWO)"@en .
+
+
+###  https://w3id.org/mexo/IteratedLocalSearch
+<https://w3id.org/mexo/IteratedLocalSearch> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                     <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            <http://purl.org/dc/terms/issued> "2003"^^xsd:gYear ;
+                                            <http://purl.org/dc/terms/source> <https://doi.org/10.1007/978-1-4419-1665-5_4> ;
+                                            <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Metaheuristic that repeatedly perturbs a locally optimal solution and re-applies local search to find better basins. Reference: Lourenço, H. R., Martin, O. C., & Stützle, T. (2003). Iterated local search. In F. Glover & G. A. Kochenberger (Eds.), Handbook of Metaheuristics (pp. 320–353). Springer. https://doi.org/10.1007/978-1-4419-1665-5_4"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Iterated Local Search (ILS)"@en .
+
+
+###  https://w3id.org/mexo/LargeNeighborhoodSearch
+<https://w3id.org/mexo/LargeNeighborhoodSearch> rdf:type owl:NamedIndividual ,
+                                                         <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                         <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                <http://purl.org/dc/terms/issued> "1998"^^xsd:gYear ;
+                                                <http://purl.org/dc/terms/source> <https://doi.org/10.1007/3-540-49481-2_30> ;
+                                                <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Destroy-and-repair style neighborhood search where large parts of a solution are removed and reconstructed to explore distant alternatives. Reference: Shaw, P. (1998). Using constraint programming and local search methods to solve vehicle routing problems. In M. Maher & J.-F. Puget (Eds.), Principles and Practice of Constraint Programming (CP’98) (pp. 417–431). Springer. https://doi.org/10.1007/3-540-49481-2_30"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Large Neighborhood Search (LNS)"@en .
+
+
+###  https://w3id.org/mexo/LeagueChampionshipAlgorithm
+<https://w3id.org/mexo/LeagueChampionshipAlgorithm> rdf:type owl:NamedIndividual ,
+                                                             <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                             <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                    <http://purl.org/dc/terms/issued> "2009"^^xsd:gYear ;
+                                                    <http://purl.org/dc/terms/source> <https://doi.org/10.1109/SoCPaR.2009.21> ;
+                                                    <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/HumanSocioInspired> ;
+                                                    <http://www.w3.org/2004/02/skos/core#definition> "Sport-inspired population algorithm modeling league competitions where teams (solutions) play and improve via competition outcomes. Reference: Kashan, A. H. (2009). League championship algorithm: A new algorithm for numerical function optimization. In 2009 International Conference of Soft Computing and Pattern Recognition (pp. 43–48). IEEE. https://doi.org/10.1109/SoCPaR.2009.21"@en ;
+                                                    <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "League Championship Algorithm (LCA)"@en .
+
+
+###  https://w3id.org/mexo/MOEAD
+<https://w3id.org/mexo/MOEAD> rdf:type owl:NamedIndividual ,
+                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                              <http://purl.org/dc/terms/issued> "2007"^^xsd:gYear ;
+                              <http://purl.org/dc/terms/source> <https://doi.org/10.1109/TEVC.2007.892759> ;
+                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "Multiobjective evolutionary algorithm based on decomposition of a MOP into scalar subproblems and neighborhood cooperation. Reference: Zhang, Q., & Li, H. (2007). MOEA/D: A multiobjective evolutionary algorithm based on decomposition. IEEE Transactions on Evolutionary Computation, 11(6), 712–731. https://doi.org/10.1109/TEVC.2007.892759"@en ;
+                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                              <http://www.w3.org/2004/02/skos/core#prefLabel> "MOEA/D"@en .
+
+
+###  https://w3id.org/mexo/MarinePredatorsAlgorithm
+<https://w3id.org/mexo/MarinePredatorsAlgorithm> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                          <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                 <http://purl.org/dc/terms/issued> "2020"^^xsd:gYear ;
+                                                 <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Nature-inspired population algorithm based on predator–prey foraging strategies using Lévy and Brownian movements. Reference: Faramarzi, A., Heidarinejad, M., Mirjalili, S., & Gandomi, A. H. (2020). Marine predators algorithm: A nature-inspired metaheuristic. Expert Systems with Applications, 152, 113377."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Marine Predators Algorithm (MPA)"@en .
+
+
+###  https://w3id.org/mexo/MemeticAlgorithm
+<https://w3id.org/mexo/MemeticAlgorithm> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                  <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                         <http://purl.org/dc/terms/issued> "1989"^^xsd:gYear ;
+                                         <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "Hybrid evolutionary framework that combines population search with intensive local improvement (\"memes\"). Reference: Moscato, P. (1989). On evolution, search, optimization, genetic algorithms and martial arts: Toward memetic algorithms (Technical Report C3P 826). California Institute of Technology."@en ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Memetic Algorithm (MA)"@en .
+
+
+###  https://w3id.org/mexo/MetaheuristicTaxonomy
+<https://w3id.org/mexo/MetaheuristicTaxonomy> rdf:type owl:NamedIndividual ,
+                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                              <http://purl.org/dc/terms/created> "2025-12-15"^^xsd:date ;
+                                              <http://purl.org/dc/terms/description> "A pragmatic SKOS taxonomy of widely-used metaheuristic algorithms, grouped by family. Each algorithm concept includes an APA reference to its original publication."@en ;
+                                              <http://purl.org/dc/terms/isPartOf> <https://w3id.org/mexo/MEXO> ;
+                                              <http://purl.org/dc/terms/modified> "2026-09-01"^^xsd:date ;
+                                              <http://purl.org/dc/terms/title> "MEXO taxonomy of metaheuristic algorithms"@en ;
+                                              owl:versionInfo "5.0.0" .
+
+
+###  https://w3id.org/mexo/MothFlameOptimization
+<https://w3id.org/mexo/MothFlameOptimization> rdf:type owl:NamedIndividual ,
+                                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                              <http://purl.org/dc/terms/issued> "2015"^^xsd:gYear ;
+                                              <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.knosys.2015.07.006> ;
+                                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "Optimization method inspired by moth navigation around flames using a logarithmic spiral update toward flames (best positions). Reference: Mirjalili, S. (2015). Moth-flame optimization algorithm: A novel nature-inspired heuristic paradigm. Knowledge-Based Systems, 89, 228–249. https://doi.org/10.1016/j.knosys.2015.07.006"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "Moth-Flame Optimization (MFO)"@en .
+
+
+###  https://w3id.org/mexo/MultimodalCharacteristic
+<https://w3id.org/mexo/MultimodalCharacteristic> rdf:type owl:NamedIndividual ,
+                                                          <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                                 rdfs:comment "The problem has multiple local optimum basins."@en ;
+                                                 rdfs:label "Multimodal"@en .
+
+
+###  https://w3id.org/mexo/NSGAII
+<https://w3id.org/mexo/NSGAII> rdf:type owl:NamedIndividual ,
+                                        <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                        <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                               <http://purl.org/dc/terms/issued> "2002"^^xsd:gYear ;
+                               <http://purl.org/dc/terms/source> <https://doi.org/10.1109/4235.996017> ;
+                               <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                               <http://www.w3.org/2004/02/skos/core#definition> "Fast elitist multi-objective genetic algorithm using non-dominated sorting and crowding distance. Reference: Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE Transactions on Evolutionary Computation, 6(2), 182–197. https://doi.org/10.1109/4235.996017"@en ;
+                               <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/NSGA-II> ;
+                               <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                               <http://www.w3.org/2004/02/skos/core#prefLabel> "NSGA-II"@en .
+
+
+###  https://w3id.org/mexo/NonSeparableCharacteristic
+<https://w3id.org/mexo/NonSeparableCharacteristic> rdf:type owl:NamedIndividual ,
+                                                            <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                                   rdfs:comment "The objective contains interactions among decision variables."@en ;
+                                                   rdfs:label "Non-separable"@en .
+
+
+###  https://w3id.org/mexo/PAES
+<https://w3id.org/mexo/PAES> rdf:type owl:NamedIndividual ,
+                                      <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                      <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                             <http://purl.org/dc/terms/issued> "1999"^^xsd:gYear ;
+                             <http://purl.org/dc/terms/source> <https://doi.org/10.1109/4235.781891> ;
+                             <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                             <http://www.w3.org/2004/02/skos/core#definition> "Pareto Archived Evolution Strategy: a simple (1+1) multiobjective EA using an external archive and adaptive grid for diversity. Reference: Knowles, J., & Corne, D. (1999). The Pareto archived evolution strategy: A new baseline algorithm for Pareto multiobjective optimisation. In Proceedings of the 1999 Congress on Evolutionary Computation (CEC'99) (pp. 98–105). IEEE. https://doi.org/10.1109/4235.781891"@en ;
+                             <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                             <http://www.w3.org/2004/02/skos/core#prefLabel> "PAES"@en .
+
+
+###  https://w3id.org/mexo/ParticleSwarmOptimization
+<https://w3id.org/mexo/ParticleSwarmOptimization> rdf:type owl:NamedIndividual ,
+                                                           <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                           <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                  <https://w3id.org/mexo/usesRepresentation> <https://w3id.org/mexo/RealVectorRepresentation> ;
+                                                  <http://purl.org/dc/terms/issued> "1995"^^xsd:gYear ;
+                                                  <http://purl.org/dc/terms/source> <https://doi.org/10.1109/ICNN.1995.488968> ;
+                                                  <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "Swarm-based optimization where particles adjust velocities based on individual and social best positions. Reference: Kennedy, J., & Eberhart, R. (1995). Particle swarm optimization. In Proceedings of the IEEE International Conference on Neural Networks (Vol. 4, pp. 1942–1948). IEEE. https://doi.org/10.1109/ICNN.1995.488968"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Particle_swarm_optimization> ;
+                                                  <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Particle Swarm Optimization (PSO)"@en .
+
+
+###  https://w3id.org/mexo/PhysicsInspired
+<https://w3id.org/mexo/PhysicsInspired> rdf:type owl:NamedIndividual ,
+                                                 <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                 <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                        <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Physics/chemistry-inspired metaheuristics"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/RealVectorRepresentation
+<https://w3id.org/mexo/RealVectorRepresentation> rdf:type owl:NamedIndividual ,
+                                                          <https://w3id.org/mexo/Representation> ;
+                                                 rdfs:comment "Candidate solutions are encoded as real-valued vectors."@en ;
+                                                 rdfs:label "Real-vector representation"@en .
+
+
+###  https://w3id.org/mexo/RecordToRecordTravel
+<https://w3id.org/mexo/RecordToRecordTravel> rdf:type owl:NamedIndividual ,
+                                                      <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                      <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                             <http://purl.org/dc/terms/issued> "1993"^^xsd:gYear ;
+                                             <http://purl.org/dc/terms/source> <https://doi.org/10.1016/0021-9991(93)90332-9> ;
+                                             <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Trajectory method that allows moves within a tolerance of the best-so-far record, enabling controlled diversification. Reference: Dueck, G. (1993). New optimization heuristics: The great deluge algorithm and the record-to-record travel. Journal of Computational Physics, 104(1), 86–92. https://doi.org/10.1016/0021-9991(93)90332-9"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "Record-to-Record Travel (RRT)"@en .
+
+
+###  https://w3id.org/mexo/SPEA2
+<https://w3id.org/mexo/SPEA2> rdf:type owl:NamedIndividual ,
+                                       <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                       <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                              <http://purl.org/dc/terms/issued> "2001"^^xsd:gYear ;
+                              <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "Strength Pareto Evolutionary Algorithm 2: multi-objective EA with fitness assignment based on strength and density and an external archive. Reference: Zitzler, E., Laumanns, M., & Thiele, L. (2001). SPEA2: Improving the strength Pareto evolutionary algorithm. Technical Report 103, Computer Engineering and Networks Laboratory (TIK), ETH Zürich."@en ;
+                              <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                              <http://www.w3.org/2004/02/skos/core#prefLabel> "SPEA2"@en .
+
+
+###  https://w3id.org/mexo/SalpSwarmAlgorithm
+<https://w3id.org/mexo/SalpSwarmAlgorithm> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           <http://purl.org/dc/terms/issued> "2017"^^xsd:gYear ;
+                                           <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2017.07.002> ;
+                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm modeled on salp chain movement where a leader and followers update positions toward a food source. Reference: Mirjalili, S., Gandomi, A. H., Mirjalili, S. Z., Saremi, S., Faris, H., & Mirjalili, S. M. (2017). Salp swarm algorithm: A bio-inspired optimizer for engineering design problems. Advances in Engineering Software, 114, 163–191. https://doi.org/10.1016/j.advengsoft.2017.07.002"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Salp Swarm Algorithm (SSA)"@en .
+
+
+###  https://w3id.org/mexo/ScatterSearchPathRelinking
+<https://w3id.org/mexo/ScatterSearchPathRelinking> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                            <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                   <http://purl.org/dc/terms/issued> "1998"^^xsd:gYear ;
+                                                   <http://purl.org/dc/terms/source> <https://doi.org/10.1007/BFb0026589> ;
+                                                   <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/EvolutionaryComputation> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "Evolutionary framework that combines elite solutions via structured combination and explores trajectories between them (path relinking). Reference: Glover, F. (1998). A template for scatter search and path relinking. In J.-K. Hao, E. Lutton, E. Ronald, M. Schoenauer, & D. Snyers (Eds.), Artificial Evolution (AE 1997) (LNCS 1363, pp. 13–54). Springer. https://doi.org/10.1007/BFb0026589"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Scatter Search & Path Relinking"@en .
+
+
+###  https://w3id.org/mexo/SeparableCharacteristic
+<https://w3id.org/mexo/SeparableCharacteristic> rdf:type owl:NamedIndividual ,
+                                                         <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                                rdfs:comment "The objective can be decomposed with respect to its decision variables."@en ;
+                                                rdfs:label "Separable"@en .
+
+
+###  https://w3id.org/mexo/ShuffledFrogLeapingAlgorithm
+<https://w3id.org/mexo/ShuffledFrogLeapingAlgorithm> rdf:type owl:NamedIndividual ,
+                                                              <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                              <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                     <http://purl.org/dc/terms/issued> "2003"^^xsd:gYear ;
+                                                     <http://purl.org/dc/terms/source> <https://doi.org/10.1061/(ASCE)0733-9496(2003)129:3(210)> ;
+                                                     <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/BioInspired> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "Memetic metaheuristic inspired by frog leaping behavior; population is partitioned into memeplexes with local evolution and periodic shuffling. Reference: Eusuff, M. M., & Lansey, K. E. (2003). Optimization of water distribution network design using the shuffled frog leaping algorithm. Journal of Water Resources Planning and Management, 129(3), 210–225. https://doi.org/10.1061/(ASCE)0733-9496(2003)129:3(210)"@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Shuffled Frog Leaping Algorithm (SFLA)"@en .
+
+
+###  https://w3id.org/mexo/SimulatedAnnealing
+<https://w3id.org/mexo/SimulatedAnnealing> rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                    <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                           <http://purl.org/dc/terms/issued> "1983"^^xsd:gYear ;
+                                           <http://purl.org/dc/terms/source> <https://doi.org/10.1126/science.220.4598.671> ;
+                                           <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Probabilistic trajectory method that accepts worse moves with a temperature-controlled probability to escape local optima. Reference: Kirkpatrick, S., Gelatt, C. D., Jr., & Vecchi, M. P. (1983). Optimization by simulated annealing. Science, 220(4598), 671–680. https://doi.org/10.1126/science.220.4598.671"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Simulated_annealing> ;
+                                           <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "Simulated Annealing (SA)"@en .
+
+
+###  https://w3id.org/mexo/SineCosineAlgorithm
+<https://w3id.org/mexo/SineCosineAlgorithm> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                     <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                            <http://purl.org/dc/terms/issued> "2016"^^xsd:gYear ;
+                                            <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.knosys.2015.12.022> ;
+                                            <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Population-based method that updates positions using sine and cosine functions to balance exploration and exploitation. Reference: Mirjalili, S. (2016). SCA: A sine cosine algorithm for solving optimization problems. Knowledge-Based Systems, 96, 120–133. https://doi.org/10.1016/j.knosys.2015.12.022"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "Sine Cosine Algorithm (SCA)"@en .
+
+
+###  https://w3id.org/mexo/SocialSpiderOptimization
+<https://w3id.org/mexo/SocialSpiderOptimization> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                          <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                 <http://purl.org/dc/terms/issued> "2013"^^xsd:gYear ;
+                                                 <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.knosys.2013.03.014> ;
+                                                 <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Population-based algorithm inspired by social-spider colony behavior, including gender-based operators and vibrations on the web. Reference: Cuevas, E., Cienfuegos, M., Zaldívar, D., & Pérez-Cisneros, M. (2013). A swarm optimization algorithm inspired in the social behavior of the spider. Knowledge-Based Systems, 49, 1–12. https://doi.org/10.1016/j.knosys.2013.03.014"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Social Spider Optimization (SSO)"@en .
+
+
+###  https://w3id.org/mexo/SparrowSearchAlgorithm
+<https://w3id.org/mexo/SparrowSearchAlgorithm> rdf:type owl:NamedIndividual ,
+                                                        <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                        <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                               <http://purl.org/dc/terms/issued> "2020"^^xsd:gYear ;
+                                               <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "Swarm algorithm based on the foraging and anti-predation behavior of sparrows, typically involving producers, scroungers, and awareness mechanisms. Reference: Xue, J., & Shen, B. (2020). A novel swarm intelligence optimization approach: Sparrow search algorithm. Systems Science & Control Engineering, 8(1), 22–34."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "Sparrow Search Algorithm (SSA)"@en .
+
+
+###  https://w3id.org/mexo/SwarmIntelligence
+<https://w3id.org/mexo/SwarmIntelligence> rdf:type owl:NamedIndividual ,
+                                                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                   <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                          <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Swarm intelligence metaheuristics"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/TabuSearch
+<https://w3id.org/mexo/TabuSearch> rdf:type owl:NamedIndividual ,
+                                            <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                            <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                   <http://purl.org/dc/terms/issued> "1989"^^xsd:gYear ;
+                                   <http://purl.org/dc/terms/source> <https://doi.org/10.1287/ijoc.1.3.190> ;
+                                   <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "Neighborhood-based search that uses adaptive memory (tabu lists) to avoid cycling and guide exploration. Reference: Glover, F. (1989). Tabu Search—Part I. ORSA Journal on Computing, 1(3), 190–206. https://doi.org/10.1287/ijoc.1.3.190"@en ;
+                                   <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Tabu_search> ;
+                                   <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Tabu Search (TS)"@en .
+
+
+###  https://w3id.org/mexo/TeachingLearningBasedOptimization
+<https://w3id.org/mexo/TeachingLearningBasedOptimization> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                   <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                          <http://purl.org/dc/terms/issued> "2011"^^xsd:gYear ;
+                                                          <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.cad.2010.12.015> ;
+                                                          <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/HumanSocioInspired> ;
+                                                          <http://www.w3.org/2004/02/skos/core#definition> "Population-based method inspired by teaching–learning in a classroom, with teacher and learner phases. Reference: Rao, R. V., Savsani, V. J., & Vakharia, D. P. (2011). Teaching–learning-based optimization: A novel method for constrained mechanical design optimization problems. Computer-Aided Design, 43(3), 303–315. https://doi.org/10.1016/j.cad.2010.12.015"@en ;
+                                                          <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Teaching–Learning-Based Optimization (TLBO)"@en .
+
+
+###  https://w3id.org/mexo/TrajectoryBased
+<https://w3id.org/mexo/TrajectoryBased> rdf:type owl:NamedIndividual ,
+                                                 <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                 <https://w3id.org/mexo/MetaheuristicFamily> ;
+                                        <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Trajectory-based metaheuristics"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://w3id.org/mexo/MetaheuristicTaxonomy> .
+
+
+###  https://w3id.org/mexo/UnimodalCharacteristic
+<https://w3id.org/mexo/UnimodalCharacteristic> rdf:type owl:NamedIndividual ,
+                                                        <https://w3id.org/mexo/ProblemCharacteristic> ;
+                                               rdfs:comment "The problem has one principal optimum basin."@en ;
+                                               rdfs:label "Unimodal"@en .
+
+
+###  https://w3id.org/mexo/VariableNeighborhoodSearch
+<https://w3id.org/mexo/VariableNeighborhoodSearch> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                            <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                   <http://purl.org/dc/terms/issued> "1997"^^xsd:gYear ;
+                                                   <http://purl.org/dc/terms/source> <https://doi.org/10.1016/S0305-0548(97)00031-2> ;
+                                                   <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/TrajectoryBased> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "Framework that systematically changes neighborhood structures to escape local optima and intensify search. Reference: Mladenović, N., & Hansen, P. (1997). Variable neighborhood search. Computers & Operations Research, 24, 1097–1100. https://doi.org/10.1016/S0305-0548(97)00031-2"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#exactMatch> <http://dbpedia.org/resource/Variable_neighborhood_search> ;
+                                                   <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Variable Neighborhood Search (VNS)"@en .
+
+
+###  https://w3id.org/mexo/WhaleOptimizationAlgorithm
+<https://w3id.org/mexo/WhaleOptimizationAlgorithm> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                            <https://w3id.org/mexo/MetaheuristicAlgorithm> ;
+                                                   <http://purl.org/dc/terms/issued> "2016"^^xsd:gYear ;
+                                                   <http://purl.org/dc/terms/source> <https://doi.org/10.1016/j.advengsoft.2016.01.008> ;
+                                                   <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/mexo/SwarmIntelligence> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "Population-based algorithm inspired by humpback whales' bubble-net hunting, combining encircling and spiral updating mechanisms. Reference: Mirjalili, S., & Lewis, A. (2016). The whale optimization algorithm. Advances in Engineering Software, 95, 51–67. https://doi.org/10.1016/j.advengsoft.2016.01.008"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/mexo/MetaheuristicTaxonomy> ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Whale Optimization Algorithm (WOA)"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://w3id.org/mexo/AlgorithmConfiguration>
+                <https://w3id.org/mexo/ComputationalBudget>
+                <https://w3id.org/mexo/Constraint>
+                <https://w3id.org/mexo/ConstraintType>
+                <https://w3id.org/mexo/Experiment>
+                <https://w3id.org/mexo/MetaheuristicFamily>
+                <https://w3id.org/mexo/ObjectiveFunction>
+                <https://w3id.org/mexo/OptimizationProblem>
+                <https://w3id.org/mexo/Parameter>
+                <https://w3id.org/mexo/ParameterType>
+                <https://w3id.org/mexo/ProblemCharacteristic>
+                <https://w3id.org/mexo/Representation>
+                <https://w3id.org/mexo/Result>
+                <https://w3id.org/mexo/Run>
+                <https://w3id.org/mexo/SearchSpace>
+                <https://w3id.org/mexo/SourceStudy>
+                <https://w3id.org/mexo/StoppingCriterion>
+              )
+] .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
