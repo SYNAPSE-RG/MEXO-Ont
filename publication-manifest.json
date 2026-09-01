@@ -1,0 +1,11 @@
+{
+  "widoco_version": "1.4.25",
+  "ontology_namespace": "https://w3id.org/mexo/",
+  "ontology_version": "5.2.0",
+  "taxonomy_version_from_supplied_file": "5.0.0",
+  "repository": "https://github.com/SYNAPSE-RG/MEXO-Ont",
+  "expected_pages_url": "https://synapse-rg.github.io/MEXO-Ont/",
+  "ontology_triples": 546,
+  "taxonomy_triples": 534,
+  "combined_triples": 1080
+}
