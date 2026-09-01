@@ -1,9 +1,9 @@
-# MEXO — paquete WIDOCO + GitHub Pages
+# MEXO — WIDOCO + GitHub Pages Package
 
-Este paquete deja preparado el repositorio `SYNAPSE-RG/MEXO-Ont` para generar
-y publicar automáticamente la documentación de MEXO con **WIDOCO 1.4.25**.
+This package prepares the `SYNAPSE-RG/MEXO-Ont` repository to automatically
+generate and publish the MEXO documentation using **WIDOCO 1.4.25**.
 
-## Estructura
+## Structure
 
 ```text
 MEXO-Ont/
@@ -23,71 +23,71 @@ MEXO-Ont/
     └── .gitkeep
 ```
 
-`mexo-publication.ttl` combina la ontología OWL y la taxonomía SKOS para que
-WIDOCO documente ambos componentes en un solo sitio.
+`mexo-publication.ttl` combines the OWL ontology and the SKOS taxonomy so that
+WIDOCO documents both components on a single website.
 
-## 1. Integrar los archivos al repositorio
+## 1. Add the files to the repository
 
-Desde macOS/Linux:
+On macOS/Linux:
 
 ```bash
 git clone https://github.com/SYNAPSE-RG/MEXO-Ont.git
 cd MEXO-Ont
 
-# Copie dentro de este directorio el contenido de este paquete,
-# conservando exactamente la estructura indicada arriba.
+# Copy the contents of this package into this directory,
+# preserving exactly the structure shown above.
 ```
 
-Si ya tiene un clon local:
+If you already have a local clone:
 
 ```bash
 cd MEXO-Ont
 git pull origin main
 ```
 
-## 2. Generar la documentación localmente
+## 2. Generate the documentation locally
 
-Requisito recomendado: Docker Desktop.
+Recommended requirement: Docker Desktop.
 
 ```bash
 chmod +x scripts/build-widoco.sh
 ./scripts/build-widoco.sh
 ```
 
-El script usa la imagen oficial:
+The script uses the official image:
 
 ```text
 ghcr.io/dgarijo/widoco:v1.4.25
 ```
 
-La salida se genera en:
+The output is generated in:
 
 ```text
 site/
 ```
 
-Para revisar la documentación:
+To review the documentation:
 
 ```bash
 python3 -m http.server 8000 --directory site
 ```
 
-Después abra:
+Then open:
 
 ```text
 http://localhost:8000/
 ```
 
-La ejecución de WIDOCO incluye:
+The WIDOCO execution includes:
 
-- documentación automática de clases y propiedades;
-- metadatos del vocabulario;
-- taxonomía SKOS dentro del grafo de publicación;
+- automatic documentation of classes and properties;
+- vocabulary metadata;
+- the SKOS taxonomy within the publication graph;
 - WebVOWL;
-- una página HTML unificada (`-uniteSections`);
-- enlaces al repositorio del código.
+- a unified HTML page (`-uniteSections`);
+- links to the source code repository.
 
-## 3. Subir los cambios
+## 3. Push the changes
 
 ```bash
 git add ontology widoco scripts .github site
@@ -95,67 +95,67 @@ git commit -m "Add WIDOCO documentation and GitHub Pages workflow"
 git push origin main
 ```
 
-## 4. Activar GitHub Pages
+## 4. Enable GitHub Pages
 
-En GitHub:
+On GitHub:
 
-1. Abra `SYNAPSE-RG/MEXO-Ont`.
-2. Entre a **Settings**.
-3. Seleccione **Pages**.
-4. En **Build and deployment**, seleccione **Source: GitHub Actions**.
-5. Guarde si GitHub muestra una opción de confirmación.
-6. Abra la pestaña **Actions** y seleccione `Publish WIDOCO documentation`.
-7. La acción también se ejecutará automáticamente al modificar `ontology/`,
-   `widoco/`, el script de compilación o el workflow.
+1. Open `SYNAPSE-RG/MEXO-Ont`.
+2. Go to **Settings**.
+3. Select **Pages**.
+4. Under **Build and deployment**, select **Source: GitHub Actions**.
+5. Save the settings if GitHub displays a confirmation option.
+6. Open the **Actions** tab and select `Publish WIDOCO documentation`.
+7. The action will also run automatically when `ontology/`, `widoco/`, the
+   build script, or the workflow is modified.
 
-## 5. URL esperada
+## 5. Expected URL
 
-Cuando el deployment termine, la documentación debería quedar accesible en:
+Once deployment is complete, the documentation should be available at:
 
 ```text
 https://synapse-rg.github.io/MEXO-Ont/
 ```
 
-GitHub mostrará la URL exacta en **Settings > Pages** y también en el job de
-deployment.
+GitHub will display the exact URL under **Settings > Pages** and in the
+deployment job.
 
-## 6. Flujo de mantenimiento recomendado
+## 6. Recommended maintenance workflow
 
-En cada nueva versión:
+For each new version:
 
-1. Actualice `ontology/mexo-ontology-v5.2.0.ttl` o cree el archivo de la nueva versión.
-2. Actualice `ontology/mexo-taxonomy-w3id.ttl` si cambia la taxonomía.
-3. Regenerar `ontology/mexo-publication.ttl` si se mantienen fuentes separadas.
-4. Actualice `widoco/config.properties` (`ontologyRevisionNumber`,
+1. Update `ontology/mexo-ontology-v5.2.0.ttl` or create the file for the new version.
+2. Update `ontology/mexo-taxonomy-w3id.ttl` if the taxonomy changes.
+3. Regenerate `ontology/mexo-publication.ttl` if the sources remain separate.
+4. Update `widoco/config.properties` (`ontologyRevisionNumber`,
    `thisVersionURI`, `dateModified`, etc.).
-5. Haga `git commit` y `git push`.
-6. GitHub Actions regenerará y republicará WIDOCO automáticamente.
+5. Run `git commit` and `git push`.
+6. GitHub Actions will automatically regenerate and republish the WIDOCO documentation.
 
-## 7. Relación con w3id.org
+## 7. Relationship with w3id.org
 
-El namespace canónico usado por este paquete es:
+The canonical namespace used by this package is:
 
 ```text
 https://w3id.org/mexo/
 ```
 
-GitHub Pages funciona como sitio de documentación, mientras que `w3id.org`
-funciona como identificador persistente. El archivo
-`widoco/w3id-htaccess-example.txt` contiene un ejemplo para redirigir solicitudes
-HTML a GitHub Pages y solicitudes Turtle al archivo RDF del repositorio.
+GitHub Pages serves as the documentation website, while `w3id.org` serves as
+the persistent identifier. The `widoco/w3id-htaccess-example.txt` file contains
+an example for redirecting HTML requests to GitHub Pages and Turtle requests to
+the RDF file in the repository.
 
-Antes de sustituir una configuración existente en w3id.org, combine cuidadosamente
-estas reglas con el `.htaccess` ya aprobado para MEXO.
+Before replacing an existing configuration on w3id.org, carefully merge these
+rules with the `.htaccess` file already approved for MEXO.
 
-## Nota sobre las fuentes preparadas
+## Note on the prepared sources
 
-La ontología de publicación incorpora el namespace persistente
-`https://w3id.org/mexo/` y los cambios estructurales documentados para MEXO 5.2.0.
-La taxonomía suministrada se conserva conceptualmente y se normaliza al mismo
-namespace para la publicación conjunta.
+The publication ontology incorporates the persistent namespace
+`https://w3id.org/mexo/` and the structural changes documented for MEXO 5.2.0.
+The provided taxonomy is conceptually preserved and normalized to the same
+namespace for joint publication.
 
-## Archivos que no deben editarse manualmente
+## Files that should not be edited manually
 
-El contenido de `site/` es un artefacto generado. La fuente de verdad debe seguir
-siendo `ontology/` + `widoco/config.properties`. En GitHub, el workflow genera
-`site/` desde cero durante cada deployment.
+The contents of `site/` are generated artifacts. The source of truth should
+remain `ontology/` + `widoco/config.properties`. On GitHub, the workflow
+generates `site/` from scratch during each deployment.
