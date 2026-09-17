@@ -757,7 +757,7 @@ mexo:MEXO a owl:Ontology ;
     dcterms:title "MEXO — Metaheuristic Experiment Ontology"@en ;
     vann:preferredNamespacePrefix "mexo" ;
     vann:preferredNamespaceUri mexo: ;
-    owl:versionInfo "5.2.0" .
+    owl:versionInfo "1.0.0" .
 
 mexo:RealVectorRepresentation a owl:NamedIndividual,
         mexo:Representation ;

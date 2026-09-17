@@ -606,5 +606,5 @@ mexo:MetaheuristicTaxonomy a skos:ConceptScheme ;
     dcterms:isPartOf mexo:MEXO ;
     dcterms:modified "2026-09-01"^^xsd:date ;
     dcterms:title "MEXO taxonomy of metaheuristic algorithms"@en ;
-    owl:versionInfo "5.0.0" .
+    owl:versionInfo "1.0.0" .
 
