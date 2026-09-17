@@ -14,7 +14,7 @@
                               <http://purl.org/dc/terms/title> "MEXO — Metaheuristic Experiment Ontology"@en ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "mexo" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/mexo/> ;
-                              owl:versionInfo "5.2.0" .
+                              owl:versionInfo "1.0.0" .
 
 #################################################################
 #    Annotation properties

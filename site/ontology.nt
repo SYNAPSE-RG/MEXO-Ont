@@ -6,7 +6,7 @@
 <https://w3id.org/mexo/MEXO> <http://purl.org/dc/terms/title> "MEXO — Metaheuristic Experiment Ontology"@en .
 <https://w3id.org/mexo/MEXO> <http://purl.org/vocab/vann/preferredNamespacePrefix> "mexo" .
 <https://w3id.org/mexo/MEXO> <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/mexo/> .
-<https://w3id.org/mexo/MEXO> <http://www.w3.org/2002/07/owl#versionInfo> "5.2.0" .
+<https://w3id.org/mexo/MEXO> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
 # 
 # 
 # #################################################################

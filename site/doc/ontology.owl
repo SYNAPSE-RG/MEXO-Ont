@@ -18,7 +18,7 @@
         <terms:title xml:lang="en">MEXO — Metaheuristic Experiment Ontology</terms:title>
         <vann:preferredNamespacePrefix>mexo</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri rdf:resource="https://w3id.org/mexo/"/>
-        <owl:versionInfo>5.2.0</owl:versionInfo>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
     </owl:Ontology>
     
 
