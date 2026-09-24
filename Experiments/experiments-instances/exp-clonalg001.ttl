@@ -1,0 +1,63 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-clonalg001 a mexo:Experiment ;
+    rdfs:label "Clonal Selection Algorithm (CLONALG) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-jsp ;
+    mexo:usesAlgorithm mexo:clonalg-001 ;
+    skos:note "immune/population baseline"^^xsd:string .
+
+mexo:clonalg-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-clonalg001-001,
+        mexo:p-clonalg001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ClonalSelectionAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CLONALG (N=30, nClone=10, mut=0.1, select=0.2)"^^xsd:string .
+
+mexo:obj-jsp-makespan a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize makespan Cmax"^^xsd:string ;
+    skos:note "Completion time of last operation in job shop"^^xsd:string .
+
+mexo:p-clonalg001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-clonalg001-002 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:problem-jsp a mexo:OptimizationProblem ;
+    rdfs:label "JSP (FT benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-jsp-makespan ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "OR-Library"^^xsd:string ;
+    skos:note "job shop permutation"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:space-permutation a mexo:SearchSpace ;
+    rdfs:label "Permutation space Π_n (all permutations of n items)"^^xsd:string ;
+    skos:note "Generic permutation domain: solution is a permutation π of {1..n}. n depends on instance."^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

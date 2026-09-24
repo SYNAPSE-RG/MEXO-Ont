@@ -1,0 +1,65 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-beesalgorithm001 a mexo:Experiment ;
+    rdfs:label "Bees Algorithm baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bees-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:bees-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bees001-001,
+        mexo:p-bees001-002,
+        mexo:p-bees001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BeesAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Bees Algorithm (n=50, m=25, e=5, nep=7, nsp=3, ngh=0.1)"^^xsd:string .
+
+mexo:obj-continuous-min a mexo:ObjectiveFunction ;
+    rdfs:label "obj-continuous-min"^^xsd:string ;
+    skos:note "obj-continuous-min"^^xsd:string .
+
+mexo:p-bees001-001 a mexo:Parameter ;
+    mexo:parameterName "Scout bees"^^xsd:string ;
+    mexo:parameterSymbol "n"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-bees001-002 a mexo:Parameter ;
+    mexo:parameterName "Elite sites"^^xsd:string ;
+    mexo:parameterSymbol "e"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-bees001-003 a mexo:Parameter ;
+    mexo:parameterName "Neighborhood size"^^xsd:string ;
+    mexo:parameterSymbol "ngh"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:problem-continuous a mexo:OptimizationProblem ;
+    rdfs:label "Continuous optimization (CEC benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-continuous-min ;
+    dct:source "CEC benchmark"^^xsd:string ;
+    skos:note "single-objective continuous optimization"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

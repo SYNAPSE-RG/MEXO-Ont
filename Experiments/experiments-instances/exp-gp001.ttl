@@ -1,0 +1,69 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:TreeRepresentation a rdfs:Class ;
+    rdfs:label "Tree Representation"^^xsd:string ;
+    rdfs:subClassOf mexo:Representation .
+
+mexo:exp-gp001 a mexo:Experiment ;
+    rdfs:label "Genetic Programming (GP) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-feature-selection ;
+    mexo:usesAlgorithm mexo:gp-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:gp-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gp001-001,
+        mexo:p-gp001-002,
+        mexo:p-gp001-003 ;
+    mexo:usesRepresentation mexo:TreeRepresentation ;
+    skos:broader mexo:GeneticProgramming ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GP (pop=200, maxDepth=6, pc=0.9, pm=0.1)"^^xsd:string .
+
+mexo:obj-feature-selection a mexo:ObjectiveFunction ;
+    rdfs:label "obj-feature-selection"^^xsd:string ;
+    skos:note "obj-feature-selection"^^xsd:string .
+
+mexo:p-gp001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 200 .
+
+mexo:p-gp001-002 a mexo:Parameter ;
+    mexo:parameterName "Max depth"^^xsd:string ;
+    mexo:parameterSymbol "D"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 6 .
+
+mexo:p-gp001-003 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:problem-feature-selection a mexo:OptimizationProblem ;
+    rdfs:label "Feature Selection"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-feature-selection ;
+    dct:source "UCI datasets"^^xsd:string ;
+    skos:note "ML combinatorial optimization"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

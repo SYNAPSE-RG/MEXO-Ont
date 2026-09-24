@@ -1,0 +1,64 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-sa001 a mexo:Experiment ;
+    rdfs:label "Simulated Annealing (SA) baseline"^^xsd:string ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:sa-001 ;
+    skos:note "trajectory-based (temperature)"^^xsd:string .
+
+mexo:c-tsp-degree a mexo:Constraint ;
+    rdfs:label "Each city has exactly 2 incident edges"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-tsp ;
+    skos:note "TSP degree constraint"^^xsd:string .
+
+mexo:ct-equality a mexo:ConstraintType ;
+    rdfs:label "Equality constraint"^^xsd:string ;
+    skos:note "Hard equality constraint"^^xsd:string .
+
+mexo:obj-tsp-min a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize total tour length"^^xsd:string ;
+    skos:note "Sum of distances between consecutive cities in permutation"^^xsd:string .
+
+mexo:p-sa001-001 a mexo:Parameter ;
+    mexo:parameterName "Initial temperature"^^xsd:string ;
+    mexo:parameterSymbol "T0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 100.0 .
+
+mexo:p-sa001-002 a mexo:Parameter ;
+    mexo:parameterName "Cooling rate"^^xsd:string ;
+    mexo:parameterSymbol "alpha"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.95 .
+
+mexo:sa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sa001-001,
+        mexo:p-sa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SimulatedAnnealing ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SA (T0=100, alpha=0.95, L=50)"^^xsd:string .
+
+mexo:space-permutation a mexo:SearchSpace ;
+    rdfs:label "Permutation space Π_n (all permutations of n items)"^^xsd:string ;
+    skos:note "Generic permutation domain: solution is a permutation π of {1..n}. n depends on instance."^^xsd:string .
+
+mexo:problem-tsp a mexo:OptimizationProblem ;
+    rdfs:label "TSP (Euclidean benchmark)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-tsp-degree ;
+    mexo:hasObjectiveFunction mexo:obj-tsp-min ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "TSPLIB"^^xsd:string ;
+    skos:note "baseline permutation problem"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+

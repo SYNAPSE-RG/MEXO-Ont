@@ -1,0 +1,77 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-ma001 a mexo:Experiment ;
+    rdfs:label "Memetic Algorithm (MA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-jsp ;
+    mexo:usesAlgorithm mexo:ma-001 ;
+    skos:note "hybrid evolutionary+local baseline"^^xsd:string .
+
+mexo:ma-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ma001-001,
+        mexo:p-ma001-002,
+        mexo:p-ma001-003,
+        mexo:p-ma001-004 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MemeticAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Memetic Algorithm (N=50, pc=0.9, pm=0.01, localSearch=on)"^^xsd:string .
+
+mexo:obj-jsp-makespan a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize makespan Cmax"^^xsd:string ;
+    skos:note "Completion time of last operation in job shop"^^xsd:string .
+
+mexo:p-ma001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ma001-002 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-ma001-003 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-ma001-004 a mexo:Parameter ;
+    mexo:parameterName "Local search rate"^^xsd:string ;
+    mexo:parameterSymbol "pls"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:problem-jsp a mexo:OptimizationProblem ;
+    rdfs:label "JSP (FT benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-jsp-makespan ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "OR-Library"^^xsd:string ;
+    skos:note "job shop permutation"^^xsd:string .
+
+mexo:space-permutation a mexo:SearchSpace ;
+    rdfs:label "Permutation space Π_n (all permutations of n items)"^^xsd:string ;
+    skos:note "Generic permutation domain: solution is a permutation π of {1..n}. n depends on instance."^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+

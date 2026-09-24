@@ -1,0 +1,65 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-moead001 a mexo:Experiment ;
+    rdfs:label "MOEA/D baseline (ZDT1)"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-500 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-zdt1 ;
+    mexo:usesAlgorithm mexo:moead-001 ;
+    skos:note "multiobjective baseline"^^xsd:string .
+
+mexo:moead-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-moead001-001,
+        mexo:p-moead001-002,
+        mexo:p-moead001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MOEAD ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "MOEA/D (N=100, T=20, delta=0.9, nr=2)"^^xsd:string .
+
+mexo:obj-zdt1 a mexo:ObjectiveFunction ;
+    rdfs:label "obj-zdt1"^^xsd:string ;
+    skos:note "obj-zdt1"^^xsd:string .
+
+mexo:p-moead001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-moead001-002 a mexo:Parameter ;
+    mexo:parameterName "Neighborhood size"^^xsd:string ;
+    mexo:parameterSymbol "T"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 20 .
+
+mexo:p-moead001-003 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:problem-zdt1 a mexo:OptimizationProblem ;
+    rdfs:label "ZDT1 (bi-objective benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-zdt1 ;
+    dct:source "ZDT benchmark"^^xsd:string ;
+    skos:note "Pareto front evaluation"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:stop-500 a mexo:StoppingCriterion ;
+    rdfs:label "Fixed 500 iterations"^^xsd:string ;
+    mexo:maxIterations 500 ;
+    skos:note "Medium computational budget"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

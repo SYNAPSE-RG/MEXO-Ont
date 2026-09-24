@@ -1,0 +1,72 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-iwo001 a mexo:Experiment ;
+    rdfs:label "Invasive Weed Optimization (IWO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:iwo-001 ;
+    skos:note "ecology/population baseline"^^xsd:string .
+
+mexo:iwo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-iwo001-001,
+        mexo:p-iwo001-002,
+        mexo:p-iwo001-003,
+        mexo:p-iwo001-004 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:InvasiveWeedOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "IWO (N0=10, Nmax=30, sigma0=0.5, sigmaF=0.001, seeds=[0,5])"^^xsd:string .
+
+mexo:obj-continuous-min a mexo:ObjectiveFunction ;
+    rdfs:label "obj-continuous-min"^^xsd:string ;
+    skos:note "obj-continuous-min"^^xsd:string .
+
+mexo:p-iwo001-001 a mexo:Parameter ;
+    mexo:parameterName "Initial population"^^xsd:string ;
+    mexo:parameterSymbol "N0"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 10 .
+
+mexo:p-iwo001-002 a mexo:Parameter ;
+    mexo:parameterName "Max population"^^xsd:string ;
+    mexo:parameterSymbol "Nmax"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-iwo001-003 a mexo:Parameter ;
+    mexo:parameterName "Sigma initial"^^xsd:string ;
+    mexo:parameterSymbol "sigma0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-iwo001-004 a mexo:Parameter ;
+    mexo:parameterName "Sigma final"^^xsd:string ;
+    mexo:parameterSymbol "sigmaf"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:problem-continuous a mexo:OptimizationProblem ;
+    rdfs:label "Continuous optimization (CEC benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-continuous-min ;
+    dct:source "CEC benchmark"^^xsd:string ;
+    skos:note "single-objective continuous optimization"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

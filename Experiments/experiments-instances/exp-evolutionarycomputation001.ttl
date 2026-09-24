@@ -1,0 +1,35 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-evolutionarycomputation001 a mexo:Experiment ;
+    rdfs:label "Evolutionary computation metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ec-meta-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:ec-meta-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:EvolutionaryComputationMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Evolutionary computation metaheuristics (category)"^^xsd:string .
+
+mexo:obj-continuous-min a mexo:ObjectiveFunction ;
+    rdfs:label "obj-continuous-min"^^xsd:string ;
+    skos:note "obj-continuous-min"^^xsd:string .
+
+mexo:problem-continuous a mexo:OptimizationProblem ;
+    rdfs:label "Continuous optimization (CEC benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-continuous-min ;
+    dct:source "CEC benchmark"^^xsd:string ;
+    skos:note "single-objective continuous optimization"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+

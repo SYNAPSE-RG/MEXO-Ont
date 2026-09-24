@@ -1,0 +1,51 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-swarmintelligence001 a mexo:Experiment ;
+    rdfs:label "Swarm intelligence metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:swarm-cat-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:c-tsp-degree a mexo:Constraint ;
+    rdfs:label "Each city has exactly 2 incident edges"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-tsp ;
+    skos:note "TSP degree constraint"^^xsd:string .
+
+mexo:ct-equality a mexo:ConstraintType ;
+    rdfs:label "Equality constraint"^^xsd:string ;
+    skos:note "Hard equality constraint"^^xsd:string .
+
+mexo:obj-tsp-min a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize total tour length"^^xsd:string ;
+    skos:note "Sum of distances between consecutive cities in permutation"^^xsd:string .
+
+mexo:space-permutation a mexo:SearchSpace ;
+    rdfs:label "Permutation space Π_n (all permutations of n items)"^^xsd:string ;
+    skos:note "Generic permutation domain: solution is a permutation π of {1..n}. n depends on instance."^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:swarm-cat-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:SwarmIntelligenceMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Swarm intelligence metaheuristics (category)"^^xsd:string .
+
+mexo:problem-tsp a mexo:OptimizationProblem ;
+    rdfs:label "TSP (Euclidean benchmark)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-tsp-degree ;
+    mexo:hasObjectiveFunction mexo:obj-tsp-min ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "TSPLIB"^^xsd:string ;
+    skos:note "baseline permutation problem"^^xsd:string .
+

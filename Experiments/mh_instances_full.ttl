@@ -1,0 +1,2371 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:PermutationRepresentation a rdfs:Class ;
+    rdfs:label "Permutation Representation"^^xsd:string ;
+    rdfs:subClassOf mexo:Representation .
+
+mexo:TreeRepresentation a rdfs:Class ;
+    rdfs:label "Tree Representation"^^xsd:string ;
+    rdfs:subClassOf mexo:Representation .
+
+mexo:c-jsp-precedence a mexo:Constraint ;
+    rdfs:label "Operations must respect technological order"^^xsd:string ;
+    mexo:constraintType mexo:ct-precedence ;
+    mexo:hasProblem mexo:problem-jsp ;
+    skos:note "Job precedence constraint"^^xsd:string .
+
+mexo:c-tsp-perm a mexo:Constraint ;
+    rdfs:label "Each city visited exactly once"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-tsp ;
+    skos:note "Permutation validity constraint"^^xsd:string .
+
+mexo:c-vrp-visitonce a mexo:Constraint ;
+    rdfs:label "Each customer visited exactly once"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-vrp ;
+    skos:note "Permutation visit constraint"^^xsd:string .
+
+mexo:exp-abc001 a mexo:Experiment ;
+    rdfs:label "Artificial Bee Colony (ABC) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:abc-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-aco001 a mexo:Experiment ;
+    rdfs:label "Ant Colony Optimization (ACO) / Ant System baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:aco-001 ;
+    skos:note "discrete/constructive baseline"^^xsd:string .
+
+mexo:exp-afsa001 a mexo:Experiment ;
+    rdfs:label "Artificial Fish Swarm Algorithm (AFSA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:afsa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-alo001 a mexo:Experiment ;
+    rdfs:label "Ant Lion Optimizer (ALO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:alo-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-ba001 a mexo:Experiment ;
+    rdfs:label "Bat Algorithm (BA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ba-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-bbbc001 a mexo:Experiment ;
+    rdfs:label "Big Bang–Big Crunch (BB-BC) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bbbc-001 ;
+    skos:note "physics/population baseline"^^xsd:string .
+
+mexo:exp-bbo001 a mexo:Experiment ;
+    rdfs:label "Biogeography-Based Optimization (BBO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bbo-001 ;
+    skos:note "ecology/population baseline"^^xsd:string .
+
+mexo:exp-beesalgorithm001 a mexo:Experiment ;
+    rdfs:label "Bees Algorithm baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bees-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-bfoa001 a mexo:Experiment ;
+    rdfs:label "Bacterial Foraging Optimization (BFOA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bfoa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-bioinspirednonswarm001 a mexo:Experiment ;
+    rdfs:label "Biologically inspired (non-swarm) metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bio-nonswarm-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-bso001 a mexo:Experiment ;
+    rdfs:label "Brain Storm Optimization (BSO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bso-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-ca001 a mexo:Experiment ;
+    rdfs:label "Cultural Algorithm (CA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ca-001 ;
+    skos:note "human/socio-inspired baseline"^^xsd:string .
+
+mexo:exp-cacrosslisting001 a mexo:Experiment ;
+    rdfs:label "Cultural Algorithm (cross-listing) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ca-xlist-001 ;
+    skos:note "human/socio-inspired baseline (alt listing)"^^xsd:string .
+
+mexo:exp-cfo001 a mexo:Experiment ;
+    rdfs:label "Central Force Optimization (CFO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:cfo-001 ;
+    skos:note "physics/population baseline"^^xsd:string .
+
+mexo:exp-clonalg001 a mexo:Experiment ;
+    rdfs:label "Clonal Selection Algorithm (CLONALG) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-jsp ;
+    mexo:usesAlgorithm mexo:clonalg-001 ;
+    skos:note "immune/population baseline"^^xsd:string .
+
+mexo:exp-cmaes001 a mexo:Experiment ;
+    rdfs:label "CMA-ES baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:cmaes-001 ;
+    skos:note "evolution-strategy baseline"^^xsd:string .
+
+mexo:exp-cro001 a mexo:Experiment ;
+    rdfs:label "Chemical Reaction Optimization (CRO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:cro-001 ;
+    skos:note "chemistry/population baseline"^^xsd:string .
+
+mexo:exp-cs001 a mexo:Experiment ;
+    rdfs:label "Cuckoo Search (CS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:cs-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-css001 a mexo:Experiment ;
+    rdfs:label "Charged System Search (CSS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:css-001 ;
+    skos:note "physics/population baseline"^^xsd:string .
+
+mexo:exp-da001 a mexo:Experiment ;
+    rdfs:label "Dragonfly Algorithm (DA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:da-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-de001 a mexo:Experiment ;
+    rdfs:label "Differential Evolution (DE) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:de-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:exp-eda001 a mexo:Experiment ;
+    rdfs:label "Estimation of Distribution Algorithms (EDA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:eda-001 ;
+    skos:note "probabilistic/evolutionary baseline"^^xsd:string .
+
+mexo:exp-em001 a mexo:Experiment ;
+    rdfs:label "Electromagnetism-like Mechanism (EM) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:em-001 ;
+    skos:note "physics/population baseline"^^xsd:string .
+
+mexo:exp-ep001 a mexo:Experiment ;
+    rdfs:label "Evolutionary Programming (EP) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ep-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:exp-es001 a mexo:Experiment ;
+    rdfs:label "Evolution Strategies (ES) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:es-001 ;
+    skos:note "evolution-strategy baseline"^^xsd:string .
+
+mexo:exp-evolutionarycomputation001 a mexo:Experiment ;
+    rdfs:label "Evolutionary computation metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ec-meta-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-fa001 a mexo:Experiment ;
+    rdfs:label "Firefly Algorithm (FA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:fa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-fpa001 a mexo:Experiment ;
+    rdfs:label "Flower Pollination Algorithm (FPA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:fpa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-fwa001 a mexo:Experiment ;
+    rdfs:label "Fireworks Algorithm (FWA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:fwa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-ga001 a mexo:Experiment ;
+    rdfs:label "Genetic Algorithm (GA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-knapsack ;
+    mexo:usesAlgorithm mexo:ga-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:exp-gda001 a mexo:Experiment ;
+    rdfs:label "Great Deluge Algorithm (GDA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:gda-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-gls001 a mexo:Experiment ;
+    rdfs:label "Guided Local Search (GLS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:gls-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-gp001 a mexo:Experiment ;
+    rdfs:label "Genetic Programming (GP) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-feature-selection ;
+    mexo:usesAlgorithm mexo:gp-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:exp-grasp001 a mexo:Experiment ;
+    rdfs:label "GRASP baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:grasp-001 ;
+    skos:note "constructive/trajectory baseline"^^xsd:string .
+
+mexo:exp-gsa001 a mexo:Experiment ;
+    rdfs:label "Gravitational Search Algorithm (GSA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:gsa-001 ;
+    skos:note "physics/population baseline"^^xsd:string .
+
+mexo:exp-gso001 a mexo:Experiment ;
+    rdfs:label "Glowworm Swarm Optimization (GSO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:gso-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-gwo001 a mexo:Experiment ;
+    rdfs:label "Grey Wolf Optimizer (GWO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:gwo-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-hho001 a mexo:Experiment ;
+    rdfs:label "Harris Hawks Optimization (HHO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:hho-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-hs001 a mexo:Experiment ;
+    rdfs:label "Harmony Search (HS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:hs-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-hsreused001 a mexo:Experiment ;
+    rdfs:label "Harmony Search (reused) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:hs-reused-001 ;
+    skos:note "swarm/population baseline (alt listing)"^^xsd:string .
+
+mexo:exp-humansocioinspired001 a mexo:Experiment ;
+    rdfs:label "Human/socio-inspired metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:human-socio-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-ica001 a mexo:Experiment ;
+    rdfs:label "Imperialist Competitive Algorithm (ICA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ica-001 ;
+    skos:note "human/socio-inspired baseline"^^xsd:string .
+
+mexo:exp-ils001 a mexo:Experiment ;
+    rdfs:label "Iterated Local Search (ILS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:ils-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-iwo001 a mexo:Experiment ;
+    rdfs:label "Invasive Weed Optimization (IWO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:iwo-001 ;
+    skos:note "ecology/population baseline"^^xsd:string .
+
+mexo:exp-lca001 a mexo:Experiment ;
+    rdfs:label "League Championship Algorithm (LCA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:lca-001 ;
+    skos:note "human/socio-inspired baseline"^^xsd:string .
+
+mexo:exp-lns001 a mexo:Experiment ;
+    rdfs:label "Large Neighborhood Search (LNS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-jsp ;
+    mexo:usesAlgorithm mexo:lns-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-ma001 a mexo:Experiment ;
+    rdfs:label "Memetic Algorithm (MA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-jsp ;
+    mexo:usesAlgorithm mexo:ma-001 ;
+    skos:note "hybrid evolutionary+local baseline"^^xsd:string .
+
+mexo:exp-mfo001 a mexo:Experiment ;
+    rdfs:label "Moth-Flame Optimization (MFO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:mfo-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-moead001 a mexo:Experiment ;
+    rdfs:label "MOEA/D baseline (ZDT1)"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-500 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-zdt1 ;
+    mexo:usesAlgorithm mexo:moead-001 ;
+    skos:note "multiobjective baseline"^^xsd:string .
+
+mexo:exp-mpa001 a mexo:Experiment ;
+    rdfs:label "Marine Predators Algorithm (MPA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:mpa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-nsgaii001 a mexo:Experiment ;
+    rdfs:label "NSGA-II baseline (ZDT1)"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-500 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-zdt1 ;
+    mexo:usesAlgorithm mexo:nsgaii-001 ;
+    skos:note "multiobjective baseline"^^xsd:string .
+
+mexo:exp-optainet001 a mexo:Experiment ;
+    rdfs:label "Artificial Immune Network (opt-aiNet) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:optainet-001 ;
+    skos:note "immune/population baseline"^^xsd:string .
+
+mexo:exp-paes001 a mexo:Experiment ;
+    rdfs:label "PAES baseline (ZDT1)"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-500 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-zdt1 ;
+    mexo:usesAlgorithm mexo:paes-001 ;
+    skos:note "multiobjective baseline"^^xsd:string .
+
+mexo:exp-physicschemistryinspired001 a mexo:Experiment ;
+    rdfs:label "Physics/chemistry-inspired metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:phys-chem-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-pso001 a mexo:Experiment ;
+    rdfs:label "Particle Swarm Optimization (PSO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:pso-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-rrt001 a mexo:Experiment ;
+    rdfs:label "Record-to-Record Travel (RRT) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:rrt-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-sa001 a mexo:Experiment ;
+    rdfs:label "Simulated Annealing (SA) baseline"^^xsd:string ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:sa-001 ;
+    skos:note "trajectory-based (temperature)"^^xsd:string .
+
+mexo:exp-salpssa001 a mexo:Experiment ;
+    rdfs:label "Salp Swarm Algorithm (SSA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ssa-salp-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-sca001 a mexo:Experiment ;
+    rdfs:label "Sine Cosine Algorithm (SCA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:sca-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-scattersearchpathrelinking001 a mexo:Experiment ;
+    rdfs:label "Scatter Search & Path Relinking baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:scatter-pr-001 ;
+    skos:note "hybrid/population+LS baseline"^^xsd:string .
+
+mexo:exp-sfla001 a mexo:Experiment ;
+    rdfs:label "Shuffled Frog Leaping Algorithm (SFLA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:sfla-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-sparrowssa001 a mexo:Experiment ;
+    rdfs:label "Sparrow Search Algorithm (SSA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ssa-sparrow-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-spea2001 a mexo:Experiment ;
+    rdfs:label "SPEA2 baseline (ZDT1)"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-500 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-zdt1 ;
+    mexo:usesAlgorithm mexo:spea2-001 ;
+    skos:note "multiobjective baseline"^^xsd:string .
+
+mexo:exp-sso001 a mexo:Experiment ;
+    rdfs:label "Social Spider Optimization (SSO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:sso-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:exp-swarmintelligence001 a mexo:Experiment ;
+    rdfs:label "Swarm intelligence metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:swarm-cat-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-tlbo001 a mexo:Experiment ;
+    rdfs:label "Teaching–Learning-Based Optimization (TLBO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:tlbo-001 ;
+    skos:note "human/socio-inspired baseline"^^xsd:string .
+
+mexo:exp-trajectorybased001 a mexo:Experiment ;
+    rdfs:label "Trajectory-based metaheuristics baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:traj-cat-001 ;
+    skos:note "category placeholder"^^xsd:string .
+
+mexo:exp-ts001 a mexo:Experiment ;
+    rdfs:label "Tabu Search (TS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:ts-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-vns001 a mexo:Experiment ;
+    rdfs:label "Variable Neighborhood Search (VNS) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-1000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-tsp ;
+    mexo:usesAlgorithm mexo:vns-001 ;
+    skos:note "trajectory-based baseline"^^xsd:string .
+
+mexo:exp-woa001 a mexo:Experiment ;
+    rdfs:label "Whale Optimization Algorithm (WOA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:woa-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:obj-maxsat-max a mexo:ObjectiveFunction ;
+    rdfs:label "Maximize satisfied clauses"^^xsd:string ;
+    skos:note "Number of satisfied clauses under permutation-based encoding"^^xsd:string .
+
+mexo:problem-clustering a mexo:OptimizationProblem ;
+    rdfs:label "Clustering (k-means objective)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-clustering ;
+    dct:source "UCI datasets"^^xsd:string ;
+    skos:note "unsupervised learning optimization"^^xsd:string .
+
+mexo:problem-dtlz a mexo:OptimizationProblem ;
+    rdfs:label "DTLZ suite (multi-objective benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-dtlz ;
+    dct:source "DTLZ benchmark"^^xsd:string ;
+    skos:note "scalable multi-objective problems"^^xsd:string .
+
+mexo:ptype-bool a mexo:ParameterType ;
+    rdfs:label "Boolean"^^xsd:string ;
+    skos:note "Verdadero/Falso"^^xsd:string .
+
+mexo:ptype-categorical a mexo:ParameterType ;
+    rdfs:label "Categorical"^^xsd:string ;
+    skos:note "Valor dentro de un conjunto discreto definido"^^xsd:string .
+
+mexo:ptype-matrix a mexo:ParameterType ;
+    rdfs:label "Matrix"^^xsd:string ;
+    skos:note "Matriz numérica"^^xsd:string .
+
+mexo:ptype-percentage a mexo:ParameterType ;
+    rdfs:label "Percentage"^^xsd:string ;
+    skos:note "Número real acotado en [0,1]"^^xsd:string .
+
+mexo:ptype-range-int a mexo:ParameterType ;
+    rdfs:label "Integer range"^^xsd:string ;
+    skos:note "Rango discreto (min, max, step)"^^xsd:string .
+
+mexo:ptype-range-real a mexo:ParameterType ;
+    rdfs:label "Real range"^^xsd:string ;
+    skos:note "Rango continuo (min, max)"^^xsd:string .
+
+mexo:ptype-seed a mexo:ParameterType ;
+    rdfs:label "Random seed"^^xsd:string ;
+    skos:note "Semilla para generador pseudoaleatorio"^^xsd:string .
+
+mexo:ptype-string a mexo:ParameterType ;
+    rdfs:label "String"^^xsd:string ;
+    skos:note "Texto libre"^^xsd:string .
+
+mexo:ptype-vector a mexo:ParameterType ;
+    rdfs:label "Vector"^^xsd:string ;
+    skos:note "Arreglo de valores numéricos"^^xsd:string .
+
+mexo:space-jsp a mexo:SearchSpace ;
+    rdfs:label "Permutation-based dispatch/priority list space for JSP"^^xsd:string ;
+    skos:note "Permutation encodes operation priorities (schedule derived by decoding rule)."^^xsd:string .
+
+mexo:space-pfsp a mexo:SearchSpace ;
+    rdfs:label "Permutation sequence space for PFSP"^^xsd:string ;
+    skos:note "Permutation defines the common job order on all machines."^^xsd:string .
+
+mexo:space-qap a mexo:SearchSpace ;
+    rdfs:label "Permutation assignment space for QAP"^^xsd:string ;
+    skos:note "Permutation π maps facility i -> location π(i)."^^xsd:string .
+
+mexo:space-tsp a mexo:SearchSpace ;
+    rdfs:label "Permutation tour space for TSP (Hamiltonian cycle encoding)"^^xsd:string ;
+    skos:note "Permutation represents visit order  last-to-first edge closes the tour."^^xsd:string .
+
+mexo:space-vrp a mexo:SearchSpace ;
+    rdfs:label "Permutation with route separators for CVRP"^^xsd:string ;
+    skos:note "Permutation encodes customer order plus delimiters or split procedure to build routes."^^xsd:string .
+
+mexo:stop-200 a mexo:StoppingCriterion ;
+    rdfs:label "Fixed 200 iterations"^^xsd:string ;
+    mexo:maxIterations 200 ;
+    skos:note "Standard baseline budget for small instances"^^xsd:string .
+
+mexo:stop-feval-50000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 50000 evaluations"^^xsd:string ;
+    mexo:maxIterations 50000 ;
+    skos:note "For larger instances"^^xsd:string .
+
+mexo:stop-noimprov-100 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 100 iterations without improvement"^^xsd:string ;
+    skos:note "Requires tracking best fitness stagnation"^^xsd:string .
+
+mexo:stop-time-60 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 60 seconds"^^xsd:string ;
+    skos:note "Wall-clock time termination"^^xsd:string .
+
+mexo:abc-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-abc001-001,
+        mexo:p-abc001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ArtificialBeeColony ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ABC (SN=30, limit=100, phi~U[-1,1])"^^xsd:string .
+
+mexo:aco-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-aco001-001,
+        mexo:p-aco001-002,
+        mexo:p-aco001-003,
+        mexo:p-aco001-004 ;
+    mexo:usesRepresentation mexo:PermutationRepresentation ;
+    skos:broader mexo:AntColonyOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ACO / Ant System (m=50, alpha=1.0, beta=2.0, rho=0.5, Q=1.0)"^^xsd:string .
+
+mexo:afsa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-afsa001-001,
+        mexo:p-afsa001-002,
+        mexo:p-afsa001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ArtificialFishSwarmAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "AFSA (N=30, visual=1.0, step=0.5, try=5, delta=0.5)"^^xsd:string .
+
+mexo:alo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-alo001-001,
+        mexo:p-alo001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:AntLionOptimizer ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ALO (N=30, c=1.0, w=0.5)"^^xsd:string .
+
+mexo:ba-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ba001-001,
+        mexo:p-ba001-002,
+        mexo:p-ba001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BatAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BA (N=30, fmin=0, fmax=2, A0=1.0, r0=0.5, alpha=0.9, gamma=0.9)"^^xsd:string .
+
+mexo:bbbc-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bbbc001-001,
+        mexo:p-bbbc001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BigBangBigCrunch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BB-BC (N=30, elite=1, sigma=0.1)"^^xsd:string .
+
+mexo:bbo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bbo001-001,
+        mexo:p-bbo001-002,
+        mexo:p-bbo001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BiogeographyBasedOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BBO (N=30, I=1.0, E=1.0, mutation=0.01, elites=2)"^^xsd:string .
+
+mexo:bees-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bees001-001,
+        mexo:p-bees001-002,
+        mexo:p-bees001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BeesAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Bees Algorithm (n=50, m=25, e=5, nep=7, nsp=3, ngh=0.1)"^^xsd:string .
+
+mexo:bfoa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bfoa001-001,
+        mexo:p-bfoa001-002,
+        mexo:p-bfoa001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BacterialForagingOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BFOA (S=30, Nc=20, Ns=4, Nre=4, Ned=2, Ped=0.25)"^^xsd:string .
+
+mexo:bio-nonswarm-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:BioInspiredNonSwarm ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Biologically inspired (non-swarm) metaheuristics (category)"^^xsd:string .
+
+mexo:bso-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bso001-001,
+        mexo:p-bso001-002,
+        mexo:p-bso001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BrainStormOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BSO (N=30, groups=5, pReplace=0.2, sigma=0.1)"^^xsd:string .
+
+mexo:c-pfsp-sequence a mexo:Constraint ;
+    rdfs:label "Jobs processed in same order on all machines"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-pfsp ;
+    skos:note "Permutation flow shop constraint"^^xsd:string .
+
+mexo:c-qap-assignment a mexo:Constraint ;
+    rdfs:label "Each facility assigned to exactly one location"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-qap ;
+    skos:note "Assignment bijection constraint"^^xsd:string .
+
+mexo:c-tsp-degree a mexo:Constraint ;
+    rdfs:label "Each city has exactly 2 incident edges"^^xsd:string ;
+    mexo:constraintType mexo:ct-equality ;
+    mexo:hasProblem mexo:problem-tsp ;
+    skos:note "TSP degree constraint"^^xsd:string .
+
+mexo:c-vrp-capacity a mexo:Constraint ;
+    rdfs:label "Vehicle capacity must not be exceeded"^^xsd:string ;
+    mexo:constraintType mexo:ct-inequality ;
+    mexo:hasProblem mexo:problem-vrp ;
+    skos:note "Capacity constraint"^^xsd:string .
+
+mexo:ca-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ca001-001,
+        mexo:p-ca001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:CulturalAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Cultural Algorithm (N=30, alpha=0.2, beta=0.8)"^^xsd:string .
+
+mexo:ca-xlist-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-caxlist001-001,
+        mexo:p-caxlist001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:CulturalAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Cultural Algorithm (cross-listing) (N=30, alpha=0.2, beta=0.8)"^^xsd:string .
+
+mexo:cfo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-cfo001-001,
+        mexo:p-cfo001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:CentralForceOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CFO (Np=30, G=2.0, alpha=1.0, beta=2.0, dt=1.0)"^^xsd:string .
+
+mexo:clonalg-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-clonalg001-001,
+        mexo:p-clonalg001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ClonalSelectionAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CLONALG (N=30, nClone=10, mut=0.1, select=0.2)"^^xsd:string .
+
+mexo:cmaes-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-cmaes001-001,
+        mexo:p-cmaes001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:CMAES ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CMA-ES (lambda=30, mu=15, sigma0=0.3)"^^xsd:string .
+
+mexo:cro-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-cro001-001,
+        mexo:p-cro001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ChemicalReactionOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CRO (pop=30, KELoss=0.1, MoleColl=0.2, alpha=10, beta=0.5)"^^xsd:string .
+
+mexo:cs-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-cs001-001,
+        mexo:p-cs001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:CuckooSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CS (n=25, pa=0.25, Levy(beta=1.5))"^^xsd:string .
+
+mexo:css-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-css001-001,
+        mexo:p-css001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ChargedSystemSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "CSS (N=30, k=1.0, alpha=1.0, beta=2.0)"^^xsd:string .
+
+mexo:ct-inequality a mexo:ConstraintType ;
+    rdfs:label "Inequality constraint"^^xsd:string ;
+    skos:note "Hard inequality constraint"^^xsd:string .
+
+mexo:ct-precedence a mexo:ConstraintType ;
+    rdfs:label "Precedence constraint"^^xsd:string ;
+    skos:note "Ordering restriction"^^xsd:string .
+
+mexo:da-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-da001-001,
+        mexo:p-da001-002,
+        mexo:p-da001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:DragonflyAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "DA (N=30, w=0.9->0.4, s=0.1, a=0.1, c=0.1, f=2.0, e=1.0)"^^xsd:string .
+
+mexo:de-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-de001-001,
+        mexo:p-de001-002,
+        mexo:p-de001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:DifferentialEvolution ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "DE/rand/1/bin (NP=30, F=0.5, CR=0.9)"^^xsd:string .
+
+mexo:ec-meta-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:EvolutionaryComputationMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Evolutionary computation metaheuristics (category)"^^xsd:string .
+
+mexo:eda-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-eda001-001,
+        mexo:p-eda001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:EstimationOfDistributionAlgorithms ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "EDA (N=30, trunc=0.5, model=Gaussian)"^^xsd:string .
+
+mexo:em-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-em001-001,
+        mexo:p-em001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ElectromagnetismLikeMechanism ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "EM (N=30, localSearch=on, delta=0.1)"^^xsd:string .
+
+mexo:ep-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ep001-001,
+        mexo:p-ep001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:EvolutionaryProgramming ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "EP (N=30, sigma0=0.3, tournament=2)"^^xsd:string .
+
+mexo:es-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-es001-001,
+        mexo:p-es001-002,
+        mexo:p-es001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:EvolutionStrategies ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ES ((mu,lambda)=(15,30), sigma0=0.3)"^^xsd:string .
+
+mexo:fa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-fa001-001,
+        mexo:p-fa001-002,
+        mexo:p-fa001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:FireflyAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "FA (N=30, alpha=0.2, beta0=1.0, gamma=1.0)"^^xsd:string .
+
+mexo:fpa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-fpa001-001,
+        mexo:p-fpa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:FlowerPollinationAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "FPA (N=30, p=0.8, Levy(beta=1.5))"^^xsd:string .
+
+mexo:fwa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-fwa001-001,
+        mexo:p-fwa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:FireworksAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "FWA (N=30, sparks=50, a=0.04, b=0.8)"^^xsd:string .
+
+mexo:ga-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ga001-001,
+        mexo:p-ga001-002,
+        mexo:p-ga001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GeneticAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GA (N=50, pc=0.9, pm=0.01, selection=tournament2)"^^xsd:string .
+
+mexo:gda-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gda001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GreatDelugeAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GDA (delta=0.001, step=0.1)"^^xsd:string .
+
+mexo:gls-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gls001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GuidedLocalSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GLS (lambda=0.1, penalty=1.0)"^^xsd:string .
+
+mexo:gp-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gp001-001,
+        mexo:p-gp001-002,
+        mexo:p-gp001-003 ;
+    mexo:usesRepresentation mexo:TreeRepresentation ;
+    skos:broader mexo:GeneticProgramming ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GP (pop=200, maxDepth=6, pc=0.9, pm=0.1)"^^xsd:string .
+
+mexo:grasp-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-grasp001-001 ;
+    mexo:usesRepresentation mexo:PermutationRepresentation ;
+    skos:broader mexo:GRASP ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GRASP (alpha=0.3, localSearch=on)"^^xsd:string .
+
+mexo:gsa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gsa001-001,
+        mexo:p-gsa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GravitationalSearchAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GSA (N=30, G0=100, alpha=20)"^^xsd:string .
+
+mexo:gso-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gso001-001,
+        mexo:p-gso001-002,
+        mexo:p-gso001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GlowwormSwarmOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GSO (N=30, luciferin=5.0, rho=0.4, gamma=0.6, step=0.03)"^^xsd:string .
+
+mexo:gwo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-gwo001-001,
+        mexo:p-gwo001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GreyWolfOptimizer ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GWO (N=30, a=2->0)"^^xsd:string .
+
+mexo:hho-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-hho001-001,
+        mexo:p-hho001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:HarrisHawksOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "HHO (N=30, E0~U[-1,1])"^^xsd:string .
+
+mexo:hs-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-hs001-001,
+        mexo:p-hs001-002,
+        mexo:p-hs001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:HarmonySearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "HS (HMS=30, HMCR=0.9, PAR=0.3, bw=0.01)"^^xsd:string .
+
+mexo:hs-reused-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-hsreuse001-001,
+        mexo:p-hsreuse001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:HarmonySearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Harmony Search (reused) (HMS=30, HMCR=0.9, PAR=0.3, bw=0.01)"^^xsd:string .
+
+mexo:human-socio-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:HumanSocioInspiredMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Human/socio-inspired metaheuristics (category)"^^xsd:string .
+
+mexo:ica-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ica001-001,
+        mexo:p-ica001-002,
+        mexo:p-ica001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ImperialistCompetitiveAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ICA (N=30, imperialists=5, assim=1.5, revol=0.1)"^^xsd:string .
+
+mexo:ils-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ils001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:IteratedLocalSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "ILS (perturb=swap, localSearch=on)"^^xsd:string .
+
+mexo:iwo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-iwo001-001,
+        mexo:p-iwo001-002,
+        mexo:p-iwo001-003,
+        mexo:p-iwo001-004 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:InvasiveWeedOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "IWO (N0=10, Nmax=30, sigma0=0.5, sigmaF=0.001, seeds=[0,5])"^^xsd:string .
+
+mexo:lca-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-lca001-001,
+        mexo:p-lca001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:LeagueChampionshipAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "LCA (N=30, seasons=50)"^^xsd:string .
+
+mexo:lns-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-lns001-001,
+        mexo:p-lns001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:LargeNeighborhoodSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "LNS (destroyRate=0.2, repair=greedy)"^^xsd:string .
+
+mexo:ma-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ma001-001,
+        mexo:p-ma001-002,
+        mexo:p-ma001-003,
+        mexo:p-ma001-004 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MemeticAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Memetic Algorithm (N=50, pc=0.9, pm=0.01, localSearch=on)"^^xsd:string .
+
+mexo:mfo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-mfo001-001,
+        mexo:p-mfo001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MothFlameOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "MFO (N=30, b=1.0, a=2->0)"^^xsd:string .
+
+mexo:moead-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-moead001-001,
+        mexo:p-moead001-002,
+        mexo:p-moead001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MOEAD ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "MOEA/D (N=100, T=20, delta=0.9, nr=2)"^^xsd:string .
+
+mexo:mpa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-mpa001-001,
+        mexo:p-mpa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:MarinePredatorsAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "MPA (N=30, FADs=0.2, P=0.5)"^^xsd:string .
+
+mexo:nsgaii-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-nsgaii001-001,
+        mexo:p-nsgaii001-002,
+        mexo:p-nsgaii001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:NSGAII ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "NSGA-II (N=100, pc=0.9, pm=1/d, etaC=15, etaM=20)"^^xsd:string .
+
+mexo:obj-clustering a mexo:ObjectiveFunction ;
+    rdfs:label "obj-clustering"^^xsd:string ;
+    skos:note "obj-clustering"^^xsd:string .
+
+mexo:obj-continuous-min a mexo:ObjectiveFunction ;
+    rdfs:label "obj-continuous-min"^^xsd:string ;
+    skos:note "obj-continuous-min"^^xsd:string .
+
+mexo:obj-dtlz a mexo:ObjectiveFunction ;
+    rdfs:label "obj-dtlz"^^xsd:string ;
+    skos:note "obj-dtlz"^^xsd:string .
+
+mexo:obj-feature-selection a mexo:ObjectiveFunction ;
+    rdfs:label "obj-feature-selection"^^xsd:string ;
+    skos:note "obj-feature-selection"^^xsd:string .
+
+mexo:obj-jsp-makespan a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize makespan Cmax"^^xsd:string ;
+    skos:note "Completion time of last operation in job shop"^^xsd:string .
+
+mexo:obj-knapsack-max a mexo:ObjectiveFunction ;
+    rdfs:label "obj-knapsack-max"^^xsd:string ;
+    skos:note "obj-knapsack-max"^^xsd:string .
+
+mexo:obj-pfsp-makespan a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize makespan Cmax"^^xsd:string ;
+    skos:note "Completion time of last job in flow shop permutation"^^xsd:string .
+
+mexo:obj-qap-min a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize assignment cost"^^xsd:string ;
+    skos:note "Sum flow(i,j)*distance(p(i),p(j))"^^xsd:string .
+
+mexo:obj-tsp-min a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize total tour length"^^xsd:string ;
+    skos:note "Sum of distances between consecutive cities in permutation"^^xsd:string .
+
+mexo:obj-vrp-min a mexo:ObjectiveFunction ;
+    rdfs:label "Minimize total routing cost"^^xsd:string ;
+    skos:note "Sum of route distances respecting capacity"^^xsd:string .
+
+mexo:obj-zdt1 a mexo:ObjectiveFunction ;
+    rdfs:label "obj-zdt1"^^xsd:string ;
+    skos:note "obj-zdt1"^^xsd:string .
+
+mexo:optainet-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-optainet001-001,
+        mexo:p-optainet001-002,
+        mexo:p-optainet001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:OptAiNet ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "opt-aiNet (N=30, beta=100, cloneRate=0.1, suppr=0.2)"^^xsd:string .
+
+mexo:p-abc001-001 a mexo:Parameter ;
+    mexo:parameterName "Food sources"^^xsd:string ;
+    mexo:parameterSymbol "SN"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-abc001-002 a mexo:Parameter ;
+    mexo:parameterName "Abandonment limit"^^xsd:string ;
+    mexo:parameterSymbol "limit"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-aco001-001 a mexo:Parameter ;
+    mexo:parameterName "Number of ants"^^xsd:string ;
+    mexo:parameterSymbol "m"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-aco001-002 a mexo:Parameter ;
+    mexo:parameterName "Pheromone importance"^^xsd:string ;
+    mexo:parameterSymbol "alpha"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.0 .
+
+mexo:p-aco001-003 a mexo:Parameter ;
+    mexo:parameterName "Heuristic importance"^^xsd:string ;
+    mexo:parameterSymbol "beta"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-aco001-004 a mexo:Parameter ;
+    mexo:parameterName "Evaporation rate"^^xsd:string ;
+    mexo:parameterSymbol "rho"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-afsa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-afsa001-002 a mexo:Parameter ;
+    mexo:parameterName "Visual range"^^xsd:string ;
+    mexo:parameterSymbol "visual"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.0 .
+
+mexo:p-afsa001-003 a mexo:Parameter ;
+    mexo:parameterName "Step size"^^xsd:string ;
+    mexo:parameterSymbol "step"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-alo001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-alo001-002 a mexo:Parameter ;
+    mexo:parameterName "Elitism weight"^^xsd:string ;
+    mexo:parameterSymbol "w"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-ba001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-ba001-002 a mexo:Parameter ;
+    mexo:parameterName "Initial loudness"^^xsd:string ;
+    mexo:parameterSymbol "A0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.0 .
+
+mexo:p-ba001-003 a mexo:Parameter ;
+    mexo:parameterName "Initial pulse rate"^^xsd:string ;
+    mexo:parameterSymbol "r0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-bbbc001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-bbbc001-002 a mexo:Parameter ;
+    mexo:parameterName "Sampling sigma"^^xsd:string ;
+    mexo:parameterSymbol "sigma"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-bbo001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-bbo001-002 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-bbo001-003 a mexo:Parameter ;
+    mexo:parameterName "Elites"^^xsd:string ;
+    mexo:parameterSymbol "elites"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 2 .
+
+mexo:p-bees001-001 a mexo:Parameter ;
+    mexo:parameterName "Scout bees"^^xsd:string ;
+    mexo:parameterSymbol "n"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-bees001-002 a mexo:Parameter ;
+    mexo:parameterName "Elite sites"^^xsd:string ;
+    mexo:parameterSymbol "e"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-bees001-003 a mexo:Parameter ;
+    mexo:parameterName "Neighborhood size"^^xsd:string ;
+    mexo:parameterSymbol "ngh"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-bfoa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "S"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-bfoa001-002 a mexo:Parameter ;
+    mexo:parameterName "Chemotactic steps"^^xsd:string ;
+    mexo:parameterSymbol "Nc"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 20 .
+
+mexo:p-bfoa001-003 a mexo:Parameter ;
+    mexo:parameterName "Elimination-dispersal probability"^^xsd:string ;
+    mexo:parameterSymbol "Ped"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.25 .
+
+mexo:p-bso001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-bso001-002 a mexo:Parameter ;
+    mexo:parameterName "Groups"^^xsd:string ;
+    mexo:parameterSymbol "G"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-bso001-003 a mexo:Parameter ;
+    mexo:parameterName "Replace probability"^^xsd:string ;
+    mexo:parameterSymbol "pR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-ca001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-ca001-002 a mexo:Parameter ;
+    mexo:parameterName "Acceptance ratio"^^xsd:string ;
+    mexo:parameterSymbol "acc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-caxlist001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-caxlist001-002 a mexo:Parameter ;
+    mexo:parameterName "Acceptance ratio"^^xsd:string ;
+    mexo:parameterSymbol "acc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-cfo001-001 a mexo:Parameter ;
+    mexo:parameterName "Probes"^^xsd:string ;
+    mexo:parameterSymbol "Np"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-cfo001-002 a mexo:Parameter ;
+    mexo:parameterName "Gravitational constant"^^xsd:string ;
+    mexo:parameterSymbol "G"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-clonalg001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-clonalg001-002 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-cmaes001-001 a mexo:Parameter ;
+    mexo:parameterName "Offspring size"^^xsd:string ;
+    mexo:parameterSymbol "lambda"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-cmaes001-002 a mexo:Parameter ;
+    mexo:parameterName "Initial sigma"^^xsd:string ;
+    mexo:parameterSymbol "sigma0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.3 .
+
+mexo:p-cro001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-cro001-002 a mexo:Parameter ;
+    mexo:parameterName "Kinetic energy loss"^^xsd:string ;
+    mexo:parameterSymbol "KELoss"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-cs001-001 a mexo:Parameter ;
+    mexo:parameterName "Nests"^^xsd:string ;
+    mexo:parameterSymbol "n"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 25 .
+
+mexo:p-cs001-002 a mexo:Parameter ;
+    mexo:parameterName "Discovery probability"^^xsd:string ;
+    mexo:parameterSymbol "pa"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.25 .
+
+mexo:p-css001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-css001-002 a mexo:Parameter ;
+    mexo:parameterName "Charge constant"^^xsd:string ;
+    mexo:parameterSymbol "k"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.0 .
+
+mexo:p-da001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-da001-002 a mexo:Parameter ;
+    mexo:parameterName "Inertia start"^^xsd:string ;
+    mexo:parameterSymbol "w0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-da001-003 a mexo:Parameter ;
+    mexo:parameterName "Inertia end"^^xsd:string ;
+    mexo:parameterSymbol "w1"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.4 .
+
+mexo:p-de001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "NP"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-de001-002 a mexo:Parameter ;
+    mexo:parameterName "Mutation factor"^^xsd:string ;
+    mexo:parameterSymbol "F"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-de001-003 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "CR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-eda001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-eda001-002 a mexo:Parameter ;
+    mexo:parameterName "Truncation proportion"^^xsd:string ;
+    mexo:parameterSymbol "trunc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-em001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-em001-002 a mexo:Parameter ;
+    mexo:parameterName "Local search radius"^^xsd:string ;
+    mexo:parameterSymbol "delta"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-ep001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-ep001-002 a mexo:Parameter ;
+    mexo:parameterName "Initial sigma"^^xsd:string ;
+    mexo:parameterSymbol "sigma0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.3 .
+
+mexo:p-es001-001 a mexo:Parameter ;
+    mexo:parameterName "Mu"^^xsd:string ;
+    mexo:parameterSymbol "mu"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 15 .
+
+mexo:p-es001-002 a mexo:Parameter ;
+    mexo:parameterName "Lambda"^^xsd:string ;
+    mexo:parameterSymbol "lambda"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-es001-003 a mexo:Parameter ;
+    mexo:parameterName "Initial sigma"^^xsd:string ;
+    mexo:parameterSymbol "sigma0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.3 .
+
+mexo:p-fa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-fa001-002 a mexo:Parameter ;
+    mexo:parameterName "Randomness"^^xsd:string ;
+    mexo:parameterSymbol "alpha"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-fa001-003 a mexo:Parameter ;
+    mexo:parameterName "Absorption coefficient"^^xsd:string ;
+    mexo:parameterSymbol "gamma"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.0 .
+
+mexo:p-fpa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-fpa001-002 a mexo:Parameter ;
+    mexo:parameterName "Switch probability"^^xsd:string ;
+    mexo:parameterSymbol "p"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.8 .
+
+mexo:p-fwa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-fwa001-002 a mexo:Parameter ;
+    mexo:parameterName "Sparks"^^xsd:string ;
+    mexo:parameterSymbol "S"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ga001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ga001-002 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-ga001-003 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-gda001-001 a mexo:Parameter ;
+    mexo:parameterName "Delta"^^xsd:string ;
+    mexo:parameterSymbol "delta"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.001 .
+
+mexo:p-gls001-001 a mexo:Parameter ;
+    mexo:parameterName "Penalty weight"^^xsd:string ;
+    mexo:parameterSymbol "lambda"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-gp001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 200 .
+
+mexo:p-gp001-002 a mexo:Parameter ;
+    mexo:parameterName "Max depth"^^xsd:string ;
+    mexo:parameterSymbol "D"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 6 .
+
+mexo:p-gp001-003 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-grasp001-001 a mexo:Parameter ;
+    mexo:parameterName "RCL greediness"^^xsd:string ;
+    mexo:parameterSymbol "alpha"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.3 .
+
+mexo:p-gsa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-gsa001-002 a mexo:Parameter ;
+    mexo:parameterName "Initial G"^^xsd:string ;
+    mexo:parameterSymbol "G0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 100.0 .
+
+mexo:p-gso001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-gso001-002 a mexo:Parameter ;
+    mexo:parameterName "Luciferin decay"^^xsd:string ;
+    mexo:parameterSymbol "rho"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.4 .
+
+mexo:p-gso001-003 a mexo:Parameter ;
+    mexo:parameterName "Step size"^^xsd:string ;
+    mexo:parameterSymbol "s"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.03 .
+
+mexo:p-gwo001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-gwo001-002 a mexo:Parameter ;
+    mexo:parameterName "a start"^^xsd:string ;
+    mexo:parameterSymbol "a0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-hho001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-hho001-002 a mexo:Parameter ;
+    mexo:parameterName "Energy factor start"^^xsd:string ;
+    mexo:parameterSymbol "E0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-hs001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-hs001-002 a mexo:Parameter ;
+    mexo:parameterName "Harmony memory considering rate"^^xsd:string ;
+    mexo:parameterSymbol "HMCR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-hs001-003 a mexo:Parameter ;
+    mexo:parameterName "Pitch adjusting rate"^^xsd:string ;
+    mexo:parameterSymbol "PAR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.3 .
+
+mexo:p-hsreuse001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-hsreuse001-002 a mexo:Parameter ;
+    mexo:parameterName "Harmony memory considering rate"^^xsd:string ;
+    mexo:parameterSymbol "HMCR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-ica001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ica001-002 a mexo:Parameter ;
+    mexo:parameterName "Number of imperialists"^^xsd:string ;
+    mexo:parameterSymbol "Nimp"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-ica001-003 a mexo:Parameter ;
+    mexo:parameterName "Assimilation coefficient"^^xsd:string ;
+    mexo:parameterSymbol "beta"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-ils001-001 a mexo:Parameter ;
+    mexo:parameterName "Perturbation strength"^^xsd:string ;
+    mexo:parameterSymbol "k"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 2 .
+
+mexo:p-iwo001-001 a mexo:Parameter ;
+    mexo:parameterName "Initial population"^^xsd:string ;
+    mexo:parameterSymbol "N0"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 10 .
+
+mexo:p-iwo001-002 a mexo:Parameter ;
+    mexo:parameterName "Max population"^^xsd:string ;
+    mexo:parameterSymbol "Nmax"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-iwo001-003 a mexo:Parameter ;
+    mexo:parameterName "Sigma initial"^^xsd:string ;
+    mexo:parameterSymbol "sigma0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.5 .
+
+mexo:p-iwo001-004 a mexo:Parameter ;
+    mexo:parameterName "Sigma final"^^xsd:string ;
+    mexo:parameterSymbol "sigmaf"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-lca001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-lca001-002 a mexo:Parameter ;
+    mexo:parameterName "Season length"^^xsd:string ;
+    mexo:parameterSymbol "T"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-lns001-001 a mexo:Parameter ;
+    mexo:parameterName "Destroy fraction"^^xsd:string ;
+    mexo:parameterSymbol "d"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-lns001-002 a mexo:Parameter ;
+    mexo:parameterName "Repair trials"^^xsd:string ;
+    mexo:parameterSymbol "r"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 10 .
+
+mexo:p-ma001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ma001-002 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-ma001-003 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-ma001-004 a mexo:Parameter ;
+    mexo:parameterName "Local search rate"^^xsd:string ;
+    mexo:parameterSymbol "pls"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-mfo001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-mfo001-002 a mexo:Parameter ;
+    mexo:parameterName "Flame count start"^^xsd:string ;
+    mexo:parameterSymbol "F0"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-moead001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-moead001-002 a mexo:Parameter ;
+    mexo:parameterName "Neighborhood size"^^xsd:string ;
+    mexo:parameterSymbol "T"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 20 .
+
+mexo:p-moead001-003 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-mpa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-mpa001-002 a mexo:Parameter ;
+    mexo:parameterName "FADs effect"^^xsd:string ;
+    mexo:parameterSymbol "FADs"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-nsgaii001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-nsgaii001-002 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-nsgaii001-003 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-optainet001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-optainet001-002 a mexo:Parameter ;
+    mexo:parameterName "Clone rate"^^xsd:string ;
+    mexo:parameterSymbol "cr"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-optainet001-003 a mexo:Parameter ;
+    mexo:parameterName "Suppression threshold"^^xsd:string ;
+    mexo:parameterSymbol "suppr"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-paes001-001 a mexo:Parameter ;
+    mexo:parameterName "Archive size"^^xsd:string ;
+    mexo:parameterSymbol "A"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-paes001-002 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.1 .
+
+mexo:p-pso001-001 a mexo:Parameter ;
+    mexo:parameterName "Swarm size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 20 .
+
+mexo:p-pso001-002 a mexo:Parameter ;
+    mexo:parameterName "Inertia weight"^^xsd:string ;
+    mexo:parameterSymbol "w"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.7 .
+
+mexo:p-pso001-003 a mexo:Parameter ;
+    mexo:parameterName "Cognitive coefficient"^^xsd:string ;
+    mexo:parameterSymbol "c1"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.5 .
+
+mexo:p-pso001-004 a mexo:Parameter ;
+    mexo:parameterName "Social coefficient"^^xsd:string ;
+    mexo:parameterSymbol "c2"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 1.5 .
+
+mexo:p-rrt001-001 a mexo:Parameter ;
+    mexo:parameterName "Deviation threshold"^^xsd:string ;
+    mexo:parameterSymbol "delta"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:p-sa001-001 a mexo:Parameter ;
+    mexo:parameterName "Initial temperature"^^xsd:string ;
+    mexo:parameterSymbol "T0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 100.0 .
+
+mexo:p-sa001-002 a mexo:Parameter ;
+    mexo:parameterName "Cooling rate"^^xsd:string ;
+    mexo:parameterSymbol "alpha"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.95 .
+
+mexo:p-sca001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-sca001-002 a mexo:Parameter ;
+    mexo:parameterName "a start"^^xsd:string ;
+    mexo:parameterSymbol "a0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-sfla001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-sfla001-002 a mexo:Parameter ;
+    mexo:parameterName "Memeplexes"^^xsd:string ;
+    mexo:parameterSymbol "m"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-sfla001-003 a mexo:Parameter ;
+    mexo:parameterName "Local iterations"^^xsd:string ;
+    mexo:parameterSymbol "It"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 10 .
+
+mexo:p-spea2001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-spea2001-002 a mexo:Parameter ;
+    mexo:parameterName "Archive size"^^xsd:string ;
+    mexo:parameterSymbol "A"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 100 .
+
+mexo:p-ssasalp001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-ssasalp001-002 a mexo:Parameter ;
+    mexo:parameterName "c1 start"^^xsd:string ;
+    mexo:parameterSymbol "c1_0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:p-ssasparrow001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-ssasparrow001-002 a mexo:Parameter ;
+    mexo:parameterName "Discoverers proportion"^^xsd:string ;
+    mexo:parameterSymbol "PD"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:p-sso001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-sso001-002 a mexo:Parameter ;
+    mexo:parameterName "Female proportion"^^xsd:string ;
+    mexo:parameterSymbol "pf"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.7 .
+
+mexo:p-sspr001-001 a mexo:Parameter ;
+    mexo:parameterName "Reference set size"^^xsd:string ;
+    mexo:parameterSymbol "b"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 10 .
+
+mexo:p-sspr001-002 a mexo:Parameter ;
+    mexo:parameterName "Diversification size"^^xsd:string ;
+    mexo:parameterSymbol "d"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 20 .
+
+mexo:p-tlbo001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-tlbo001-002 a mexo:Parameter ;
+    mexo:parameterName "Teaching factor"^^xsd:string ;
+    mexo:parameterSymbol "TF"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 2 .
+
+mexo:p-ts001-001 a mexo:Parameter ;
+    mexo:parameterName "Tabu tenure"^^xsd:string ;
+    mexo:parameterSymbol "tenure"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 7 .
+
+mexo:p-vns001-001 a mexo:Parameter ;
+    mexo:parameterName "Max neighborhood index"^^xsd:string ;
+    mexo:parameterSymbol "kmax"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-woa001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-woa001-002 a mexo:Parameter ;
+    mexo:parameterName "a start"^^xsd:string ;
+    mexo:parameterSymbol "a0"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 2.0 .
+
+mexo:paes-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-paes001-001,
+        mexo:p-paes001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:PAES ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "PAES (archive=100, mut=0.1)"^^xsd:string .
+
+mexo:phys-chem-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:PhysicsChemistryInspiredMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Physics/chemistry-inspired metaheuristics (category)"^^xsd:string .
+
+mexo:problem-feature-selection a mexo:OptimizationProblem ;
+    rdfs:label "Feature Selection"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-feature-selection ;
+    dct:source "UCI datasets"^^xsd:string ;
+    skos:note "ML combinatorial optimization"^^xsd:string .
+
+mexo:problem-knapsack a mexo:OptimizationProblem ;
+    rdfs:label "Knapsack Problem"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-knapsack-max ;
+    dct:source "OR-Library"^^xsd:string ;
+    skos:note "binary optimization problem"^^xsd:string .
+
+mexo:problem-pfsp a mexo:OptimizationProblem ;
+    rdfs:label "PFSP (Taillard instances)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-pfsp-sequence ;
+    mexo:hasObjectiveFunction mexo:obj-pfsp-makespan ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "Taillard benchmark"^^xsd:string ;
+    skos:note "flow shop permutation"^^xsd:string .
+
+mexo:problem-qap a mexo:OptimizationProblem ;
+    rdfs:label "QAP (QAPLIB instances)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-qap-assignment ;
+    mexo:hasObjectiveFunction mexo:obj-qap-min ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "QAPLIB"^^xsd:string ;
+    skos:note "baseline permutation problem"^^xsd:string .
+
+mexo:pso-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-pso001-001,
+        mexo:p-pso001-002,
+        mexo:p-pso001-003,
+        mexo:p-pso001-004 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ParticleSwarmOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "PSO (gbest, w=0.7, c1=c2=1.5, N=20)"^^xsd:string .
+
+mexo:rrt-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-rrt001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:RecordToRecordTravel ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "RRT (threshold=0.01, window=50)"^^xsd:string .
+
+mexo:sa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sa001-001,
+        mexo:p-sa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SimulatedAnnealing ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SA (T0=100, alpha=0.95, L=50)"^^xsd:string .
+
+mexo:sca-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sca001-001,
+        mexo:p-sca001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SineCosineAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SCA (N=30, a=2->0)"^^xsd:string .
+
+mexo:scatter-pr-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sspr001-001,
+        mexo:p-sspr001-002 ;
+    mexo:usesRepresentation mexo:PermutationRepresentation ;
+    skos:broader mexo:ScatterSearchPathRelinking ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Scatter Search & Path Relinking (refSet=10, diversify=on, PR=on)"^^xsd:string .
+
+mexo:sfla-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sfla001-001,
+        mexo:p-sfla001-002,
+        mexo:p-sfla001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:ShuffledFrogLeapingAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SFLA (N=30, memeplex=5, q=5, iterMeme=10)"^^xsd:string .
+
+mexo:spea2-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-spea2001-001,
+        mexo:p-spea2001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SPEA2 ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SPEA2 (N=100, archive=100, k=sqrt(N+A))"^^xsd:string .
+
+mexo:ssa-salp-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ssasalp001-001,
+        mexo:p-ssasalp001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SalpSwarmAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Salp Swarm Algorithm (SSA) (N=30, c1=2*exp(-(4t/T)^2))"^^xsd:string .
+
+mexo:ssa-sparrow-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ssasparrow001-001,
+        mexo:p-ssasparrow001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SparrowSearchAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "Sparrow Search Algorithm (SSA) (N=30, PD=0.2, SD=0.1, ST=0.8)"^^xsd:string .
+
+mexo:sso-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-sso001-001,
+        mexo:p-sso001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:SocialSpiderOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "SSO (N=30, PF=0.7)"^^xsd:string .
+
+mexo:swarm-cat-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:SwarmIntelligenceMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Swarm intelligence metaheuristics (category)"^^xsd:string .
+
+mexo:tlbo-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-tlbo001-001,
+        mexo:p-tlbo001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:TeachingLearningBasedOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "TLBO (N=30, TF∈{1,2})"^^xsd:string .
+
+mexo:traj-cat-001 a mexo:MetaheuristicAlgorithm ;
+    skos:broader mexo:TrajectoryBasedMetaheuristics ;
+    skos:definition "category"^^xsd:string ;
+    skos:prefLabel "Trajectory-based metaheuristics (category)"^^xsd:string .
+
+mexo:ts-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ts001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:TabuSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "TS (tenure=7, neighborhood=swap)"^^xsd:string .
+
+mexo:vns-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-vns001-001 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:VariableNeighborhoodSearch ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "VNS (kmax=5, neighborhood=swap)"^^xsd:string .
+
+mexo:woa-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-woa001-001,
+        mexo:p-woa001-002 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:WhaleOptimizationAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "WOA (N=30, a=2->0, b=1)"^^xsd:string .
+
+mexo:problem-vrp a mexo:OptimizationProblem ;
+    rdfs:label "VRP (CVRP instances)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-vrp-capacity ;
+    mexo:hasObjectiveFunction mexo:obj-vrp-min ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "Augerat set"^^xsd:string ;
+    skos:note "vehicle routing permutation"^^xsd:string .
+
+mexo:problem-jsp a mexo:OptimizationProblem ;
+    rdfs:label "JSP (FT benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-jsp-makespan ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "OR-Library"^^xsd:string ;
+    skos:note "job shop permutation"^^xsd:string .
+
+mexo:problem-zdt1 a mexo:OptimizationProblem ;
+    rdfs:label "ZDT1 (bi-objective benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-zdt1 ;
+    dct:source "ZDT benchmark"^^xsd:string ;
+    skos:note "Pareto front evaluation"^^xsd:string .
+
+mexo:stop-500 a mexo:StoppingCriterion ;
+    rdfs:label "Fixed 500 iterations"^^xsd:string ;
+    mexo:maxIterations 500 ;
+    skos:note "Medium computational budget"^^xsd:string .
+
+mexo:ct-equality a mexo:ConstraintType ;
+    rdfs:label "Equality constraint"^^xsd:string ;
+    skos:note "Hard equality constraint"^^xsd:string .
+
+mexo:space-permutation a mexo:SearchSpace ;
+    rdfs:label "Permutation space Π_n (all permutations of n items)"^^xsd:string ;
+    skos:note "Generic permutation domain: solution is a permutation π of {1..n}. n depends on instance."^^xsd:string .
+
+mexo:stop-1000 a mexo:StoppingCriterion ;
+    rdfs:label "Fixed 1000 iterations"^^xsd:string ;
+    mexo:maxIterations 1000 ;
+    skos:note "Large computational budget"^^xsd:string .
+
+mexo:problem-tsp a mexo:OptimizationProblem ;
+    rdfs:label "TSP (Euclidean benchmark)"^^xsd:string ;
+    mexo:hasConstraint mexo:c-tsp-degree ;
+    mexo:hasObjectiveFunction mexo:obj-tsp-min ;
+    mexo:hasSearchSpace mexo:space-permutation ;
+    dct:source "TSPLIB"^^xsd:string ;
+    skos:note "baseline permutation problem"^^xsd:string .
+
+mexo:problem-continuous a mexo:OptimizationProblem ;
+    rdfs:label "Continuous optimization (CEC benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-continuous-min ;
+    dct:source "CEC benchmark"^^xsd:string ;
+    skos:note "single-objective continuous optimization"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

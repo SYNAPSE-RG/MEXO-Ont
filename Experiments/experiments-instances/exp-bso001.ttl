@@ -1,0 +1,65 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-bso001 a mexo:Experiment ;
+    rdfs:label "Brain Storm Optimization (BSO) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-continuous ;
+    mexo:usesAlgorithm mexo:bso-001 ;
+    skos:note "swarm/population baseline"^^xsd:string .
+
+mexo:bso-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-bso001-001,
+        mexo:p-bso001-002,
+        mexo:p-bso001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:BrainStormOptimization ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "BSO (N=30, groups=5, pReplace=0.2, sigma=0.1)"^^xsd:string .
+
+mexo:obj-continuous-min a mexo:ObjectiveFunction ;
+    rdfs:label "obj-continuous-min"^^xsd:string ;
+    skos:note "obj-continuous-min"^^xsd:string .
+
+mexo:p-bso001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 30 .
+
+mexo:p-bso001-002 a mexo:Parameter ;
+    mexo:parameterName "Groups"^^xsd:string ;
+    mexo:parameterSymbol "G"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 5 .
+
+mexo:p-bso001-003 a mexo:Parameter ;
+    mexo:parameterName "Replace probability"^^xsd:string ;
+    mexo:parameterSymbol "pR"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.2 .
+
+mexo:problem-continuous a mexo:OptimizationProblem ;
+    rdfs:label "Continuous optimization (CEC benchmark)"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-continuous-min ;
+    dct:source "CEC benchmark"^^xsd:string ;
+    skos:note "single-objective continuous optimization"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+

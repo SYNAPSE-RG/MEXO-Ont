@@ -1,0 +1,65 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mexo: <https://w3id.org/mexo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mexo:exp-ga001 a mexo:Experiment ;
+    rdfs:label "Genetic Algorithm (GA) baseline"^^xsd:string ;
+    mexo:hasStoppingCriterion mexo:stop-feval-10000 ;
+    mexo:numberOfRuns 30 ;
+    mexo:randomSeed 42 ;
+    mexo:targetsProblem mexo:problem-knapsack ;
+    mexo:usesAlgorithm mexo:ga-001 ;
+    skos:note "evolutionary baseline"^^xsd:string .
+
+mexo:ga-001 a mexo:MetaheuristicAlgorithm ;
+    mexo:hasParameter mexo:p-ga001-001,
+        mexo:p-ga001-002,
+        mexo:p-ga001-003 ;
+    mexo:usesRepresentation mexo:RealVectorRepresentation ;
+    skos:broader mexo:GeneticAlgorithm ;
+    skos:definition "baseline"^^xsd:string ;
+    skos:prefLabel "GA (N=50, pc=0.9, pm=0.01, selection=tournament2)"^^xsd:string .
+
+mexo:obj-knapsack-max a mexo:ObjectiveFunction ;
+    rdfs:label "obj-knapsack-max"^^xsd:string ;
+    skos:note "obj-knapsack-max"^^xsd:string .
+
+mexo:p-ga001-001 a mexo:Parameter ;
+    mexo:parameterName "Population size"^^xsd:string ;
+    mexo:parameterSymbol "N"^^xsd:string ;
+    mexo:parameterType mexo:type-int ;
+    mexo:parameterValue 50 .
+
+mexo:p-ga001-002 a mexo:Parameter ;
+    mexo:parameterName "Crossover rate"^^xsd:string ;
+    mexo:parameterSymbol "pc"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.9 .
+
+mexo:p-ga001-003 a mexo:Parameter ;
+    mexo:parameterName "Mutation rate"^^xsd:string ;
+    mexo:parameterSymbol "pm"^^xsd:string ;
+    mexo:parameterType mexo:ptype-real ;
+    mexo:parameterValue 0.01 .
+
+mexo:problem-knapsack a mexo:OptimizationProblem ;
+    rdfs:label "Knapsack Problem"^^xsd:string ;
+    mexo:hasObjectiveFunction mexo:obj-knapsack-max ;
+    dct:source "OR-Library"^^xsd:string ;
+    skos:note "binary optimization problem"^^xsd:string .
+
+mexo:stop-feval-10000 a mexo:StoppingCriterion ;
+    rdfs:label "Stop after 10000 objective evaluations"^^xsd:string ;
+    mexo:maxIterations 10000 ;
+    skos:note "Evaluation-based termination criterion"^^xsd:string .
+
+mexo:type-int a mexo:ParameterType ;
+    rdfs:label "Integer"^^xsd:string ;
+    skos:note "Número entero (ej. número de iteraciones, tamaño de población)"^^xsd:string .
+
+mexo:ptype-real a mexo:ParameterType ;
+    rdfs:label "Real number"^^xsd:string ;
+    skos:note "Número real (ej. tasa de aprendizaje, inercia PSO)"^^xsd:string .
+
